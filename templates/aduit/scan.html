@@ -1,0 +1,294 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>项目情况</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
+    <link rel="stylesheet" href={% static "css/font.css" %}>
+    <link rel="stylesheet" href={% static "css/xadmin.css" %}>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src={% static "lib/layui/layui.js" %} charset="utf-8"></script>
+    <script type="text/javascript" src={% static "js/xadmin.js" %}></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="layui-anim layui-anim-up">
+<div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="/">首页</a>
+        <a href="#">代码审计</a>
+          <a href="">项目扫描</a>
+      </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+</div>
+
+<div class="layui-fluid" id="p1">
+    <div class="layui-row layui-col-space1">
+        <div class="layui-col-xs6">
+            <!-- 填充内容 -->
+
+            <div class="layui-card">
+                <div class="layui-card-header">GIT项目扫描</div>
+                <div class="layui-card-body" style="height: 300px;">
+                    <form class="layui-form" action="" lay-filter="component-form-group" method="post">
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <input  name="type" value="1" type="hidden"  class="layui-input">
+                            </div>
+                            <label class="layui-form-label">git地址</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="git_address" lay-verify="title" autocomplete="off" placeholder="请输入git地址" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">git账号</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="git_username" lay-verify="title" autocomplete="off" placeholder="账号可空" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">git密码</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="git_password" lay-verify="title" autocomplete="off" placeholder="密码可空" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit="" lay-filter="git_scan" >扫描</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="layui-col-xs6">
+            <div class="layui-card">
+                <div class="layui-card-header">GIT-API扫描</div>
+                <div class="layui-card-body" style="height: 300px;">
+                    <form class="layui-form" action="" lay-filter="component-form-group" method="post">
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <input  name="type" value="2" type="hidden"  class="layui-input">
+                            </div>
+                            <label class="layui-form-label">git-API</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="git_api_list" lay-verify="title" autocomplete="off" placeholder="
+                                {% if choice == 1 %}
+                                {{ filepath }}
+                                {% else %}
+                                {{ address }}
+                                {% endif %}
+                                " class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit="" lay-filter="git-list">扫描</button>
+                        </div>
+                    </form>
+                    <br>
+                    <div class="layui-colla-content layui-show">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="layui-fluid" id="p2">
+    <div class="layui-row layui-col-space1">
+        <div class="layui-col-xs6">
+            <!-- 填充内容 -->
+
+            <div class="layui-card">
+                <div class="layui-card-header">SVN项目扫描</div>
+                <div class="layui-card-body" style="height: 300px;">
+                    <form class="layui-form" action="" lay-filter="component-form-group">
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <input  name="type" value="3" type="hidden"  class="layui-input">
+                            </div>
+                            <label class="layui-form-label">SVN地址</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="svn_address" lay-verify="title" autocomplete="off" placeholder="请输入SVN地址" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">svn账号</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="svn_username" lay-verify="title" autocomplete="off" placeholder="账号可空" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">svn密码</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="svn_password" lay-verify="title" autocomplete="off" placeholder="密码可空" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit="" lay-filter="svn_scan">扫描</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-xs6">
+            <div class="layui-card">
+                <div class="layui-card-header">GIT-API扫描</div>
+                <div class="layui-card-body" style="height: 300px;">
+                    <div class="layui-card-body">
+                        <div class="layui-upload-drag" id="upload">
+                            <i class="layui-icon"></i>
+                            <p>点击上传，或将文件拖拽到此处</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="layui-colla-content layui-show">
+                        <p>只允许上传ZIP文件</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+</div>
+
+
+<script src="{% static "lib/layui/layui.js" %}" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+
+
+
+<script>
+layui.use(['form', 'layedit', 'laydate'], function(){
+  var form = layui.form
+  ,layer = layui.layer
+  ,layedit = layui.layedit
+  ,laydate = layui.laydate;
+
+  //监听提交git
+  form.on('submit(git_scan)', function(data){
+      $.ajax({
+                type: 'POST',
+                url: "scan",
+                async: true,
+                data: {
+                    type:data.field.type,
+                    git_address:data.field.git_address,
+                    git_username:data.field.git_username,
+                    git_password:data.field.git_password
+
+                },
+                success: function(text) {
+                    if (text.code == 1000) {
+                        layer.msg(text.msg)
+                    }
+                    else{
+                        layer.msg(text.msg, {icon: 1});
+                    }
+                }
+            });
+    return false;
+  });
+
+  //监听提交git-list
+  form.on('submit(git-list)', function(data){
+      $.ajax({
+                type: 'POST',
+                url: "scan",
+                async: true,
+                data: {
+                    type:data.field.type,
+                },
+                success: function(text) {
+                    if (text.code == 1000) {
+                        layer.msg(text.msg)
+                    }
+                    else{
+                        layer.msg(text.msg, {icon: 1});
+                    }
+                }
+            });
+    return false;
+  });
+
+
+
+  //监听提交SVN
+  form.on('submit(svn_scan)', function(data){
+      $.ajax({
+                type: 'POST',
+                url: "scan",
+                async: true,
+                data: {
+                    type:data.field.type,
+                    svn_address:data.field.svn_address,
+                    svn_username:data.field.svn_username,
+                    svn_password:data.field.svn_password
+                },
+                success: function(text) {
+                    if (text.code == 1000) {
+                        layer.msg(text.msg)
+                    }
+                    else{
+                        layer.msg(text.msg, {icon: 1});
+                    }
+                }
+            });
+    return false;
+  });
+
+});
+</script>
+
+
+<script>
+    layui.use('upload', function(){
+        var $ = layui.jquery
+            ,upload = layui.upload;
+        //拖拽上传
+        upload.render({
+            elem: '#upload'
+            ,url: '/aduit/scan'
+            ,accept: 'file' //普通文件
+            ,exts: 'zip'
+            ,data:{'type':'4'}
+            ,done: function(res){
+
+                if(res.status == 0) {
+                    return layer.msg(res.msg);
+                }
+                else if(res.status ==2)
+                {
+                    return layer.msg(res.msg);
+                }
+                else {
+                    return layer.msg(res.msg);
+                }
+            }
+        });
+    });
+</script>
+
+
+
+</body>

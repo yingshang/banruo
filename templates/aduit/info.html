@@ -1,0 +1,274 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ proj.name }}项目</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
+    <link rel="stylesheet" href={% static "css/font.css" %}>
+    <link rel="stylesheet" href={% static "css/xadmin.css" %}>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src={% static "lib/layui/layui.js" %} charset="utf-8"></script>
+    <script type="text/javascript" src={% static "js/xadmin.js" %}></script>
+
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    <link href="{% static "css/report.css" %}" rel="stylesheet">
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="layui-anim layui-anim-up">
+<div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="/">首页</a>
+        <a href="#">代码审计</a>
+          <a href="{% url "aduit_display_project" %}">项目情况</a>
+          <a href="#">{{ proj.name }}项目</a>
+      </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="invoice-title">
+
+            </div>
+            <hr>
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-id="inf" data-toggle="tab">Information</a></li>
+                <li><a data-id="vul" data-toggle="tab">Vulnerabilities</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="inf">
+                    <div class="row">
+                        <div class="layui-col-md12">
+                            <div class="layui-card-header">扫描信息</div>
+                            <div class="layui-card-body">
+                                <table class="layui-table">
+                                    <colgroup>
+                                        <col width="150">
+                                        <col width="200">
+
+                                        <col>
+                                    </colgroup>
+                                    <thead>
+                                    <tr>
+                                        <th>项目名称</th>
+                                        <th>扫描时间</th>
+                                        <th>漏洞总数</th>
+                                        <th>低危漏洞数目</th>
+                                        <th>中危漏洞数目</th>
+                                        <th>高危漏洞数目</th>
+                                        <th>严重漏洞数目</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>{{ proj.name }}</td>
+                                        <td>{{ proj.time | date:"Y-m-d H:i:s"  }}</td>
+                                        <td>{{ proj.total }}</td>
+                                        <td>{{ low_risk }}</td>
+                                        <td>{{ Medium_risk }}</td>
+                                        <td>{{ High_risk }}</td>
+                                        <td>{{ Critical_risk }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="layui-card-header">高危漏洞分布</div>
+                            <div id="vul_distributing" style="height:400px;"></div>
+                        </div>
+                    </div><!-- End row -->
+                </div><!-- End rab -->
+                <div class="tab-pane" id="vul">
+                    <div class="row">
+                        <div class="col-md-3 p0">
+                            <div id="panel-2" class="vl_panel"><strong>漏洞列表</strong><a title="漏洞过滤" class="cog-panel filter_setting"><img class="icon" src="{% static "icon/funnel.png" %}" alt="1"></a></div>
+                            <div class="filter">
+
+                                <div class="col-md-12" style="margin-top: 10px">
+                                    <label for="search_rule" style="color: #aaaaaa;">Rule</label>
+                                    <select id="search_rule" class="form-control" style="height: 30px;">
+                                        <option value="all">All</option>
+
+                                    </select>
+                                </div>
+                                <div class="col-md-12" style="margin-top: 10px;">
+                                    <label for="search_level" style="color: #aaaaaa;">Level</label>
+                                    <select id="search_level" class="form-control" style="height: 30px;">
+                                        <option value="all">All</option>
+                                        <option value="Critical">Critical</option>
+                                        <option value="High">High</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Low">Low</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12" style="padding:20px 30%">
+                                    <button class="btn btn-success filter_btn" style="">Summit filter</button>
+                                </div>
+                            </div>
+                            <ul class="vulnerabilities_list scroll">
+
+                            </ul>
+                        </div>
+                        <div class="col-md-9 p0 form_code">
+                            <textarea id="code"><?php // This is a demo code</textarea>
+                                <div class="cm-loading" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+
+
+    <div class="widget-list">
+        <ul class="widget-trigger">
+
+            <li>
+                漏洞标题: <span class="v-title"></span> <span class="v-type"></span>
+            </li>
+            <li>
+                漏洞等级: <span class="v-level"></span>
+            </li>
+
+            漏洞描述: <pre class="v-describe"></pre>
+            </li>
+            <li>
+                修复建议: <pre class="v-Recommendation"></pre>
+            </li>
+
+            <li>
+                {% if data.is_login %}
+                    <button class="btn btn-info btn-xs mistake">Mistake</button>
+                    <button class="btn btn-danger btn-xs delete">Delete</button>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="{% static  "js/codemirror/lib/codemirror.js" %}"></script>
+    <link rel="stylesheet" href="{% static  "js/codemirror/lib/codemirror.css" %}">
+    <link rel="stylesheet" href="{% static  "js/codemirror/theme/material.css" %}">
+    <link rel="stylesheet" href="{% static  "js/codemirror/addon/fold/foldgutter.css" %}">
+    <link rel="stylesheet" href="{% static  "js/codemirror/addon/dialog/dialog.css" %}">
+    <link rel="stylesheet" href="{% static  "js/codemirror/addon/search/matchesonscrollbar.css" %}">
+    <link rel="stylesheet" href="{% static  "js/codemirror/addon/scroll/simplescrollbars.css" %}">
+    <link rel="stylesheet" href="{% static  "js/codemirror/addon/display/fullscreen.css" %}">
+    <script src="{% static  "js/codemirror/addon/fold/foldcode.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/fold/foldgutter.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/fold/markdown-fold.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/fold/comment-fold.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/fold/xml-fold.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/fold/brace-fold.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/display/placeholder.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/display/fullscreen.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/display/panel.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/edit/matchbrackets.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/edit/matchtags.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/dialog/dialog.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/search/searchcursor.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/search/search.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/scroll/annotatescrollbar.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/search/matchesonscrollbar.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/search/jump-to-line.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/search/match-highlighter.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/scroll/simplescrollbars.js" %}"></script>
+    <script src="{% static  "js/codemirror/addon/selection/active-line.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/markdown/markdown.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/javascript/javascript.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/css/css.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/xml/xml.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/yaml/yaml.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/htmlmixed/htmlmixed.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/php/php.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/python/python.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/ruby/ruby.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/perl/perl.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/lua/lua.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/go/go.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/cmake/cmake.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/shell/shell.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/sql/sql.js" %}"></script>
+    <script src="{% static  "js/codemirror/mode/clike/clike.js" %}"></script>
+    <script src="{% static "js/info.js" %}" charset="utf-8"></script>
+
+
+    <script src="{% static "js/jquery.js" %}"></script>
+    <script src={% static "js/echarts.min.js" %}></script>
+
+    <script>
+        var types = [];
+        var vuls = [];
+
+        {% for vul in critical_title %}
+            types.push('{{ vul.title }}');
+            vuls.push({value: {{ vul.title__count }}, name: '{{ vul.title }}'});
+        {% endfor %}
+
+        option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data: types
+            },
+            series: [
+                {
+                    name: 'Vulnerability hazard ratio',
+                    type: 'pie',
+                    selectedMode: 'single',
+                    radius: [0, 70],
+                    itemStyle : {
+                        normal : {
+                            label : {
+                                position : 'inner'
+                            },
+                            labelLine : {
+                                show : true
+                            }
+                        }
+                    },
+                    data: [
+                        {%  if Critical_risk != 0 %}
+                            {value: {{ Critical_risk }}, name: 'Critical'},
+                        {% endif %}
+                        {%  if High_risk != 0 %}
+                            {value: {{ High_risk }}, name: 'High', selected: true},
+                        {% endif %}
+                        {%  if Medium_risk != 0 %}
+                            {value: {{ Medium_risk }}, name: 'Medium'},
+                        {% endif %}
+                        {%  if low_risk != 0 %}
+                            {value: {{ low_risk }}, name: 'Low'},
+                        {% endif %}
+                    ]
+                },
+                {
+                    name: 'Vulnerability type accounting',
+                    type: 'pie',
+                    radius: ['40%', '65%'],
+                    data: vuls
+                }
+            ]
+        };
+        var vul_distributing = echarts.init(document.getElementById('vul_distributing'));
+        vul_distributing.setOption(option);
+    </script>
+
+</body>
