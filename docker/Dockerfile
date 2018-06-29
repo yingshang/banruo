@@ -19,7 +19,7 @@ RUN pip3 install django-celery redis pymysql
 RUN pip3 install typing
 
 RUN cd /opt && git clone https://github.com/yingshang/banruo.git
-RUN service mysql start && mysql -e "create database banruo " && mysql -e "set password for 'root'@'localhost' =password('123456');"
+RUN service mysql start && mysql -e "create  database banruo DEFAULT CHARSET utf8 COLLATE utf8_general_ci; " && mysql -e "set password for 'root'@'localhost' =password('123456');"
 RUN service mysql start &&  cd /opt/banruo && python3 manage.py makemigrations && python3 manage.py migrate
 RUN mkdir /data && mkdir /data/fortify && mkdir /data/fortify/report && chmod 777 /data -R
 #这个是fortify的运行程序
