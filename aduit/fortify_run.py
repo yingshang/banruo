@@ -103,7 +103,7 @@ def git_api():
                 push.delay(gitaddress=i.replace('https://', 'https://' + username + ':' + git_password + '@'),type=1)
 
 @task
-def push(gitaddress='',svnaddrss='',name='',type=1,svnaccount='',svnpwd=''):
+def push(gitaddress='',svnaddress='',name='',type=1,svnaccount='',svnpwd=''):
     token = ''.join(random.sample(string.ascii_letters + string.digits, 32))
     if len(gitaddress)!=0:
         myfile = gitaddress.split('/')[-1].split('.')[0]
@@ -122,11 +122,11 @@ def push(gitaddress='',svnaddrss='',name='',type=1,svnaccount='',svnpwd=''):
         proj_info.objects.create(name=name, token=token, type=type)
     else:
         myfile = name
-        proj_info.objects.create(name=name,token=token,type=type,svn=svnaddrss)
+        proj_info.objects.create(name=name,token=token,type=type,svn=svnaddress)
         if len(svnaccount) ==0 and len(svnpwd) ==0:
-            subprocess.check_call('svn checkout '+svnaddrss+' --no-auth-cache '+fortify_path+myfile,shell=True)
+            subprocess.check_call('svn checkout '+svnaddress+' --no-auth-cache '+fortify_path+myfile,shell=True)
         else:
-            subprocess.check_call('svn checkout '+svnaddrss+' --username '+svnaccount+' --password '+svnpwd+' --no-auth-cache '+fortify_path+myfile,shell=True)
+            subprocess.check_call('svn checkout '+svnaddress+' --username '+svnaccount+' --password '+svnpwd+' --no-auth-cache '+fortify_path+myfile,shell=True)
     run(myfile,token)
 
 

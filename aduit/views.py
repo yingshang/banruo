@@ -336,7 +336,7 @@ def restart(request):
 
             elif type==3:
                 svn = proj_info.objects.get(id=id).svn
-
+                push.delay(svnaddress=svn)
             elif type ==4:
                 return JsonResponse({"code":8888,"msg":"该项目是压缩上传，请重新上传压缩文件进行扫描"})
             else:
