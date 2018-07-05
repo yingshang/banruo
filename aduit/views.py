@@ -443,7 +443,7 @@ def send_chandao(request):
                     header = cursor.fetchall()[0][2]
                 except IndexError:
                     pass
-                sql = "select id from zt_module where name='%s'" %i.proj_name
+                sql = "select id from zt_project where name='%s'" %i.proj_name
                 cursor.execute(sql)
                 module =cursor.fetchall()[0][0]
                 # 插入禅道bug

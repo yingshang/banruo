@@ -42,6 +42,6 @@ MYSQL_PORT = 3307
 
 #邮件设置
 MAIL_HOST = "smtp.163.com"
-MAIL_USER = ""
+MAIL_USER = "xxx@163.com"
 MAIL_PASSWORD = ""
 

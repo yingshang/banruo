@@ -135,18 +135,17 @@ def send_email():
     now_time = datetime.datetime.now()
     now_time = str(now_time.strftime('%Y-%m-%d'))
     sql = '''
-    SELECT bb.module as module_id,bb.name,COUNT(*) as total,IFNULL(d.new,0) ,GROUP_CONCAT(d.id)as bug_id_list from
+    SELECT bb.project as project_id,bb.name,COUNT(*) as total,IFNULL(d.new,0) ,GROUP_CONCAT(bb.id)as bug_id_list from
     (SELECT a.id,c.name 
-     ,a.module from zt_bug a
-     LEFT JOIN zt_module c on a.module = c.id
-     WHERE a.status = 'active' and a.product = '3')bb
+     ,a.project from zt_bug a
+     LEFT JOIN zt_project c on a.project = c.id
+     WHERE a.status = 'active' and a.product = '3' and a.openedDate  > '%s' )bb
     LEFT JOIN(select a.id,c.name 
-     ,a.module,count(1) as new from zt_bug a
-     LEFT JOIN zt_module c on a.module = c.id
-     WHERE a.status = 'active' and a.product = '3' and a.openedDate  > '%s') as d on d.name = bb.name  
+     ,a.project,count(1) as new from zt_bug a
+     LEFT JOIN zt_project c on a.project = c.id
+     WHERE a.status = 'active' and a.product = '3' and a.openedDate  > '%s' GROUP BY a.project) as d on d.name = bb.name  
     group by bb.name
-        ''' % now_time
-
+        '''%(now_time,now_time)
     conn = pymysql.connect(host=MYSQL_HOST, user=MYSQL_USER, passwd=MYSQL_PASSWORD, db=MYSQL_DATABASE, port=MYSQL_PORT,charset="utf8")
     cursor = conn.cursor()
     cursor.execute(sql)
@@ -157,13 +156,13 @@ def send_email():
         try:
             chandao_id = row[4].split(',')
             for id in chandao_id:
-                contend = contend + u'''<a href='http://test.com/index.php?m=bug&f=view&bugID={0}'>{1}  </a>
+                contend = contend + u'''<a href='http://192.168.1.210:8888/zentao/bug-view-{0}.html'>{1}  </a>
         '''.format(id, id)
         except AttributeError:
             pass
         td = td + u'''   
     <tr>
-              <td style="background:#e8eaeb,text-align:center"><a href="http://test.com/index.php?m=bug&f=browse&root=58&branch=&type=byModule&param=%s">%s</a></td>
+              <td style="background:#e8eaeb,text-align:center"><a href="http://192.168.1.210:8888/zentao/project-bug-%s.html">%s</a></td>
               <td style="text-align:center">%s</td>
               <td style="text-align:center">%s</td>
               <td>%s</td>
@@ -241,8 +240,8 @@ def send_email():
     mail_user = MAIL_USER
     mail_pass = MAIL_PASSWORD
     subject = '每天禅道安全审计结果'
-    sender = 'wushang126@163.com'
-    receivers = ['wushang126@163.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+    sender = mail_user
+    receivers = [mail_user]  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
     message = MIMEText(html, 'html', 'utf-8')
     message['From'] = Header("安全审计", 'utf-8')
     message['Subject'] = Header(subject, 'utf-8')
