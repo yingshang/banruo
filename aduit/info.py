@@ -2,14 +2,14 @@
 def information(title):
     infos = [
         {
-        'vul_title':'SQL Injection',
-        'describe':'''SQL注入就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。
+            'vul_title':'SQL Injection',
+            'describe':'''SQL注入就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。
 具体来说，它是利用现有应用程序，将（恶意）的SQL命令注入到后台数据库引擎执行的能力，它可以通过在Web表单中输入（恶意）SQL语句得到一个存在安全漏洞的网站上的数据库，而不是按照设计者意图去执行SQL语句。''',
-        'Recommendation':'''参数化查询是指在设计与数据库链接并访问数据时，在需要填入数值或数据的地方，使用参数来给值，这个方法目前已被视为最有效可预防SQL注入攻击的攻击手法的防御方式。
+            'Recommendation':'''参数化查询是指在设计与数据库链接并访问数据时，在需要填入数值或数据的地方，使用参数来给值，这个方法目前已被视为最有效可预防SQL注入攻击的攻击手法的防御方式。
 在使用参数化查询的情况下，数据库服务器不会将参数的内容视为SQL指令的一部份来处理，而是在数据库完成 SQL 指令的编译后，才套用参数运行，因此就算参数中含有恶意的指令，由于已经编译完成，就不会被数据库所运行。
 有部份的开发人员可能会认为使用参数化查询，会让程序更不好维护，或者在实现部份功能上会非常不便，然而，使用参数化查询造成的额外开发成本，通常都远低于因为SQL注入攻击漏洞被发现而遭受攻击，所造成的重大损失。
         ''',
-    },
+        },
         {
             'vul_title': 'Cross-Site Scripting: Reflected',
             'describe': '''
@@ -38,7 +38,7 @@ Employee Name: <%= name %>
 - 与示例1一样，直接从HTTP请求中读取数据，并反映在HTTP响应中。当攻击者导致用户向易受攻击的Web应用程序提供危险内容时，会发生反映的XSS漏洞利用，然后将其反映回用户并由Web浏览器执行。传递恶意内容的最常见的机制是将其作为一个参数，将其公开发布或直接发送给受害者。以这种方式构建的URL构成了许多网络钓鱼方案的核心，攻击者说服受害者访问指向易受攻击的站点的URL。在站点将攻击者的内容反映给用户之后，执行内容并继续将诸如可以包括会话信息的cookie的私人信息从用户机器传送到攻击者或执行其他恶意活动。
 - 与示例2一样，应用程序将危险数据存储在数据库或其他可信数据存储中。危险数据随后被读回应用程序并包含在动态内容中。持续的XSS漏洞发生在攻击者将危险内容注入到随后读取并包含在动态内容中的数据存储中时。从攻击者的角度来看，
 ''',
-'Recommendation': '''
+            'Recommendation': '''
 1. 自己写 filter 拦截来实现，但要注意的时，在WEB.XML 中配置 filter 的时候，请将这个 filter 放在第一位.
 2. 采用开源的实现 ESAPI library ，参考网址: https://www.owasp.org/index.php/Category:OWASP_Enterprise_Security_API
 3. 可以采用spring 里面提供的工具类来实现.
@@ -867,7 +867,87 @@ catch (RareException e) {
     ''',
         },
         {
-            'vul_title': '',
+            'vul_title': 'Cross-Site Scripting: Persistent',
+            'describe': '''跨站脚本（XSS）漏洞发生在以下情况：
+1.数据通过不受信任的来源进入Web应用程序。在反射XSS的情况下，不受信任的源通常是Web请求，而在Persisted（也称为Stored）XSS的情况下，它通常是数据库或其他后端数据存储。
+2.数据包含在动态内容中，发送给Web用户，而不会对恶意代码进行验证。
+发送到Web浏览器的恶意内容通常采用一段JavaScript的形式，但也可能包括HTML，Flash或浏览器可能执行的任何其他类型的代码。基于XSS的各种攻击几乎是无限的，但它们通常包括向攻击者传送私有数据（如Cookie或其他会话信息），将受害者重定向到受攻击者控制的Web内容，或在用户机器下执行其他恶意操作伪劣的脆弱网站。
+示例1：以下JSP代码段从HTTP请求中读取员工ID,eid，并将其显示给用户。
+<％String eid = request.getParameter（“eid”）; ％>
+...
+员工ID：<％= eid％>
+如果eid仅包含标准字母数字文本，则此示例中的代码将正确运行。如果eid具有包含元字符或源代码的值，那么代码将在Web浏览器显示HTTP响应时执行。
+最初这可能不是一个很大的漏洞。毕竟，为什么有人会输入一个导致恶意代码在自己的电脑上运行的URL？真正的危险是攻击者会创建恶意URL，然后使用电子邮件或社交工具技巧来诱骗受害者访问URL的链接。当受害者点击链接时，他们无意中将恶意内容通过易受攻击的Web应用程序反映回自己的计算机。这种利用易受攻击的Web应用程序的机制被称为反射XSS。
+示例2：以下JSP代码段为具有给定ID的员工查询数据库，并打印相应的员工姓名。
+<%... 
+Statement stmt = conn.createStatement();
+ResultSet rs = stmt.executeQuery("select * from emp where id="+eid);
+if (rs != null) {
+   rs.next();
+   String name = rs.getString("name");
+}
+%>
+Employee Name: <%= name %>
+与示例1一样，当代码的值很好的时候，这个代码可以正常工作，但是如果没有这个名称，它就没有什么可以防止漏洞利用。同样，这个代码看起来不太危险，因为从数据库中读取名称的值，该数据库的内容显然由应用程序管理。但是，如果名称的值源自用户提供的数据，则数据库可能是恶意内容的通道。没有对存储在数据库中的所有数据进行适当的输入验证，攻击者可以在用户的​​Web浏览器中执行恶意命令。被称为持久（或存储）XSS的这种类型的漏洞尤其阴险，因为数据存储引起的间接使得识别威胁更加困难，并增加了攻击将影响多个用户的可能性。 XSS以这种形式开始，网站向访客提供了一个“留言簿”。攻击者将在其留言簿条目中包含JavaScript，并且访客留言页面的所有后续访问者都将执行恶意代码。
+如示例所示，XSS漏洞是由HTTP响应中包含未验证数据的代码引起的。 XSS攻击有三个向量可以到达受害者：
+- 与示例1一样，直接从HTTP请求中读取数据，并反映在HTTP响应中。当攻击者导致用户向易受攻击的Web应用程序提供危险内容时，会发生反映的XSS漏洞利用，然后将其反映回用户并由Web浏览器执行。传递恶意内容的最常见的机制是将其作为一个参数，将其公开发布或直接发送给受害者。以这种方式构建的URL构成了许多网络钓鱼方案的核心，攻击者说服受害者访问指向易受攻击的站点的URL。在站点将攻击者的内容反映给用户之后，执行内容并继续将诸如可以包括会话信息的cookie的私人信息从用户机器传送到攻击者或执行其他恶意活动。
+- 与示例2一样，应用程序将危险数据存储在数据库或其他可信数据存储中。危险数据随后被读回应用程序并包含在动态内容中。持续的XSS漏洞发生在攻击者将危险内容注入到随后读取并包含在动态内容中的数据存储中时。从攻击者的角度来看，
+''',
+            'Recommendation': '''
+1. 自己写 filter 拦截来实现，但要注意的时，在WEB.XML 中配置 filter 的时候，请将这个 filter 放在第一位.
+2. 采用开源的实现 ESAPI library ，参考网址: https://www.owasp.org/index.php/Category:OWASP_Enterprise_Security_API
+3. 可以采用spring 里面提供的工具类来实现.
+该方法来自：http://blog.csdn.net/liaozhongping/article/details/48649389
+'''
+        },
+        {
+            'vul_title': 'Command Injection',
+            'describe': '''
+命令注入漏洞有两种形式：
+- 攻击者可以更改程序执行的命令：攻击者明确控制命令的内容。
+- 攻击者可以更改命令执行的环境：攻击者隐式控制命令的含义。
+在这种情况下，我们主要关注第一种情况，即攻击者可能能够控制执行的命令。 在以下情况下发生此类命令注入漏洞：
+1.数据从不受信任的来源进入应用程序。
+2.数据用作表示由应用程序执行的命令的字符串或作为其一部分。
+3.通过执行该命令，应用程序为攻击者提供了攻击者无法拥有的特权或能力。
+    ''',
+            'Recommendation': '''
+不允许用户直接控制程序执行的命令。如果用户输入必须影响要运行的命令，请仅使用输入从一组预定的安全命令中进行选择。如果输入看起来是恶意的，则传递给命令执行函数的值应该默认为从该集合中安全选择，或者程序应该拒绝执行任何命令。
+在必须将用户输入用作程序执行的命令的参数的情况下，这种方法通常变得不切实际，因为合法参数值的集合太大或太难以跟踪。在这些情况下，开发人员往往会重新列入黑名单。在使用输入之前，黑名单有选择地拒绝或逃避潜在危险的字符。任何不安全字符列表都可能不完整，并且将严重依赖于执行命令的系统。更好的方法是创建允许出现在输入中的字符白名单，并接受仅由批准集中的字符组成的输入。
+攻击者可以通过修改程序执行的环境来间接控制程序执行的命令。不应信任该环境，应采取预防措施以防止攻击者使用某些环境操作来执行攻击。只要有可能，命令应由应用程序控制并使用绝对路径执行。如果在编译时路径未知，例如跨平台应用程序，则应在执行期间从可信值构造绝对路径。从配置文件或环境中读取的命令值和路径应根据定义有效值的一组不变量进行完整性检查。
+有时可以执行其他检查以检测这些源是否可能已被篡改。例如，如果配置文件是全局可写的，则程序可能拒绝运行。在预先知道关于要执行的二进制的信息的情况下，程序可以执行检查以验证二进制的身份。如果二进制文件应始终由特定用户拥有或具有分配给它的特定访问权限集，则可以在执行二进制文件之前以编程方式验证这些属性。
+尽管可能无法完全保护程序免受强烈控制程序执行命令的富有想象力的攻击者的影响，但请务必在程序执行外部命令的任何地方应用最小权限原则：不要保留对于该程序不必要的权限。执行命令。
+    ''',
+        },
+        {
+            'vul_title': 'Password Management: Password in Comment',
+            'describe': '''
+
+    ''',
+            'Recommendation': '''
+
+    ''',
+        },
+        {
+            'vul_title': 'Weak Cryptographic Hash',
+            'describe': '''
+
+    ''',
+            'Recommendation': '''
+
+    ''',
+        },
+        {
+            'vul_title': 'Path Manipulation',
+            'describe': '''
+
+    ''',
+            'Recommendation': '''
+
+    ''',
+        },
+        {
+            'vul_title': 'System Information Leak: External',
             'describe': '''
 
     ''',
@@ -885,7 +965,7 @@ catch (RareException e) {
     ''',
         },
         {
-            'vul_title': '',
+            'vul_title': 'Cross-Site Scripting: Poor Validation',
             'describe': '''
 
     ''',
@@ -894,7 +974,15 @@ catch (RareException e) {
     ''',
         },
         {
-            'vul_title': '',
+            'vul_title': 'Dangerous File Inclusion',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },{
+            'vul_title': 'Insecure Randomness',
             'describe': '''
 
     ''',
@@ -903,41 +991,204 @@ catch (RareException e) {
     ''',
         },
         {
-            'vul_title': '',
+            'vul_title': 'Cookie Security: Cookie not Sent Over SSL',
             'describe': '''
 
-    ''',
+        ''',
             'Recommendation': '''
 
-    ''',
+        ''',
+        },
+        {
+            'vul_title': 'Cookie Security: HTTPOnly not Set',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'Often Misused: File Upload',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'JavaScript Hijacking: Vulnerable Framework',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'Password Management: Password in Configuration File',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'Cookie Security: Overly Broad Path',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'Header Manipulation',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'Header Manipulation: Cookies',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'Object Injection',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'Open Redirect',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'PHP Misconfiguration: allow_url_fopen Enabled',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'Path Manipulation',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'System Information Leak: External',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'Cross-Site Scripting: Poor Validation',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'Poor Style: Value Never Read',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'Poor Error Handling: Overly Broad Throws',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'Poor Logging Practice: Use of a System Output Stream',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'Build Misconfiguration: External Maven Dependency Repository',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'System Information Leak: Internal',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
+        },
+        {
+            'vul_title': 'JavaScript Hijacking',
+            'describe': '''
+
+        ''',
+            'Recommendation': '''
+
+        ''',
         },
         {
             'vul_title': '',
             'describe': '''
 
-    ''',
+        ''',
             'Recommendation': '''
 
-    ''',
+        ''',
         },
         {
             'vul_title': '',
             'describe': '''
 
-    ''',
+        ''',
             'Recommendation': '''
 
-    ''',
+        ''',
         },
-        {
-            'vul_title': '',
-            'describe': '''
 
-    ''',
-            'Recommendation': '''
-
-    ''',
-        },
 
     ]
     for i in infos:

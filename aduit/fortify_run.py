@@ -110,7 +110,6 @@ def push(gitaddress='',svnaddress='',name='',type=1,svnaccount='',svnpwd=''):
         proj_info.objects.create(name=myfile, git=gitaddress,token=token,type=type)
         try:
             cmd = 'git clone ' + gitaddress.strip() + ' '+ fortify_path + myfile
-            print(cmd)
             subprocess.check_call(cmd, shell=True)
         except subprocess.CalledProcessError as err:
             try:

@@ -309,8 +309,7 @@ def scan(request):
                 for chunk in myFile.chunks():
                     destination.write(chunk)
                 destination.close()
-                print(name)
-                os.system("unzip -o  /data/fortify/" + myFile.name + "  -d  /data/fortify/")
+                os.system("unzip -o  /data/fortify/" + myFile.name + "  -d  /data/fortify/"+name.split('.')[0])
                 push.delay(name=name.split('.')[0],type=4)
                 return JsonResponse({"status":1,"msg":"上传成功!!!"})
 
@@ -376,33 +375,33 @@ def chandao(request):
 def filter_vul(request):
     results = vul_info.objects.all()
     for i in results:
-        if i.risk =='Critical':
-            if any(t  in i.title for t in filter_title):
-                m = i.title.replace('\n','')+i.FileName.replace('\n','')+i.LineStart.replace('\n','')+i.FilePath.replace('\n','') #md5的明文
-                md5 = hashlib.md5()
-                md5.update(m.encode("utf8"))
-                md5 = md5.hexdigest()
-                vul_name = i.title
-                FilePath = i.FilePath
-                Abstract = i.Abstract
-                FileName = i.FileName
-                LineStart = i.LineStart
-                info = information(vul_name)
-                describe = info['describe']
-                Recommendation = info['Recommendation']
-                proj_name = proj_info.objects.get(id=i.proj_id.id).name
-                if len(chandao_data.objects.filter(md5=md5)) == 0:
-                    chandao_data.objects.create(
-                                                md5=md5,
-                                                vul_name = vul_name,
-                                                FilePath = FilePath,
-                                                Abstract = Abstract,
-                                                FileName = FileName,
-                                                describe = describe,
-                                                Recommendation = Recommendation,
-                                                LineStart = LineStart,
-                                                proj_name = proj_name,
-                                                )
+        #if i.risk =='Critical':
+            #if any(t  in i.title for t in filter_title):
+        m = i.title.replace('\n','')+i.FileName.replace('\n','')+i.LineStart.replace('\n','')+i.FilePath.replace('\n','') #md5的明文
+        md5 = hashlib.md5()
+        md5.update(m.encode("utf8"))
+        md5 = md5.hexdigest()
+        vul_name = i.title
+        FilePath = i.FilePath
+        Abstract = i.Abstract
+        FileName = i.FileName
+        LineStart = i.LineStart
+        info = information(vul_name)
+        describe = info['describe']
+        Recommendation = info['Recommendation']
+        proj_name = proj_info.objects.get(id=i.proj_id.id).name
+        if len(chandao_data.objects.filter(md5=md5)) == 0:
+            chandao_data.objects.create(
+                                        md5=md5,
+                                        vul_name = vul_name,
+                                        FilePath = FilePath,
+                                        Abstract = Abstract,
+                                        FileName = FileName,
+                                        describe = describe,
+                                        Recommendation = Recommendation,
+                                        LineStart = LineStart,
+                                        proj_name = proj_name,
+                                        )
     return JsonResponse({"code":1001,"msg":"过滤漏洞成功"})
 
 
