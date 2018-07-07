@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/aduit/views.py" line="369" />
+    <bookmark url="file://$PROJECT_DIR$/aduit/views.py" line="368" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8072d1bc-55b1-42be-8ec2-860d2d6ba1ba" name="Default" comment="">
@@ -19,9 +19,6 @@
       <change beforePath="$PROJECT_DIR$/banruo/wsgi.py" afterPath="$PROJECT_DIR$/banruo/wsgi.py" />
       <change beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
       <change beforePath="$PROJECT_DIR$/pentest/apps.py" afterPath="$PROJECT_DIR$/pentest/apps.py" />
-      <change beforePath="$PROJECT_DIR$/pentest/injection.py" afterPath="$PROJECT_DIR$/pentest/injection.py" />
-      <change beforePath="$PROJECT_DIR$/pentest/url.py" afterPath="$PROJECT_DIR$/pentest/url.py" />
-      <change beforePath="$PROJECT_DIR$/pentest/views.py" afterPath="$PROJECT_DIR$/pentest/views.py" />
       <change beforePath="$PROJECT_DIR$/static/css/animate.min.css" afterPath="$PROJECT_DIR$/static/css/animate.min.css" />
       <change beforePath="$PROJECT_DIR$/static/css/application.css" afterPath="$PROJECT_DIR$/static/css/application.css" />
       <change beforePath="$PROJECT_DIR$/static/css/base.css" afterPath="$PROJECT_DIR$/static/css/base.css" />
@@ -465,6 +462,7 @@
       <change beforePath="$PROJECT_DIR$/static/lib/layui/lay/modules/util.js" afterPath="$PROJECT_DIR$/static/lib/layui/lay/modules/util.js" />
       <change beforePath="$PROJECT_DIR$/static/lib/layui/layui.all.js" afterPath="$PROJECT_DIR$/static/lib/layui/layui.all.js" />
       <change beforePath="$PROJECT_DIR$/static/lib/layui/layui.js" afterPath="$PROJECT_DIR$/static/lib/layui/layui.js" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -481,37 +479,70 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="info.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/aduit/info.py">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/aduit/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="1115" column="0" lean-forward="false" selection-start-line="1115" selection-start-column="0" selection-end-line="1115" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="142" column="30" lean-forward="false" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
+            <state relative-caret-position="227">
+              <caret line="360" column="4" lean-forward="true" selection-start-line="360" selection-start-column="4" selection-end-line="361" selection-end-column="22" />
               <folding>
-                <element signature="n#li#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#li#5;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#li#6;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <marker date="1530954577000" expanded="true" signature="17104:17147" ph="SELECT * fro... zt_user" />
+                <marker date="1530954577000" expanded="true" signature="17351:17392" ph="select id fr... zt_project" />
+                <marker date="1530954577000" expanded="true" signature="17540:18275" ph="INSERT INTO `zt_bug`... " />
+                <marker date="1530954577000" expanded="true" signature="18545:18765" ph="INSERT INTO `zt_action`... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="celery.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/banruo/celery.py">
+      <file leaf-file-name="info.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/aduit/info.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="2034">
+              <caret line="151" column="12" lean-forward="false" selection-start-line="151" selection-start-column="12" selection-end-line="156" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="url.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pentest/url.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="9" column="65" lean-forward="false" selection-start-line="9" selection-start-column="65" selection-end-line="9" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sql.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/pentest/sql.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="37">
+              <caret line="49" column="27" lean-forward="true" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="44" />
               <folding>
-                <element signature="e#0#56#0" expanded="true" />
+                <element signature="e#3307#3826#0#HTML" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="projects.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/aduit/projects.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2050">
+              <caret line="14" column="72" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pentest/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -520,8 +551,8 @@
       <file leaf-file-name="injection.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pentest/injection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="265" column="0" lean-forward="true" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
+            <state relative-caret-position="394">
+              <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
               <folding>
                 <element signature="e#1#52#0" expanded="true" />
               </folding>
@@ -532,41 +563,31 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pentest/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="7" column="45" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-              <folding />
+            <state relative-caret-position="360">
+              <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="apps.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pentest/apps.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="url.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pentest/url.py">
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/banruo/config.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pentest/views.py">
+      <file leaf-file-name="scan.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/pentest/scan.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-              <folding>
-                <element signature="e#1#49#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="96">
+              <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -586,9 +607,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>svn</find>
-      <find>scan(</find>
-      <find>laydate</find>
       <find>1</find>
       <find>del</find>
       <find>chan</find>
@@ -616,6 +634,9 @@
       <find>vul_title</find>
       <find>Insecure Randomness</find>
       <find>JavaScript Hijacking</find>
+      <find>index</find>
+      <find>INF</find>
+      <find>test</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -624,11 +645,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/models.py" />
-        <option value="$PROJECT_DIR$/apps/aduit/__init__.py" />
-        <option value="$PROJECT_DIR$/apps/aduit/apps.py" />
-        <option value="$PROJECT_DIR$/templates/_nav.html" />
-        <option value="$PROJECT_DIR$/static/css/dashboard.css" />
         <option value="$PROJECT_DIR$/templates/aduit/setting.html" />
         <option value="$PROJECT_DIR$/static/css/toolkit-inverse.css" />
         <option value="$PROJECT_DIR$/static/css/application.css" />
@@ -648,10 +664,8 @@
         <option value="$PROJECT_DIR$/pentest/config.py" />
         <option value="$PROJECT_DIR$/aduit/config.py" />
         <option value="$PROJECT_DIR$/config.py" />
-        <option value="$PROJECT_DIR$/pentest/models.py" />
         <option value="$PROJECT_DIR$/templates/aduit/info1.html" />
         <option value="$PROJECT_DIR$/static/js/info.js" />
-        <option value="$PROJECT_DIR$/templates/aduit/info.html" />
         <option value="$PROJECT_DIR$/aduit/task.py" />
         <option value="$PROJECT_DIR$/templates/aduit/overview.html" />
         <option value="$PROJECT_DIR$/banruo/__init__.py" />
@@ -663,18 +677,25 @@
         <option value="$PROJECT_DIR$/templates/aduit/chandao.html" />
         <option value="$PROJECT_DIR$/banruo/urls.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/templates/aduit/projects.html" />
         <option value="$PROJECT_DIR$/templates/aduit/scan.html" />
         <option value="$PROJECT_DIR$/banruo/config.py" />
         <option value="$PROJECT_DIR$/aduit/fortify_run.py" />
-        <option value="$PROJECT_DIR$/aduit/views.py" />
         <option value="$PROJECT_DIR$/banruo/celery.py" />
         <option value="$PROJECT_DIR$/aduit/info.py" />
+        <option value="$PROJECT_DIR$/pentest/apps.py" />
+        <option value="$PROJECT_DIR$/templates/pentest/overview.html" />
+        <option value="$PROJECT_DIR$/templates/pentest/target.html" />
+        <option value="$PROJECT_DIR$/templates/pentest/vulnerabilities.html" />
+        <option value="$PROJECT_DIR$/templates/pentest/scan.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/templates/aduit/info.html" />
+        <option value="$PROJECT_DIR$/templates/aduit/projects.html" />
+        <option value="$PROJECT_DIR$/pentest/models.py" />
         <option value="$PROJECT_DIR$/pentest/injection.py" />
         <option value="$PROJECT_DIR$/pentest/url.py" />
+        <option value="$PROJECT_DIR$/aduit/views.py" />
         <option value="$PROJECT_DIR$/pentest/views.py" />
-        <option value="$PROJECT_DIR$/pentest/apps.py" />
+        <option value="$PROJECT_DIR$/templates/pentest/sql.html" />
       </list>
     </option>
   </component>
@@ -694,7 +715,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -707,7 +728,59 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="banruo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="banruo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="banruo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="banruo" type="462c0819:PsiDirectoryNode" />
+              <item name="aduit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="banruo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="banruo" type="462c0819:PsiDirectoryNode" />
+              <item name="banruo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="banruo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="banruo" type="462c0819:PsiDirectoryNode" />
+              <item name="pentest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="banruo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="banruo" type="462c0819:PsiDirectoryNode" />
+              <item name="pentest" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="banruo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="banruo" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="banruo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="banruo" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="aduit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="banruo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="banruo" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="pentest" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -816,12 +889,14 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="manage.py@banruo" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822084" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44887525" sideWeight="0.5018868" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50511247" sideWeight="0.49811321" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21779141" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24335378" sideWeight="0.49811321" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34458077" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16873315" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16873315" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -829,7 +904,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="manage.py@banruo" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822084" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -851,18 +925,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/aduit/settings.html" />
-    <entry file="file://$PROJECT_DIR$/pentest/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.5/dist-packages/mitmproxy/flow.py" />
-    <entry file="file:///usr/local/lib/python3.5/dist-packages/mitmproxy/flow/__init__.py" />
-    <entry file="file:///usr/local/lib/python3.5/dist-packages/mitmproxy/options.py" />
-    <entry file="file://$PROJECT_DIR$/templates/test.html" />
     <entry file="file://$PROJECT_DIR$/templates/left_side.html" />
     <entry file="file://$PROJECT_DIR$/templates/pentest/display_filter_data.html" />
     <entry file="file://$PROJECT_DIR$/templates/pentest/display_proxy_data.html" />
@@ -881,9 +943,7 @@
     <entry file="file://$PROJECT_DIR$/aduit/config.py" />
     <entry file="file://$PROJECT_DIR$/pentest/config.py" />
     <entry file="file://$PROJECT_DIR$/static/js/echarts.min.js" />
-    <entry file="file://$PROJECT_DIR$/static/js/info.js" />
     <entry file="file://$PROJECT_DIR$/templates/aduit/info1.html" />
-    <entry file="file://$PROJECT_DIR$/templates/aduit/info.html" />
     <entry file="file://$PROJECT_DIR$/templates/welcome.html" />
     <entry file="file://$PROJECT_DIR$/templates/login.html" />
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -907,13 +967,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aduit/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -941,27 +994,13 @@
     <entry file="file:///usr/local/lib/python3.5/dist-packages/django/utils/autoreload.py" />
     <entry file="file://$PROJECT_DIR$/requirements.txt" />
     <entry file="file://$PROJECT_DIR$/templates/aduit/chandao.html" />
-    <entry file="file://$PROJECT_DIR$/templates/aduit/projects.html" />
-    <entry file="file://$PROJECT_DIR$/templates/aduit/scan.html" />
     <entry file="file://$PROJECT_DIR$/docker/Dockerfile" />
-    <entry file="file://$PROJECT_DIR$/aduit/url.py" />
-    <entry file="file://$PROJECT_DIR$/banruo/config.py" />
     <entry file="file://$PROJECT_DIR$/aduit/fortify_run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5688">
           <caret line="253" column="0" lean-forward="false" selection-start-line="253" selection-start-column="0" selection-end-line="253" selection-end-column="0" />
           <folding>
-            <element signature="e#16#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aduit/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6096">
-          <caret line="272" column="0" lean-forward="false" selection-start-line="272" selection-start-column="0" selection-end-line="272" selection-end-column="0" />
-          <folding>
-            <element signature="e#16#51#0" expanded="true" />
+            <element signature="e#16#36#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -971,7 +1010,7 @@
         <state relative-caret-position="240">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <element signature="e#0#56#0" expanded="true" />
+            <element signature="e#0#56#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -984,59 +1023,178 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pentest/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pentest/overview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pentest/target.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pentest/vulnerabilities.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aduit/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="687">
+          <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1528879799000" expanded="true" signature="12603:12641" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/aduit/scan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1152">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="142" column="30" lean-forward="false" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
-          <folding>
-            <element signature="n#li#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#5;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#6;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="491">
+          <caret line="99" column="45" lean-forward="false" selection-start-line="99" selection-start-column="45" selection-end-line="99" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pentest/injection.py">
+    <entry file="file://$PROJECT_DIR$/banruo/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="265" column="0" lean-forward="true" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#52#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="288">
+          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pentest/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/pentest/scan.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#49#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="96">
+          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aduit/url.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.5/re.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="204" column="4" lean-forward="false" selection-start-line="204" selection-start-column="4" selection-end-line="204" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pentest/url.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="168">
+          <caret line="9" column="65" lean-forward="false" selection-start-line="9" selection-start-column="65" selection-end-line="9" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pentest/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="7" column="45" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+        <state relative-caret-position="360">
+          <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/aduit/projects.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2050">
+          <caret line="14" column="72" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pentest/apps.py">
+    <entry file="file://$PROJECT_DIR$/pentest/injection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="394">
+          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aduit/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="360" column="4" lean-forward="true" selection-start-line="360" selection-start-column="4" selection-end-line="361" selection-end-column="22" />
+          <folding>
+            <marker date="1530954577000" expanded="true" signature="17104:17147" ph="SELECT * fro... zt_user" />
+            <marker date="1530954577000" expanded="true" signature="17351:17392" ph="select id fr... zt_project" />
+            <marker date="1530954577000" expanded="true" signature="17540:18275" ph="INSERT INTO `zt_bug`... " />
+            <marker date="1530954577000" expanded="true" signature="18545:18765" ph="INSERT INTO `zt_action`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/aduit/info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2034">
+          <caret line="151" column="12" lean-forward="false" selection-start-line="151" selection-start-column="12" selection-end-line="156" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pentest/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pentest/sql.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="49" column="27" lean-forward="true" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="44" />
+          <folding>
+            <element signature="e#3307#3826#0#HTML" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

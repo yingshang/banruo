@@ -1,0 +1,14 @@
+POST http://192.168.1.210:9999/vulnerabilities/xss_s/ HTTP/1.1
+Host:192.168.1.210:9999
+User-Agent:Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language:zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding:gzip, deflate
+Referer:http://192.168.1.210:9999/vulnerabilities/xss_s/
+Cookie:PHPSESSID=cl1c210ok5rrhqfhcjfu2f0pp4; security=low
+Connection:keep-alive
+Content-Type:application/x-www-form-urlencoded
+Content-Length:53
+
+
+b'txtName=21321&mtxMessage=12312&btnSign=Sign+Guestbook'

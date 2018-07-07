@@ -353,7 +353,6 @@ def chandao(request):
         page = int(request.GET.get("page")) or 1
     except:
         page = 1
-    print(page)
     try:
         limit = int(request.GET.get("limit")) or 10
     except:

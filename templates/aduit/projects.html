@@ -67,14 +67,7 @@
                 <td>{{ result.name }}</td>
                 <td>{{ result.total }}</td>
                 <td>
-                    {% if result.type == 1 %}
-                        gitlab
-                    {% elif result.type == 3 %}
-                        svn
-                    {% elif result.type == 4 %}
-                        压缩上传
-                    {% else %}
-                        未知
+                    {% if result.type == 1 %}gitlab{% elif result.type == 3 %}svn{% elif result.type == 4 %}压缩上传{% else %}未知
                     {% endif %}
                 </td>
                 <td>{{ result.time | date:"Y-m-d H:i:s" }}</td>
@@ -89,10 +82,9 @@
                         {% else %}
                     <td class="td-status">
                         <span class="layui-btn layui-btn-normal layui-btn-mini">异常</span></td>
-                    <td class="td-manage"></td>
+
                 {% endif %}
-
-
+                <td class="td-manage">
                 <button class="layui-btn layui-btn" onclick="aduit(this,{{ result.id }})">重新审计</button>
                 </td>
             </tr>
