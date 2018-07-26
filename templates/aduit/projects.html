@@ -63,7 +63,7 @@
                 <td>
                     <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id="{{ result.id }}"><i class="layui-icon"></i></div>
                 </td>
-                <td><a href="{% url "aduit_project_info"  %}?t=inf&token={{ result.token }}&id={{ result.id }}">{{ result.id }}</a> </td>
+                <td>{{ result.id }} </td>
                 <td>{{ result.name }}</td>
                 <td>{{ result.total }}</td>
                 <td>
@@ -81,7 +81,7 @@
                 {% endif %}
 
                 <td class="td-manage">
-                    <button class="layui-btn layui-btn" onclick="check(this,{{ result.id }},{{ result.token }})">查看详情</button>
+                    <input class="layui-btn layui-btn" value="查看详情" type="button" onclick='location.href=("{% url "aduit_project_info"  %}?t=inf&token={{ result.token }}&id={{ result.id }}")' />
                     <button class="layui-btn layui-btn" onclick="aduit(this,{{ result.id }})">重新审计</button>
                 </td>
             </tr>
@@ -115,13 +115,10 @@
         });
     });
 
-    function check(obj,id,token) {
-
+    function detail(obj,id,token) {
         $.ajax({
             type: 'GET',
-            traditional:true,
-            url: "{% url "aduit_project_info"  %}?t=inf&token={{ result.token }}&id={{ result.id }}",
-            async: true,
+            url: '/aduit/info?t=inf&token='+token+'&id='+id,
         });
 
     }
