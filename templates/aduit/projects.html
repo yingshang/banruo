@@ -72,20 +72,17 @@
                 </td>
                 <td>{{ result.time | date:"Y-m-d H:i:s" }}</td>
                 {% if result.status == 1 %}
-                    <td class="td-status">
-                        <span class="layui-btn layui-btn-normal layui-btn-mini">扫描中</span></td>
-                    <td class="td-manage">
-                        {% elif result.status == 2 %}
-                    <td class="td-status">
-                        <span class="layui-btn layui-btn-normal layui-btn-mini">扫描完成</span></td>
-                    <td class="td-manage">
-                        {% else %}
-                    <td class="td-status">
-                        <span class="layui-btn layui-btn-normal layui-btn-mini">异常</span></td>
+                    <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">扫描中</span></td>
+                {% elif result.status == 2 %}
+                    <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">扫描完成</span></td>
+                {% else %}
+                    <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">异常</span></td>
 
                 {% endif %}
+
                 <td class="td-manage">
-                <button class="layui-btn layui-btn" onclick="aduit(this,{{ result.id }})">重新审计</button>
+                    <button class="layui-btn layui-btn" onclick="check(this,{{ result.id }},{{ result.token }})">查看详情</button>
+                    <button class="layui-btn layui-btn" onclick="aduit(this,{{ result.id }})">重新审计</button>
                 </td>
             </tr>
         {% endfor %}
@@ -93,8 +90,8 @@
     </table>
 
 
-<div id="page">
-</div>
+    <div id="page">
+    </div>
 
 
 
@@ -118,7 +115,16 @@
         });
     });
 
+    function check(obj,id,token) {
 
+        $.ajax({
+            type: 'GET',
+            traditional:true,
+            url: "{% url "aduit_project_info"  %}?t=inf&token={{ result.token }}&id={{ result.id }}",
+            async: true,
+        });
+
+    }
 
     function aduit(obj,id) {
         layer.confirm('是否要重新扫描审计？',function(index){
@@ -179,40 +185,40 @@
 </script>
 
 
-    <script>
-// 获取url所带参数
-        function getPara(name) {
-            if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.href)) {
-                return decodeURIComponent(name[1])
-            }
-            else{
-                return ''
-            }
+<script>
+    // 获取url所带参数
+    function getPara(name) {
+        if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.href)) {
+            return decodeURIComponent(name[1])
         }
+        else{
+            return ''
+        }
+    }
 
-        layui.use(['laypage', 'layer'], function(){
-            var laypage = layui.laypage
-                ,layer = layui.layer;
+    layui.use(['laypage', 'layer'], function(){
+        var laypage = layui.laypage
+            ,layer = layui.layer;
 
-            laypage.render({
-                elem: 'page'
-                ,count: {{ project_count }}
-                ,limit:{{ limit }}
-                ,curr:getPara("page")
-                ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
-                ,jump: function(obj,first) {
+        laypage.render({
+            elem: 'page'
+            ,count: {{ project_count }}
+            ,limit:{{ limit }}
+            ,curr:getPara("page")
+            ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+            ,jump: function(obj,first) {
 
-                    if (!first) {
+                if (!first) {
 
-                        window.location.href="?page="+obj.curr+"&limit="+obj.limit+"&keyword="+getPara("keyword")
-                    }
+                    window.location.href="?page="+obj.curr+"&limit="+obj.limit+"&keyword="+getPara("keyword")
                 }
-            });
-
-
-
+            }
         });
-    </script>
+
+
+
+    });
+</script>
 
 
 
