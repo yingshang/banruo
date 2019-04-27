@@ -92,7 +92,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'banruo',
-        'HOST':'127.0.0.1',
+        'HOST':'192.168.1.105',
         'PORT':'3306',
         'USER':'root',
         'PASSWORD':'123456',

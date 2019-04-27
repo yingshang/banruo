@@ -302,7 +302,7 @@ def scan(request):
             name = myFile.name
             if not myFile:
                 return JsonResponse({"status":0,"msg":"上传失败!!!"})
-            elif myFile.name.split('.')[1] != 'zip':
+            elif myFile.name.split('.')[-1] != 'zip':
                 return JsonResponse({"status":2,"msg":"上传文件必须为ZIP!!!"})
             else:
                 destination = open(os.path.join("/data/fortify/", myFile.name), 'wb+')
@@ -353,7 +353,6 @@ def chandao(request):
         page = int(request.GET.get("page")) or 1
     except:
         page = 1
-    print(page)
     try:
         limit = int(request.GET.get("limit")) or 10
     except:
