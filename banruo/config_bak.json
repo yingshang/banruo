@@ -2,7 +2,7 @@
     "setting": {
         "SQLMAP": {
             "SQLMAP_DBMS": "mysql",
-            "SQLMAP_REQUESTFILE": "/opt/taskid",
+            "SQLMAP_REQUESTFILE_PATH": "/opt/taskid",
             "SQLMAP_LEVEL": 1,
             "SQLMAP_RISK": 1,
 			"SQLMAP_THREADS":1,
