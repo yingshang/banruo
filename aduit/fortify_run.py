@@ -1,24 +1,25 @@
 # coding: utf-8
-import subprocess,os
+import subprocess, os
 from xml.dom.minidom import parse
 import xml.dom.minidom
 import random
 import string
 import pymysql
 import codecs
-from .models import proj_info,vul_info
+from .models import proj_info, vul_info
 from celery.decorators import task
 import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
-#from celery.task.schedules import crontab
-#from celery.decorators import periodic_task
+# from celery.task.schedules import crontab
+# from celery.decorators import periodic_task
 import requests
 import datetime
 from banruo.config import *
 
-#对fortify的XML文件进行解析
-def report_xml(filename,source_path,name,token):
+
+# 对fortify的XML文件进行解析
+def report_xml(filename, source_path, name, token):
     DOMTree = xml.dom.minidom.parse(filename)
     Data = DOMTree.documentElement
     ReportSections3 = Data.getElementsByTagName("ReportSection")[2]
@@ -28,38 +29,35 @@ def report_xml(filename,source_path,name,token):
         Issues = GroupingSection.getElementsByTagName("Issue")
         for i in range(len(Issues)):
             groupTitle = GroupingSection.getElementsByTagName("groupTitle")[0].childNodes[0].nodeValue  # 漏洞标题
-            #count = GroupingSection.getAttribute('count')  # 漏洞号
+            # count = GroupingSection.getAttribute('count')  # 漏洞号
             Folder = GroupingSection.getElementsByTagName("Folder")[0].childNodes[0].nodeValue  # 风险
-            #Issue_id = Issues[i].getAttribute('iid')  # 问题ID
+            # Issue_id = Issues[i].getAttribute('iid')  # 问题ID
             Abstract = GroupingSection.getElementsByTagName("Abstract")[i].childNodes[0].nodeValue  # 问题详细
             FileName = GroupingSection.getElementsByTagName("FileName")[i].childNodes[0].nodeValue  # 文件名
-            extend = FileName.split('.')[-1] #文件后缀
+            extend = FileName.split('.')[-1]  # 文件后缀
             FilePath = GroupingSection.getElementsByTagName("FilePath")[i].childNodes[0].nodeValue  # 文件路径
             LineStart = GroupingSection.getElementsByTagName("LineStart")[i].childNodes[0].nodeValue  # 影响行
             Snippet = GroupingSection.getElementsByTagName("Snippet")[i].childNodes[0].nodeValue  # 影响代码
-            path = source_path+'/'+FilePath
+            path = source_path + '/' + FilePath
             with codecs.open(path, "r", encoding='utf-8', errors='ignore') as f:
                 full_code = f.read()
             vul_info.objects.update_or_create(
-                                    vid = num,
-                                    title = groupTitle,
-                                  risk = Folder,
-                                  Abstract = Abstract,
-                                  FileName = FileName,
-                                  FilePath = FilePath,
-                                  LineStart = LineStart,
-                                  Snippet = Snippet,
-                                  full_code =full_code,
-                                proj_id = proj_info.objects.get(token=token),
-                                extend = extend,
-                                  )
-            num = num+1
+                vid=num,
+                title=groupTitle,
+                risk=Folder,
+                Abstract=Abstract,
+                FileName=FileName,
+                FilePath=FilePath,
+                LineStart=LineStart,
+                Snippet=Snippet,
+                full_code=full_code,
+                proj_id=proj_info.objects.get(token=token),
+                extend=extend,
+            )
+            num = num + 1
 
 
-
-
-
-def run(myfile,token):
+def run(myfile, token):
     # fortify 运行的代码
     source_path = fortify_path + myfile
     fortify_fpr = report_path + myfile + '.fpr'
@@ -72,12 +70,11 @@ def run(myfile,token):
     subprocess.check_call(build, shell=True)
     subprocess.check_call(scan, shell=True)
     subprocess.check_call(report, shell=True)
-    report_xml(fortify_xml, source_path,myfile,token)
+    report_xml(fortify_xml, source_path, myfile, token)
     obj = proj_info.objects.get(token=token)
     obj.total = vul_info.objects.filter(proj_id=proj_info.objects.get(token=token)).count()
     obj.status = 2
     obj.save()
-
 
 
 @task
@@ -88,46 +85,49 @@ def git_api():
         f = open(git_filepath)
         for i in f.readlines():
             if "http://" in i:
-                push.delay(gitaddress=i.replace('http://', 'http://'+username+':'+git_password+'@'),type=1)
+                push.delay(gitaddress=i.replace('http://', 'http://' + username + ':' + git_password + '@'), type=1)
             else:
-                push.delay(gitaddress=i.replace('https://', 'https://' + username + ':' + git_password + '@'),type=1)
+                push.delay(gitaddress=i.replace('https://', 'https://' + username + ':' + git_password + '@'), type=1)
     else:
         r = requests.get(git_api_adress)
         git_list = r.json()[parm]
-#        exclude_list = ['http://test.com/1111.git', ]  # 排除的链接
+        #        exclude_list = ['http://test.com/1111.git', ]  # 排除的链接
         for i in git_list:
- #           if any(t == i for t in exclude_list) == False:
+            #           if any(t == i for t in exclude_list) == False:
             if "http://" in i:
-                push.delay(gitaddress=i.replace('http://', 'http://'+username+':'+git_password+'@'),type=1)
+                push.delay(gitaddress=i.replace('http://', 'http://' + username + ':' + git_password + '@'), type=1)
             else:
-                push.delay(gitaddress=i.replace('https://', 'https://' + username + ':' + git_password + '@'),type=1)
+                push.delay(gitaddress=i.replace('https://', 'https://' + username + ':' + git_password + '@'), type=1)
+
 
 @task
-def push(gitaddress='',svnaddress='',name='',type=1,svnaccount='',svnpwd=''):
+def push(gitaddress='', svnaddress='', name='', type=1, svnaccount='', svnpwd=''):
     token = ''.join(random.sample(string.ascii_letters + string.digits, 32))
-    if len(gitaddress)!=0:
+    if len(gitaddress) != 0:
         myfile = gitaddress.split('/')[-1].split('.')[0]
-        proj_info.objects.create(name=myfile, git=gitaddress,token=token,type=type)
+        proj_info.objects.create(name=myfile, git=gitaddress, token=token, type=type)
         try:
-            cmd = 'git clone ' + gitaddress.strip() + ' '+ fortify_path + myfile
+            cmd = 'git clone ' + gitaddress.strip() + ' ' + fortify_path + myfile
             subprocess.check_call(cmd, shell=True)
         except subprocess.CalledProcessError as err:
             try:
-                subprocess.check_call('cd '+ fortify_path + myfile + ' && git pull', shell=True)
+                subprocess.check_call('cd ' + fortify_path + myfile + ' && git pull', shell=True)
             except subprocess.CalledProcessError as err:
                 pass
-    elif len(name) !=0:
+    elif len(name) != 0:
         myfile = name
         proj_info.objects.create(name=name, token=token, type=type)
     else:
         myfile = name
-        proj_info.objects.create(name=name,token=token,type=type,svn=svnaddress)
-        if len(svnaccount) ==0 and len(svnpwd) ==0:
-            subprocess.check_call('svn checkout '+svnaddress+' --no-auth-cache '+fortify_path+myfile,shell=True)
+        proj_info.objects.create(name=name, token=token, type=type, svn=svnaddress)
+        if len(svnaccount) == 0 and len(svnpwd) == 0:
+            subprocess.check_call('svn checkout ' + svnaddress + ' --no-auth-cache ' + fortify_path + myfile,
+                                  shell=True)
         else:
-            subprocess.check_call('svn checkout '+svnaddress+' --username '+svnaccount+' --password '+svnpwd+' --no-auth-cache '+fortify_path+myfile,shell=True)
-    run(myfile,token)
-
+            subprocess.check_call(
+                'svn checkout ' + svnaddress + ' --username ' + svnaccount + ' --password ' + svnpwd + ' --no-auth-cache ' + fortify_path + myfile,
+                shell=True)
+    run(myfile, token)
 
 
 def send_email():
@@ -144,8 +144,9 @@ def send_email():
      LEFT JOIN zt_project c on a.project = c.id
      WHERE a.status = 'active' and a.product = '3' and a.openedDate  > '%s' GROUP BY a.project) as d on d.name = bb.name  
     group by bb.name
-        '''%(now_time,now_time)
-    conn = pymysql.connect(host=MYSQL_HOST, user=MYSQL_USER, passwd=MYSQL_PASSWORD, db=MYSQL_DATABASE, port=MYSQL_PORT,charset="utf8")
+        ''' % (now_time, now_time)
+    conn = pymysql.connect(host=MYSQL_HOST, user=MYSQL_USER, passwd=MYSQL_PASSWORD, db=MYSQL_DATABASE, port=MYSQL_PORT,
+                           charset="utf8")
     cursor = conn.cursor()
     cursor.execute(sql)
     results = cursor.fetchall()
@@ -166,7 +167,7 @@ def send_email():
               <td style="text-align:center">%s</td>
               <td>%s</td>
             </tr>
-    ''' % (row[0], row[1], row[2], row[3],contend)
+    ''' % (row[0], row[1], row[2], row[3], contend)
     sql = '''
     SELECT bb.product,bb.name,bb.total,IFNULL(d.new,0),GROUP_CONCAT(d.id)as bug_id_list 
     from  (select a.product,c.name,count(*) as total from zt_bug a
@@ -199,7 +200,7 @@ def send_email():
               <td style="text-align:center">%s</td>
               <td>%s</td>
             </tr>
-    ''' % (row[0], row[1], row[2],row[3], contend)
+    ''' % (row[0], row[1], row[2], row[3], contend)
     html = u'''
     <html>
     <head>
@@ -248,6 +249,3 @@ def send_email():
     smtpObj.connect(mail_host, 25)  # 25 为 SMTP 端口号
     smtpObj.login(mail_user, mail_pass)
     smtpObj.sendmail(sender, receivers, message.as_string())
-
-
-

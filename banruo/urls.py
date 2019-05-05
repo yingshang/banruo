@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
-from pentest import views as pentest_views
 from aduit.views import index,base
 urlpatterns = [
     path('admin/', admin.site.urls),

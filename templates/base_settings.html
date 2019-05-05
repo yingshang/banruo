@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ proj.name }}项目</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
+    <link rel="stylesheet" href={% static "css/font.css" %}>
+    <link rel="stylesheet" href={% static "css/xadmin.css" %}>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src={% static "lib/layui/layui.js" %} charset="utf-8"></script>
+    <script type="text/javascript" src={% static "js/xadmin.js" %}></script>
+<script src="{% static "lib/layui/layui.js" %}"></script>
+</head>
+
+<body class="layui-anim layui-anim-up">
+<div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="/">首页</a>
+        <a href="#">安全扫描</a>
+          <a href="#">设置</a>
+      </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+</div>
+<div class="x-body">
+
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+  <legend>SQLMAP设置</legend>
+</fieldset>
+ 
+<form class="layui-form" action="{% url "pentest_settings" %}" method="post">
+
+{% csrf_token %}
+ <div class="layui-form-item">
+    <div class="layui-inline">
+      <label class="layui-form-label">数据包位置</label>
+      <div class="layui-input-inline">
+        <input type="text" name="SQLMAP_REQUESTFILE" lay-verify="title" autocomplete="off"  placeholder="{{ SQLMAP_REQUESTFILE }}"  class="layui-input">
+      </div>
+    </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">API地址</label>
+      <div class="layui-input-inline">
+        <input type="text" name="SQLMAP_API_SERVER" lay-verify="title" autocomplete="off"  placeholder="{{ SQLMAP_API_SERVER }}"  class="layui-input">
+      </div>
+    </div>
+  </div>
+
+ <div class="layui-form-item">
+    <div class="layui-inline">
+      <label class="layui-form-label">level</label>
+      <div class="layui-input-inline">
+        <input type="text" name="SQLMAP_LEVEL" lay-verify="title" autocomplete="off"  placeholder="{{ SQLMAP_LEVEL }}"  class="layui-input">
+      </div>
+    </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">risk</label>
+      <div class="layui-input-inline">
+        <input type="text" name="SQLMAP_RISK" lay-verify="title" autocomplete="off"  placeholder="{{ SQLMAP_RISK }}"  class="layui-input">
+      </div>
+    </div>
+	    <div class="layui-inline">
+      <label class="layui-form-label">dbms</label>
+      <div class="layui-input-inline">
+        <input type="text" name="SQLMAP_DBMS" lay-verify="title" autocomplete="off"  placeholder="{{ SQLMAP_DBMS }}"  class="layui-input">
+      </div>
+    </div>
+  </div>
+ 
+ 
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit="" lay-filter="demo1">保存</button>
+    </div>
+  </div>
+</form>
+ 
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+  <legend>代理设置</legend>
+</fieldset>
+ 
+<form class="layui-form" action="">
+
+ 
+ <div class="layui-form-item">
+    <div class="layui-inline">
+      <label class="layui-form-label">监听IP</label>
+      <div class="layui-input-inline">
+        <input type="text" name="PROXY_LISTEN_HOST" lay-verify="title" autocomplete="off"  placeholder=""  class="layui-input">
+      </div>
+    </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">监听端口</label>
+      <div class="layui-input-inline">
+        <input type="text" name="PROXY_LISTEN_PORT" lay-verify="title" autocomplete="off"  placeholder="{{ PROXY_LISTEN_PORT }}"  class="layui-input">
+      </div>
+    </div>
+	<div class="layui-inline">
+      <label class="layui-form-label">证书位置</label>
+      <div class="layui-input-inline">
+        <input type="text" name="PROXY_CACER_DIR" lay-verify="title" autocomplete="off"  placeholder="{{ PROXY_CACER_DIR }}"  class="layui-input">
+      </div>
+    </div>
+
+     <div class="layui-inline">
+      <label class="layui-form-label">监听模式</label>
+      <div class="layui-input-inline">
+        <input type="text" name="PROXY_LISTEN_MODE" lay-verify="title" autocomplete="off"  placeholder="{{ PROXY_LISTEN_MODE }}"  class="layui-input">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">过滤后缀文件</label>
+    <div class="layui-input-block">
+      <input type="text" name="EXCLUDE_STATIC_FILE" lay-verify="title" autocomplete="off" placeholder="{{ EXCLUDE_STATIC_FILE }}" class="layui-input">
+    </div>
+  </div>
+ 
+ 
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit="" lay-filter="demo1">保存</button>
+    </div>
+  </div>
+</form>
+</div>
+
+
+</body>
+</html>
+
+
+
