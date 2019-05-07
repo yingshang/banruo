@@ -5,7 +5,7 @@
             "SQLMAP_DBMS": "mysql",
             "SQLMAP_REQUESTFILE_PATH": "/opt/taskid/",
             "SQLMAP_VERBOSE": 1,
-            "SQLMAP_PROXY": "socks5://192.168.1.100:1080",
+            "SQLMAP_PROXY": null,
             "SQLMAP_LEVEL": 1,
             "SQLMAP_RISK": 1,
             "SQLMAP_THREADS": 1,
