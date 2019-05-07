@@ -6,11 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8072d1bc-55b1-42be-8ec2-860d2d6ba1ba" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/pentest/check_data.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aduit/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/aduit/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aduit/fortify_run.py" beforeDir="false" afterPath="$PROJECT_DIR$/aduit/fortify_run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aduit/info.py" beforeDir="false" afterPath="$PROJECT_DIR$/aduit/info.py" afterDir="false" />
@@ -24,9 +21,6 @@
       <change beforePath="$PROJECT_DIR$/banruo/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/banruo/wsgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pentest/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/injection.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/injection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/animate.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/animate.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/application.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
@@ -470,11 +464,6 @@
       <change beforePath="$PROJECT_DIR$/static/lib/layui/lay/modules/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/lib/layui/lay/modules/util.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/lib/layui/layui.all.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/lib/layui/layui.all.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/lib/layui/layui.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/lib/layui/layui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pentest/check_log.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pentest/check_log.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pentest/passive_sqli.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pentest/passive_sqli.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pentest/proxy.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pentest/proxy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pentest/sqlmap.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pentest/sqlmap.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/th.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/th.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -561,15 +550,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/pentest/check_log.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/pentest/check_data.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="362">
@@ -590,7 +570,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pentest/injection.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="508">
@@ -598,6 +578,15 @@
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -694,7 +683,6 @@
         <option value="$PROJECT_DIR$/pentest/update_auth.html" />
         <option value="$PROJECT_DIR$/templates/pentest/update_auth.html" />
         <option value="$PROJECT_DIR$/pentest/models.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/aduit/fortify_run.py" />
         <option value="$PROJECT_DIR$/lib/email.py" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -709,6 +697,7 @@
         <option value="$PROJECT_DIR$/pentest/views.py" />
         <option value="$PROJECT_DIR$/banruo/config.json" />
         <option value="$PROJECT_DIR$/pentest/injection.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -935,12 +924,12 @@
       <workItem from="1556637529920" duration="6633000" />
       <workItem from="1557049321133" duration="23632000" />
       <workItem from="1557153262950" duration="6364000" />
-      <workItem from="1557195372891" duration="12152000" />
+      <workItem from="1557195372891" duration="12820000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123587000" />
+    <option name="totallyTimeSpent" value="124255000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1205,13 +1194,6 @@
     <entry file="file://$PROJECT_DIR$/aduit/tasks.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/aduit/url.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -1374,6 +1356,13 @@
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
         </state>
       </provider>
     </entry>
