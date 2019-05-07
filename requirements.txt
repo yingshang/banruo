@@ -6,3 +6,4 @@ celery
 django-celery
 python_json_config
 anyjson
+celery-with-redis
