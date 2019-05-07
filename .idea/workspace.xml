@@ -7,6 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8072d1bc-55b1-42be-8ec2-860d2d6ba1ba" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aduit/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/aduit/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aduit/fortify_run.py" beforeDir="false" afterPath="$PROJECT_DIR$/aduit/fortify_run.py" afterDir="false" />
@@ -550,18 +551,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/pentest/check_data.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/banruo/config.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2048">
@@ -582,11 +571,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="32">
               <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/banruo/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="102" column="5" lean-forward="true" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -679,7 +677,6 @@
         <option value="/usr/local/lib/python3.6/dist-packages/mitmproxy/master.py" />
         <option value="$PROJECT_DIR$/test/th.py" />
         <option value="$PROJECT_DIR$/test/1.py" />
-        <option value="$PROJECT_DIR$/banruo/settings.py" />
         <option value="$PROJECT_DIR$/pentest/update_auth.html" />
         <option value="$PROJECT_DIR$/templates/pentest/update_auth.html" />
         <option value="$PROJECT_DIR$/pentest/models.py" />
@@ -698,6 +695,7 @@
         <option value="$PROJECT_DIR$/banruo/config.json" />
         <option value="$PROJECT_DIR$/pentest/injection.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/banruo/settings.py" />
       </list>
     </option>
   </component>
@@ -924,12 +922,12 @@
       <workItem from="1556637529920" duration="6633000" />
       <workItem from="1557049321133" duration="23632000" />
       <workItem from="1557153262950" duration="6364000" />
-      <workItem from="1557195372891" duration="12820000" />
+      <workItem from="1557195372891" duration="13555000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124255000" />
+    <option name="totallyTimeSpent" value="124990000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1168,13 +1166,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/banruo/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-22">
@@ -1363,6 +1354,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
           <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/banruo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="102" column="5" lean-forward="true" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
         </state>
       </provider>
     </entry>
