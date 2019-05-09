@@ -1,7 +1,7 @@
 {
     "setting": {
         "SQLMAP": {
-            "SQLMAP_PATH": "/opt/sqlmap/",
+            "SQLMAP_LIMIT_RUN": 10,
             "SQLMAP_DBMS": "mysql",
             "SQLMAP_REQUESTFILE_PATH": "/opt/taskid/",
             "SQLMAP_VERBOSE": 1,
@@ -12,7 +12,12 @@
             "SQLMAP_PARMEXCLUDE": "Host,User-Agent,Accept-Language,Referer,Cookie",
             "SQLMAP_PROXYFILE": "",
             "SQLMAP_RETRIES": 5,
-            "SQLMAP_API_SERVER": "http://127.0.0.1:8775"
+            "SQLMAP_API_SERVER": [
+                "http://127.0.0.1:55000",
+                "http://127.0.0.1:55001",
+                "http://127.0.0.1:55002",
+                "http://127.0.0.1:55003"
+            ]
         },
         "PROXY": {
             "PROXY_LISTEN_HOST": "0.0.0.0",

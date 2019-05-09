@@ -31,7 +31,7 @@ def load_config(parm):
 
 
 # SQLMAP
-SQLMAP_PATH = load_config('SQLMAP_PATH')
+SQLMAP_LIMIT_RUN = load_config('SQLMAP_LIMIT_RUN')
 SQLMAP_DBMS = load_config('SQLMAP_DBMS')
 SQLMAP_PROXY = load_config('SQLMAP_PROXY')
 SQLMAP_VERBOSE = load_config('SQLMAP_VERBOSE')
