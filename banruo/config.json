@@ -23,7 +23,6 @@
 			"PROXY_LISTEN_HOST": "0.0.0.0",
 			"PROXY_LISTEN_PORT": 8888,
 			"PROXY_LISTEN_MODE": "regular",
-			"PROXY_CACER_DIR": "./ssl/",
 			"EXCLUDE_STATIC_FILE": [
 				".js",
 				".txt",
