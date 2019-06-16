@@ -1,9 +1,9 @@
 mitmproxy==2.0.2
 django==2.0
 redis==2.10.6
-pymysql
-celery
+pymysql==0.9.3
 django-celery==3.2.2
-python_json_config
-anyjson
+celery==3.1.26.post2
+python_json_config==1.2.1
+anyjson==0.3.3
 celery-with-redis
