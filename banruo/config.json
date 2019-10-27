@@ -1,11 +1,11 @@
 {
 	"setting": {
 		"SQLMAP": {
-			"SQLMAP_LIMIT_RUN": 10,
+			"SQLMAP_LIMIT_RUN": 15,
 			"SQLMAP_DBMS": "mysql",
 			"SQLMAP_REQUESTFILE_PATH": "/opt/taskid/",
 			"SQLMAP_VERBOSE": 1,
-			"SQLMAP_PROXY": "",
+			"SQLMAP_PROXY": "socks5://192.168.1.100:1080",
 			"SQLMAP_LEVEL": 5,
 			"SQLMAP_RISK": 3,
 			"SQLMAP_THREADS": 1,
