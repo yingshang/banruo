@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <link rel="shortcut icon" href="{% static "favicon.ico" %}" type="image/x-icon" />
     <link rel="stylesheet" href="{% static "css/font.css" %}">
 	<link rel="stylesheet" href="{% static "css/xadmin.css" %}">
     <script type="text/javascript" src="{% static 'js/jquery.js'%} "></script>
@@ -20,7 +19,7 @@
 <body>
     <!-- 顶部开始 -->
     <div class="container">
-        <div class="logo"><a href="./base.html">般若安全中心</a></div>
+        <div class="logo"><a href="">般若安全中心</a></div>
         <div class="left_open">
             <i title="展开左侧栏" class="iconfont">&#xe699;</i>
         </div>
@@ -51,13 +50,6 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="{% url "aduit_overview" %}?t=week">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>漏洞统计</cite>
-
-                        </a>
-                    </li >
-                    <li>
                         <a _href="/aduit/scan">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>项目扫描</cite>
@@ -76,6 +68,7 @@
                             <cite>禅道</cite>
                         </a>
                     </li>
+
                 </ul>
             </li>
 
@@ -125,78 +118,16 @@
                         </a>
                     </li >
 
+
                 </ul>
             </li>
 
             <li>
                 <a href="#">
                     <i class="iconfont">&#xe6f4;</i>
-                    <cite>网络安全</cite>
+                    <cite>监控中心</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a _href="{% url "aduit_overview" %}?t=week">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>1</cite>
-                        </a>
-                    </li >
-
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="iconfont">&#xe6f4;</i>
-                    <cite>系统设置</cite>
-                    <i class="iconfont nav_right">&#xe697;</i>
-                </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a _href="{% url "pentest_settings" %}?t=week">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>代码审计设置</cite>
-                        </a>
-                    </li >
-					<li>
-                        <a _href="{% url "pentest_settings" %}?t=week">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>安全测试设置</cite>
-                        </a>
-                    </li >
-
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="iconfont">&#xe6f4;</i>
-                    <cite>1</cite>
-                    <i class="iconfont nav_right">&#xe697;</i>
-                </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a _href="{% url "aduit_overview" %}?t=week">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>1</cite>
-                        </a>
-                    </li >
-
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="iconfont">&#xe6f4;</i>
-                    <cite>1</cite>
-                    <i class="iconfont nav_right">&#xe697;</i>
-                </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a _href="{% url "aduit_overview" %}?t=week">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>1</cite>
-                        </a>
-                    </li >
-
-                </ul>
             </li>
 
         </ul>
@@ -208,11 +139,11 @@
     <div class="page-content">
         <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
           <ul class="layui-tab-title">
-            <li class="home"><i class="layui-icon">&#xe68e;</i>我的桌面</li>
+            <li class="home"><i class="layui-icon">&#xe68e;</i>仪表盘</li>
           </ul>
           <div class="layui-tab-content">
             <div class="layui-tab-item layui-show">
-                <iframe src='/index' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                <iframe src='/overview' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
             </div>
           </div>
         </div>
