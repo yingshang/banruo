@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8072d1bc-55b1-42be-8ec2-860d2d6ba1ba" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/fortify_run.py" beforeDir="false" afterPath="$PROJECT_DIR$/aduit/fortify_run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banruo/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/banruo/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/config_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config_json.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,8 +49,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor>
-                <caret line="117" column="2" selection-start-line="117" selection-start-column="2" selection-end-line="117" selection-end-column="2" />
+              <first_editor relative-caret-position="66">
+                <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
               </first_editor>
               <second_editor />
             </state>
@@ -315,12 +312,12 @@
       <option name="presentableId" value="Default" />
       <updated>1526953915057</updated>
       <workItem from="1575277823385" duration="2026000" />
-      <workItem from="1575282070937" duration="11056000" />
+      <workItem from="1575282070937" duration="13987000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13082000" />
+    <option name="totallyTimeSpent" value="16013000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -623,8 +620,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor>
-            <caret line="117" column="2" selection-start-line="117" selection-start-column="2" selection-end-line="117" selection-end-column="2" />
+          <first_editor relative-caret-position="66">
+            <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
           </first_editor>
           <second_editor />
         </state>

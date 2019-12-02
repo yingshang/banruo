@@ -1,9 +1,11 @@
 # 般若安全中心
 
+**般若的正确读音是bore，项目名就不改啊**
 ## 安装教程
-**该系统环境是python3.6运行的，3.7会显示错误**
+**该系统环境是python3.6运行的，3.7会显示错误。**
+
 具体安装过程就不一一说明，下面直接dockerfile,假如没有fortify，只是用里面渗透测试系统，可以直接注释掉那段fortify的配置。在banruo目录下有一个config.json文件，里面有所有的配置，在生成docker的时候，把config.json复制出来，修改里面的内容。
-`````
+```
 #dockerfile
 FROM centos:7
 COPY fortify_linux /opt/fortify_linux
@@ -118,7 +120,7 @@ config.json
 # 配置说明
 - mysql配置（忽略）
 - sqlmap配置
-1. 1. SQLMAP_LIMIT_RUN，限制sqlmap跑的进程数
+1. SQLMAP_LIMIT_RUN，限制sqlmap跑的进程数
 2. SQLMAP_REQUESTFILE_PATH：保存数据包的位置
 3. SQLMAP_PARMEXCLUDE：排除的参数（level3以上）
 4. SQLMAP_API_SERVER：连接sqlmapapi，需要多开，因为sqlmap多了之后，一个api服务器跑不动，会死掉
@@ -138,5 +140,45 @@ config.json
 1. OPENEDBY：创建人ID
 2. PRODUCT_ID：项目的ID
 3. EMAIL_RECEIVERS：接受禅道提醒的邮箱
+- 邮箱配置(忽略)
 
-- 邮箱配置
+# 模拟测试
+下载gitlab
+```
+docker run -d -p 4443:443 -p 8080:80 -p 2222:22  --name gitlab  --restart always  -v /srv/gitlab/config:/etc/gitlab   -v /srv/gitlab/logs:/var/log/gitlab      -v /srv/gitlab/data:/var/opt/gitlab  gitlab/gitlab-ce:latest
+
+```
+下载禅道系统
+
+```
+docker run --name zentao -d  --restart always   -v /srv/zentao/zbox:/opt/zbox  -p 8088:80  haha123/zentao
+```
+
+下载svn
+
+```
+docker run --name svn -d --restart always  -v /srv/SVNRepository:/var/opt/svn  -p 3690:3690  garethflowers/svn-server
+```
+
+
+
+# 功能模块
+- 代码审计系统
+1. 单独git扫描
+2. 接口扫描
+3. 单独svn扫描
+4. 压缩包上传扫描
+5. 对接禅道系统
+- 渗透测试系统
+1. 代理抓包
+2. 自动化注入
+3. 自动化xss（待写）
+4. 越权检测（写了一半）
+5. 子域名爆破+端口扫描+poc扫描（待写）
+
+- 安全监控系统
+1. 蜜罐监控+收集样本（写了一半）
+2. 源代码防泄漏平台（待写）
+
+- 安全资讯系统
+1. 抓取别人新闻+邮件发送+邮件订阅（待写）
