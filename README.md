@@ -7,6 +7,7 @@
 具体安装过程就不一一说明，下面直接dockerfile,假如没有fortify，只是用里面渗透测试系统，可以直接注释掉那段fortify的配置。在banruo目录下有一个config.json文件，里面有所有的配置，在生成docker的时候，把config.json复制出来，修改里面的内容。
 ```
 #dockerfile
+
 FROM centos:7
 COPY fortify_linux /opt/fortify_linux
 
@@ -15,9 +16,12 @@ RUN yum update -y
 RUN yum install epel-release -y
 RUN yum install -y  git wget python36 gcc python36-libs python36-tools python36-devel   zlib-devel rpm-build openssl-devel python redis
 
-#fortify
+#django
 RUN cd /opt && git clone https://github.com/yingshang/banruo.git
 RUN cd /opt/banruo && pip3 install -r requirements.txt
+RUN cd /opt/banruo && python3 manage.py makemigrations && python3 manage.py migrate
+
+#这个是fortify的运行程序
 RUN mkdir /data && mkdir /data/fortify && mkdir /data/fortify/report && chmod 777 /data -R
 RUN chmod 777 -R /opt/fortify_linux/ && ln -s /opt/fortify_linux/bin/sourceanalyzer /usr/local/bin/sourceanalyzer && ln -s /opt/fortify_linux/bin/ReportGenerator /usr/local/bin/ReportGenerator
 
@@ -26,10 +30,14 @@ RUN mkdir /opt/taskid
 RUN cd /opt && git clone https://github.com/sqlmapproject/sqlmap
 RUN ln -s /opt/sqlmap/sqlmapapi.py /usr/bin/sqlmapapi
 
+
 #config.json
 COPY config.json /opt/banruo/banruo/
 
 #ENTRYPOINT redis-server & && cd /opt/ && python3 manage.py celery -A banruo worker  -l info --beat & && python3 manage.py runserver 0.0.0.0:8000
+
+
+
 
 ```
 config.json
@@ -117,7 +125,7 @@ config.json
   }
 }
 ```
-# 配置说明
+## 配置说明
 - mysql配置（忽略）
 - sqlmap配置
 1. SQLMAP_LIMIT_RUN，限制sqlmap跑的进程数
@@ -136,13 +144,12 @@ config.json
 2. git_address：网址列表
 3. GIT_PARM：模式2，json参数,例如{"giturl":[1,2,3,4]}
 - 禅道配置
-创建人ID
 1. OPENEDBY：创建人ID
 2. PRODUCT_ID：项目的ID
 3. EMAIL_RECEIVERS：接受禅道提醒的邮箱
 - 邮箱配置(忽略)
 
-# 模拟测试
+## 模拟测试
 下载gitlab
 ```
 docker run -d -p 4443:443 -p 8080:80 -p 2222:22  --name gitlab  --restart always  -v /srv/gitlab/config:/etc/gitlab   -v /srv/gitlab/logs:/var/log/gitlab      -v /srv/gitlab/data:/var/opt/gitlab  gitlab/gitlab-ce:latest
@@ -159,10 +166,22 @@ docker run --name zentao -d  --restart always   -v /srv/zentao/zbox:/opt/zbox  -
 ```
 docker run --name svn -d --restart always  -v /srv/SVNRepository:/var/opt/svn  -p 3690:3690  garethflowers/svn-server
 ```
+### 仪表盘
+各种图表展示，待完善
+
+### 代码审计系统
+我设计是分四种场景
+- 第一种是针对于单个gitlab(github)项目进行扫描审计，只需要输入项目地址，有账号和密码就输入账号和密码。
+- 第二种是针对于多个gitlab(github)项目进行扫描审计，有两种扫描选择，一种是选择本地列表，另外一种就是选择接口。
+- 第三种是针对svn项目进行扫描审计（不过我几乎没用svn，就没怎么管）
+- 第四种是针对压缩包上传进行扫描审计。
+
+![扫描界面](readmepic/1.jpg)
+可以看到扫描状态和扫描的类型
+![](readmepic/2.jpg)
 
 
-
-# 功能模块
+## 功能模块
 - 代码审计系统
 1. 单独git扫描
 2. 接口扫描

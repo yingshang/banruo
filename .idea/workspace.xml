@@ -49,8 +49,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="66">
-                <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+              <first_editor relative-caret-position="443">
+                <caret line="181" lean-forward="true" selection-start-line="181" selection-end-line="181" />
               </first_editor>
               <second_editor />
             </state>
@@ -228,7 +228,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="476" />
+    <option name="x" value="475" />
     <option name="y" value="50" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
@@ -240,7 +240,25 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="banruo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="banruo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="banruo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="banruo" type="462c0819:PsiDirectoryNode" />
+              <item name="readmepic" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -312,18 +330,18 @@
       <option name="presentableId" value="Default" />
       <updated>1526953915057</updated>
       <workItem from="1575277823385" duration="2026000" />
-      <workItem from="1575282070937" duration="13987000" />
+      <workItem from="1575282070937" duration="15713000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16013000" />
+    <option name="totallyTimeSpent" value="17739000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.16873315" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16823056" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="manage.py@banruo" order="0" weight="0.32822084" />
@@ -620,8 +638,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="66">
-            <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+          <first_editor relative-caret-position="443">
+            <caret line="181" lean-forward="true" selection-start-line="181" selection-end-line="181" />
           </first_editor>
           <second_editor />
         </state>
