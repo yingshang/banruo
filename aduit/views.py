@@ -26,7 +26,6 @@ def base(request):
 def save_setting(request):
     fortify_path = request.POST.get("fortify_path")
     report_path = request.POST.get("report_path")
-    print(report_path)
     try:
         setting.objects.create(key="fortify_path",value=fortify_path)
     except:
@@ -43,7 +42,6 @@ def display_project(request):
         page = int(request.GET.get("page")) or 1
     except:
         page = 1
-    print(page)
     try:
         limit = int(request.GET.get("limit")) or 10
     except:
@@ -126,7 +124,6 @@ def list(request):
 def detail(request):
     id = request.POST.get('id')
     vid = request.POST.get('vid')
-    print(vul_info.objects.filter(proj_id=id))
     code = vul_info.objects.filter(proj_id=id).get(vid=vid).full_code
     extend = vul_info.objects.filter(proj_id=id).get(vid=vid).extend
     return JsonResponse({

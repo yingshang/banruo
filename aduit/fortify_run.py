@@ -1,4 +1,3 @@
-# coding: utf-8
 import subprocess, os
 from xml.dom.minidom import parse
 import xml.dom.minidom
@@ -15,6 +14,7 @@ from banruo.config import *
 
 # 对fortify的XML文件进行解析
 def report_xml(filename, source_path, name, token):
+
     DOMTree = xml.dom.minidom.parse(filename)
     Data = DOMTree.documentElement
     ReportSections3 = Data.getElementsByTagName("ReportSection")[2]
@@ -33,9 +33,13 @@ def report_xml(filename, source_path, name, token):
             FilePath = GroupingSection.getElementsByTagName("FilePath")[i].childNodes[0].nodeValue  # 文件路径
             LineStart = GroupingSection.getElementsByTagName("LineStart")[i].childNodes[0].nodeValue  # 影响行
             Snippet = GroupingSection.getElementsByTagName("Snippet")[i].childNodes[0].nodeValue  # 影响代码
+
             path = source_path + '/' + FilePath
+
+
             with codecs.open(path, "r", encoding='utf-8', errors='ignore') as f:
                 full_code = f.read()
+
             vul_info.objects.update_or_create(
                 vid=num,
                 title=groupTitle,
@@ -123,5 +127,3 @@ def push(gitaddress='', svnaddress='', name='', type=1, svnaccount='', svnpwd=''
                 'svn checkout ' + svnaddress + ' --username ' + svnaccount + ' --password ' + svnpwd + ' --no-auth-cache ' + fortify_path + myfile,
                 shell=True)
     run(myfile, token)
-
-
