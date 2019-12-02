@@ -2,36 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8072d1bc-55b1-42be-8ec2-860d2d6ba1ba" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/root.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pentest/check_filter_data.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/aduit/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/migrations/0002_proj_info_status.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/migrations/0003_auto_20180620_0851.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/migrations/0004_chandao_data_hidden.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/migrations/0005_auto_20180626_0751.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/aduit/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/aduit/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banruo/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/banruo/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banruo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/banruo/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/migrations/0002_auto_20190508_1112.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/migrations/0003_auto_20190508_1121.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/migrations/0004_auto_20190508_1123.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/migrations/0005_inject_data_api_address.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/migrations/0006_auto_20190508_1343.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/migrations/0007_auto_20190509_0903.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/migrations/0008_auto_20190509_1516.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/migrations/0009_auto_20190509_1520.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/proxy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/config_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config_json.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/email.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pentest/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aduit/overview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/overview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base_settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aduit/settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pentest/proxy.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pentest/proxy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv1/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv1/pip-selfcheck.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +17,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/banruo$settings.coverage" NAME="settings Coverage Results" MODIFIED="1526957523426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/banruo" />
+    <SUITE FILE_PATH="coverage/banruo$config_json.coverage" NAME="config_json Coverage Results" MODIFIED="1575259359099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lib" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -69,21 +46,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pentest/auth.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="267" selection-start-line="267" selection-end-line="267" />
+            <state relative-caret-position="297">
+              <caret line="263" column="13" lean-forward="true" selection-start-line="263" selection-start-column="13" selection-end-line="263" selection-end-column="13" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pentest/injection.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1584">
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,9 +68,62 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pentest/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="205" column="14" selection-start-line="205" selection-start-column="14" selection-end-line="205" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/banruo/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/config_json.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="358">
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+              <folding>
+                <element signature="e#0#44#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="6" column="18" selection-start-line="6" selection-end-line="6" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/send_msg.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3385">
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1022">
+            <state relative-caret-position="590">
               <caret line="59" column="67" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="67" />
             </state>
           </provider>
@@ -115,22 +134,21 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="361">
               <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/banruo/urls.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/banruo/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+            <state relative-caret-position="231">
+              <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
               <folding>
-                <element signature="e#630#662#0" expanded="true" />
+                <element signature="n#!!block;n#PROXY#0;n#!!block;n#setting#0;n#!!top" />
+                <element signature="n#!!block;n#FORTIFY#0;n#!!block;n#setting#0;n#!!top" />
+                <element signature="n#!!block;n#GITLAB#0;n#!!block;n#setting#0;n#!!top" />
+                <element signature="n#!!block;n#CHANDAO#0;n#!!block;n#setting#0;n#!!top" />
+                <element signature="n#!!block;n#EMAIL#0;n#!!block;n#setting#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -178,13 +196,14 @@
         <option value="$PROJECT_DIR$/templates/pentest/check_filter_data.html" />
         <option value="$PROJECT_DIR$/pentest/url.py" />
         <option value="$PROJECT_DIR$/templates/pentest/proxy.html" />
-        <option value="$PROJECT_DIR$/pentest/views.py" />
-        <option value="$PROJECT_DIR$/banruo/config.json" />
         <option value="$PROJECT_DIR$/aduit/url.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/aduit/views.py" />
         <option value="$PROJECT_DIR$/templates/overview.html" />
         <option value="$PROJECT_DIR$/banruo/urls.py" />
+        <option value="$PROJECT_DIR$/pentest/views.py" />
+        <option value="$PROJECT_DIR$/banruo/config.json" />
+        <option value="$PROJECT_DIR$/lib/config_json.py" />
       </list>
     </option>
   </component>
@@ -212,7 +231,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Django Console" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -249,7 +268,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django server.banruo">
+  <component name="RunManager" selected="Python.config_json">
     <configuration name="1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="banruo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -294,6 +313,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="config_json" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="banruo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lib" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lib/config_json.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="injection" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="banruo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -308,28 +349,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pentest/injection.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="sqlmap-api" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="banruo" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pentest" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pentest/sqlmap-api.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -388,17 +407,17 @@
       <item itemvalue="Django server.banruo" />
       <item itemvalue="Python.1" />
       <item itemvalue="Python.injection" />
-      <item itemvalue="Python.sqlmap-api" />
       <item itemvalue="Python.th" />
       <item itemvalue="Python.auth" />
+      <item itemvalue="Python.config_json" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.config_json" />
         <item itemvalue="Python.auth" />
         <item itemvalue="Python.1" />
         <item itemvalue="Python.injection" />
         <item itemvalue="Python.th" />
-        <item itemvalue="Python.sqlmap-api" />
       </list>
     </recent_temporary>
   </component>
@@ -448,41 +467,18 @@
       <workItem from="1574651159149" duration="4183000" />
       <workItem from="1574694694228" duration="12000" />
       <workItem from="1575119153145" duration="225000" />
-      <workItem from="1575119513457" duration="9810000" />
+      <workItem from="1575119513457" duration="11233000" />
+      <workItem from="1575250306811" duration="3424000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14599000" />
+    <option name="totallyTimeSpent" value="19446000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2533512" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.3286119" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="manage.py@banruo" order="7" weight="0.3796034" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067025" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" />
-      <window_info anchor="bottom" id="Python Console" order="13" weight="0.6520509" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="SciView" order="4" />
-    </layout>
-    <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.2533512" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -505,7 +501,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="4" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -548,7 +544,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lib/config_json.py</url>
-          <line>37</line>
+          <line>46</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -564,16 +560,6 @@
     <SUITE FILE_PATH="coverage/banruo_dev$1.coverage" NAME="1 Coverage Results" MODIFIED="1557052272378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pentest/auth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="267" selection-start-line="267" selection-end-line="267" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pentest/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -618,23 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pentest/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="253" column="13" selection-start-line="253" selection-start-column="13" selection-end-line="253" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/banruo/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/aduit/settings.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1965" />
@@ -663,22 +632,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/overview.html">
+    <entry file="file://$PROJECT_DIR$/banruo/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+        <state relative-caret-position="792">
+          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#630#662#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
+    <entry file="file://$PROJECT_DIR$/pentest/sqlmap-api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1022">
-          <caret line="59" column="67" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="67" />
+        <state relative-caret-position="132">
+          <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pentest/injection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10281">
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pentest/auth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="263" column="13" lean-forward="true" selection-start-line="263" selection-start-column="13" selection-end-line="263" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/overview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -692,21 +688,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pentest/injection.py">
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1584">
+        <state relative-caret-position="590">
+          <caret line="59" column="67" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pentest/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="205" column="14" selection-start-line="205" selection-start-column="14" selection-end-line="205" selection-end-column="14" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/banruo/urls.py">
+    <entry file="file://$PROJECT_DIR$/banruo/config.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/banruo/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        <state relative-caret-position="198">
+          <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/banruo/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
           <folding>
-            <element signature="e#630#662#0" expanded="true" />
+            <element signature="n#!!block;n#PROXY#0;n#!!block;n#setting#0;n#!!top" />
+            <element signature="n#!!block;n#FORTIFY#0;n#!!block;n#setting#0;n#!!top" />
+            <element signature="n#!!block;n#GITLAB#0;n#!!block;n#setting#0;n#!!top" />
+            <element signature="n#!!block;n#CHANDAO#0;n#!!block;n#setting#0;n#!!top" />
+            <element signature="n#!!block;n#EMAIL#0;n#!!block;n#setting#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/smtplib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="6" column="18" selection-start-line="6" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/send_msg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3385">
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/config_json.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
           </folding>
         </state>
       </provider>

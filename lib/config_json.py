@@ -30,6 +30,15 @@ def load_config(parm):
     return record
 
 
+#MYSQL
+MYSQL_HOST = load_config("MYSQL_HOST")
+MYSQL_PORT = load_config("MYSQL_PORT")
+MYSQL_DATABASE = load_config("MYSQL_DATABASE")
+MYSQL_USER = load_config("MYSQL_USER")
+MYSQL_PASSWORD = load_config("MYSQL_PASSWORD")
+
+
+
 # SQLMAP
 SQLMAP_LIMIT_RUN = load_config('SQLMAP_LIMIT_RUN')
 SQLMAP_DBMS = load_config('SQLMAP_DBMS')
