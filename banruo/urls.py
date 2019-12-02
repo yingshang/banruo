@@ -16,14 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
-from pentest import views as pentest_views
-from aduit.views import index,base
+from aduit.views import base,overview
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',base),
-    path('index',index),
     path('aduit/',include('aduit.url')),
     path('pentest/',include('pentest.url')),
+    path('overview/',overview,name="overview"),
 
 
 

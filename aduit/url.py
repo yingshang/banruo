@@ -6,7 +6,6 @@ from .views import *
 urlpatterns = [
     path('projects/',display_project,name='aduit_display_project'),
     path('info',project_info,name='aduit_project_info'),
-    path('overview', overview,name='aduit_overview'),
     path('scan', scan,name='aduit_scan'),
     path('chandao',chandao,name='aduit_chandao'),
     path('filter_vul', filter_vul,name='aduit_filter_vul'),

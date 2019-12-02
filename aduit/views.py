@@ -23,11 +23,6 @@ from celery.decorators import task
 def base(request):
     return  render(request,"base.html",locals())
 
-def index(request):
-    return render(request,'index.html',locals())
-
-
-
 def save_setting(request):
     fortify_path = request.POST.get("fortify_path")
     report_path = request.POST.get("report_path")
@@ -262,8 +257,25 @@ def overview(request):
         critical_title = vul_info.objects.filter(time__range=(time1, time2)).filter(
             Q(risk='Critical') | Q(risk='High')).values('title').annotate(Count('title'))
     else:
-        pass
-    return render(request,"aduit/overview.html",locals())
+        dates = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        totals = []
+        Week = datetime.datetime.now().isoweekday()
+        time1 = datetime.date.today() - datetime.timedelta(days=Week - 1)
+        time2 = time1 + datetime.timedelta(days=6)
+        for i in range(Week):
+            day = datetime.date.today() - datetime.timedelta(days=Week - 2 - i)
+            day1 = datetime.date.today() - datetime.timedelta(days=Week - i - 1)
+            obj = proj_info.objects.filter(time__range=(day1, day))
+            if obj:
+                total = 0
+                for i in obj:
+                    total = total + int(i.total)
+                totals.append(total)
+            else:
+                totals.append(0)
+        critical_title = vul_info.objects.filter(time__range=(time1, time2)).filter(
+            Q(risk='Critical') | Q(risk='High')).values('title').annotate(Count('title'))
+    return render(request, "overview.html", locals())
 
 @csrf_exempt
 def scan(request):
@@ -302,7 +314,7 @@ def scan(request):
             name = myFile.name
             if not myFile:
                 return JsonResponse({"status":0,"msg":"上传失败!!!"})
-            elif myFile.name.split('.')[1] != 'zip':
+            elif myFile.name.split('.')[-1] != 'zip':
                 return JsonResponse({"status":2,"msg":"上传文件必须为ZIP!!!"})
             else:
                 destination = open(os.path.join("/data/fortify/", myFile.name), 'wb+')
@@ -353,7 +365,6 @@ def chandao(request):
         page = int(request.GET.get("page")) or 1
     except:
         page = 1
-    print(page)
     try:
         limit = int(request.GET.get("limit")) or 10
     except:

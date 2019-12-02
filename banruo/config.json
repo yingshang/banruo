@@ -1,0 +1,79 @@
+{
+  "setting": {
+    "MYSQL": {
+      "MYSQL_HOST": "127.0.0.1",
+      "MYSQL_PORT": "3306",
+      "MYSQL_DATABASE": "banruo",
+      "MYSQL_USER": "root",
+      "MYSQL_PASSWORD": "123456"
+    },
+    "SQLMAP": {
+      "SQLMAP_LIMIT_RUN": 15,
+      "SQLMAP_DBMS": "",
+      "SQLMAP_REQUESTFILE_PATH": "/opt/taskid/",
+      "SQLMAP_VERBOSE": 1,
+      "SQLMAP_PROXY": "",
+      "SQLMAP_LEVEL": 5,
+      "SQLMAP_RISK": 3,
+      "SQLMAP_THREADS": 1,
+      "SQLMAP_PARMEXCLUDE": "Host,User-Agent,Accept-Language,Referer,Cookie",
+      "SQLMAP_PROXYFILE": "",
+      "SQLMAP_RETRIES": 5,
+      "SQLMAP_API_SERVER": [
+        "http://127.0.0.1:55000",
+        "http://127.0.0.1:55001",
+        "http://127.0.0.1:55002",
+        "http://127.0.0.1:55003"
+      ]
+    },
+    "PROXY": {
+      "PROXY_LISTEN_HOST": "0.0.0.0",
+      "PROXY_LISTEN_PORT": 9999,
+      "PROXY_LISTEN_MODE": "regular",
+      "EXCLUDE_STATIC_FILE": [
+        ".js",
+        ".txt",
+        ".mp3",
+        ".css",
+        ".jpg",
+        ".png",
+        ".gif",
+        ".woff",
+        ".ico",
+        ".pdf",
+        ".mp4"
+      ]
+    },
+    "FORTIFY": {
+      "fortify_path": "/data/fortify/",
+      "report_path": "/data/fortify/report/",
+      "filter_title": [
+        "Injection",
+        "Cross-Site Scripting"
+      ]
+    },
+    "GITLAB": {
+      "git_username": "admin@example.com",
+      "git_password": "abc123456",
+      "git_api_choice": 1,
+      "git_address": []
+    },
+    "CHANDAO": {
+      "OPENEDBY": 1,
+      "PRODUCT_ID": 1,
+      "CHAODAO_MYSQL_HOST": "192.168.1.210",
+      "CHAODAO_MYSQL_USER": "root",
+      "CHAODAO_MYSQL_PASSWORD": "123456",
+      "CHAODAO_MYSQL_DATABASE": "zendao",
+      "CHAODAO_MYSQL_PORT": 3306,
+      "EMAIL_RECEIVERS": [
+        "xxx@163.com"
+      ]
+    },
+    "EMAIL": {
+      "MAIL_HOST": "smtp.163.com",
+      "MAIL_USER": "w@163.com",
+      "MAIL_PASSWORD": ""
+    }
+  }
+}
