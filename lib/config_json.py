@@ -72,3 +72,11 @@ EMAIL_RECEIVERS = load_config('EMAIL_RECEIVERS')
 MAIL_HOST = load_config('MAIL_HOST')
 MAIL_USER = load_config('MAIL_USER')
 MAIL_PASSWORD = load_config('MAIL_PASSWORD')
+
+#GIT
+GIT_PATH = load_config('GIT_PATH')
+GIT_USERNAME = load_config('GIT_USERNAME')
+GIT_PASSWORD = load_config('GIT_PASSWORD')
+GIT_API_CHOICE = load_config('GIT_API_CHOICE')
+GIT_ADDRESS = load_config('GIT_ADDRESS')
+GIT_PARM = load_config("GIT_PARM")

@@ -9,8 +9,7 @@ from celery.decorators import task
 # from celery.task.schedules import crontab
 # from celery.decorators import periodic_task
 import requests
-from banruo.config import *
-
+from lib.config_json import *
 
 # 对fortify的XML文件进行解析
 def report_xml(filename, source_path, name, token):
@@ -36,9 +35,12 @@ def report_xml(filename, source_path, name, token):
 
             path = source_path + '/' + FilePath
 
-
-            with codecs.open(path, "r", encoding='utf-8', errors='ignore') as f:
-                full_code = f.read()
+            try:
+                f = open(path,"r")
+                full_code  = f.read()
+                f.close()
+            except FileNotFoundError:
+                full_code = "文件可能不在这一层目录，可能在上一层"
 
             vul_info.objects.update_or_create(
                 vid=num,
@@ -79,24 +81,24 @@ def run(myfile, token):
 @task
 def git_api():
     list = []
-    username = git_username.replace("@", "%40")
-    if git_api_choice == 1:
-        f = open(git_filepath)
+    username = GIT_USERNAME.replace("@", "%40")
+    if GIT_API_CHOICE == 1:
+        f = open(GIT_PATH)
         for i in f.readlines():
             if "http://" in i:
-                push.delay(gitaddress=i.replace('http://', 'http://' + username + ':' + git_password + '@'), type=1)
+                push.delay(gitaddress=i.replace('http://', 'http://' + username + ':' + GIT_PASSWORD + '@'), type=1)
             else:
-                push.delay(gitaddress=i.replace('https://', 'https://' + username + ':' + git_password + '@'), type=1)
+                push.delay(gitaddress=i.replace('https://', 'https://' + username + ':' + GIT_PASSWORD + '@'), type=1)
     else:
-        r = requests.get(git_api_adress)
-        git_list = r.json()[parm]
+        r = requests.get(GIT_ADDRESS)
+        git_list = r.json()[GIT_PARM]
         #        exclude_list = ['http://test.com/1111.git', ]  # 排除的链接
         for i in git_list:
             #           if any(t == i for t in exclude_list) == False:
             if "http://" in i:
-                push.delay(gitaddress=i.replace('http://', 'http://' + username + ':' + git_password + '@'), type=1)
+                push.delay(gitaddress=i.replace('http://', 'http://' + username + ':' + GIT_PASSWORD + '@'), type=1)
             else:
-                push.delay(gitaddress=i.replace('https://', 'https://' + username + ':' + git_password + '@'), type=1)
+                push.delay(gitaddress=i.replace('https://', 'https://' + username + ':' + GIT_PASSWORD + '@'), type=1)
 
 
 @task

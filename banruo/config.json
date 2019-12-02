@@ -53,10 +53,12 @@
       ]
     },
     "GITLAB": {
-      "git_username": "admin@example.com",
-      "git_password": "abc123456",
-      "git_api_choice": 1,
-      "git_address": []
+      "GIT_PATH": "/opt/git-list",
+      "GIT_USERNAME": "admin@example.com",
+      "GIT_PASSWORD": "abc123456",
+      "GIT_API_CHOICE": 1,
+      "GIT_ADDRESS": [],
+      "GIT_PARM": "giturl"
     },
     "CHANDAO": {
       "OPENEDBY": 1,
