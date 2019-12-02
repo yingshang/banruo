@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8072d1bc-55b1-42be-8ec2-860d2d6ba1ba" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banruo/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/banruo/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/config_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config_json.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/email.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv1/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv1/pip-selfcheck.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banruo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/banruo/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +65,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pentest/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
+            <state relative-caret-position="1221">
               <caret line="205" column="14" selection-start-line="205" selection-start-column="14" selection-end-line="205" selection-end-column="14" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
@@ -79,16 +74,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/banruo/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
+            <state relative-caret-position="358">
+              <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
+              <folding>
+                <element signature="e#306#324#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/config_json.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="358">
@@ -101,54 +99,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="6" column="18" selection-start-line="6" selection-end-line="6" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/send_msg.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-3385">
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="59" column="67" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/overview.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/banruo/config.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-              <folding>
-                <element signature="n#!!block;n#PROXY#0;n#!!block;n#setting#0;n#!!top" />
-                <element signature="n#!!block;n#FORTIFY#0;n#!!block;n#setting#0;n#!!top" />
-                <element signature="n#!!block;n#GITLAB#0;n#!!block;n#setting#0;n#!!top" />
-                <element signature="n#!!block;n#CHANDAO#0;n#!!block;n#setting#0;n#!!top" />
-                <element signature="n#!!block;n#EMAIL#0;n#!!block;n#setting#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -204,6 +159,7 @@
         <option value="$PROJECT_DIR$/pentest/views.py" />
         <option value="$PROJECT_DIR$/banruo/config.json" />
         <option value="$PROJECT_DIR$/lib/config_json.py" />
+        <option value="$PROJECT_DIR$/banruo/settings.py" />
       </list>
     </option>
   </component>
@@ -468,12 +424,12 @@
       <workItem from="1574694694228" duration="12000" />
       <workItem from="1575119153145" duration="225000" />
       <workItem from="1575119513457" duration="11233000" />
-      <workItem from="1575250306811" duration="3424000" />
+      <workItem from="1575250306811" duration="4160000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19446000" />
+    <option name="totallyTimeSpent" value="20182000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -695,25 +651,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pentest/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="205" column="14" selection-start-line="205" selection-start-column="14" selection-end-line="205" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/banruo/config.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/banruo/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/banruo/config.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -752,12 +691,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pentest/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1221">
+          <caret line="205" column="14" selection-start-line="205" selection-start-column="14" selection-end-line="205" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/config_json.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
           <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/banruo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
+          <folding>
+            <element signature="e#306#324#0" expanded="true" />
           </folding>
         </state>
       </provider>
