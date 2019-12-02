@@ -1,0 +1,9 @@
+README
+setup.cfg
+setup.py
+celery_with_redis.egg-info/PKG-INFO
+celery_with_redis.egg-info/SOURCES.txt
+celery_with_redis.egg-info/dependency_links.txt
+celery_with_redis.egg-info/not-zip-safe
+celery_with_redis.egg-info/requires.txt
+celery_with_redis.egg-info/top_level.txt

@@ -1,0 +1,55 @@
+{% extends "frame.html" %}
+{% block body %}
+
+<center>
+<h2> Click to install the mitmproxy certificate: </h2>
+</center>
+<div id="certbank" class="row">
+    <div class="col-md-3">
+        <a href="/cert/pem"><i class="fa fa-apple fa-5x"></i></a>
+        <p>Apple</p>
+    </div>
+    <div class="col-md-3">
+        <a href="/cert/p12"><i class="fa fa-windows fa-5x"></i></a>
+        <p>Windows</p>
+    </div>
+    <div class="col-md-3">
+        <a href="/cert/pem"><i class="fa fa-android fa-5x"></i></a>
+        <p>Android</p>
+    </div>
+    <div class="col-md-3">
+        <a href="/cert/pem"><i class="fa fa-asterisk fa-5x"></i></a>
+        <p>Other</p>
+    </div>
+</div>
+
+<hr/>
+
+<div class="text-left">
+  <h3>Apple: How to install on macOS / OSX</h3>
+  <ul>
+    <li>Download PEM file (from above link)</li>
+    <li>Double-click the PEM file</li>
+    <li>The "Keychain Access" applications opens</li>
+    <li>Find the new certificate "mitmproxy" in the list</li>
+    <li>Double-click the "mitmproxy" entry</li>
+    <li>A dialog window openes up</li>
+    <li>Change "Secure Socket Layer (SSL)" to "Always Trust"</li>
+    <li>Close the dialog window (and enter your password if prompted)</li>
+    <li>Done!</li>
+  </ul>
+</div>
+
+
+
+<hr/>
+
+<div class="text-center">
+    Other mitmproxy users cannot intercept your connection.
+</div>
+<div class="text-center text-muted">
+    This page is served by your local mitmproxy instance. The certificate you are about to install has been uniquely generated on mitmproxy's first run and is not shared
+    between mitmproxy installations.
+</div>
+
+{% end %}

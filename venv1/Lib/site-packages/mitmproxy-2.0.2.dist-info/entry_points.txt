@@ -1,0 +1,7 @@
+[console_scripts]
+mitmdump = mitmproxy.tools.main:mitmdump
+mitmproxy = mitmproxy.tools.main:mitmproxy
+mitmweb = mitmproxy.tools.main:mitmweb
+pathoc = pathod.pathoc_cmdline:go_pathoc
+pathod = pathod.pathod_cmdline:go_pathod
+
