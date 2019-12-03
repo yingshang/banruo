@@ -177,8 +177,22 @@ docker run --name svn -d --restart always  -v /srv/SVNRepository:/var/opt/svn  -
 - 第四种是针对压缩包上传进行扫描审计。
 
 ![扫描界面](readmepic/1.jpg)
-可以看到扫描状态和扫描的类型
+可以看到扫描状态和扫描的类型,漏洞数目
 ![](readmepic/2.jpg)
+![](readmepic/3.jpg)
+点击查看详情就可以看到统计图和漏洞细节
+![](readmepic/4.jpg)
+![](readmepic/5.jpg)
+这里面有个风险等级过滤和漏洞标题过滤
+![](readmepic/6.jpg)
+**下面还有一个已知的问题，就是fortify构建之后，生成的报告目录有问题**
+有兴趣的人可以试试，用bwapp，https://github.com/raesene/bWAPP
+它的源码不在第一层目录下，而是在app目录下，这样会导致最后生成的源码的位置是/opt/data/fortify/bWAPP/test.php,而不是/opt/data/fortify/bWAPP/app/test.php。为什么不解决？因为报告是fortify生成的，假如有两个同名的文件，你怎么知道它是那个目录的？不过最后那边也有路径，所以也无关紧要的
+一般情况下，不会出现这种情况的。
+![](readmepic/7.jpg)
+![](readmepic/8.jpg)
+![](readmepic/9.jpg)
+
 
 
 ## 功能模块
