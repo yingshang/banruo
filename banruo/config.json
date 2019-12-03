@@ -1,7 +1,7 @@
 {
   "setting": {
     "MYSQL": {
-      "MYSQL_HOST": "127.0.0.1",
+      "MYSQL_HOST": "192.168.17.131",
       "MYSQL_PORT": "3306",
       "MYSQL_DATABASE": "banruo",
       "MYSQL_USER": "root",
@@ -57,16 +57,16 @@
       "GIT_USERNAME": "admin@example.com",
       "GIT_PASSWORD": "abc123456",
       "GIT_API_CHOICE": 1,
-      "GIT_ADDRESS": [],
+      "GIT_ADDRESS": "http://test.com/api.json",
       "GIT_PARM": "giturl"
     },
     "CHANDAO": {
       "OPENEDBY": 1,
       "PRODUCT_ID": 1,
-      "CHAODAO_MYSQL_HOST": "192.168.1.210",
+      "CHAODAO_MYSQL_HOST": "192.168.17.131",
       "CHAODAO_MYSQL_USER": "root",
       "CHAODAO_MYSQL_PASSWORD": "123456",
-      "CHAODAO_MYSQL_DATABASE": "zendao",
+      "CHAODAO_MYSQL_DATABASE": "zentao",
       "CHAODAO_MYSQL_PORT": 3306,
       "EMAIL_RECEIVERS": [
         "xxx@163.com"

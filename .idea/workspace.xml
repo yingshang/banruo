@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/aduit/views.py" line="369" />
+    <bookmark url="file://$PROJECT_DIR$/aduit/views.py" line="385" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8072d1bc-55b1-42be-8ec2-860d2d6ba1ba" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aduit/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/aduit/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banruo/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/banruo/config.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,22 +27,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/aduit/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9900">
-              <caret line="300" column="17" selection-start-line="300" selection-start-column="17" selection-end-line="300" selection-end-column="17" />
+            <state relative-caret-position="33">
+              <caret line="488" column="53" selection-start-line="488" selection-start-column="53" selection-end-line="488" selection-end-column="53" />
               <folding>
-                <element signature="e#16#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/aduit/fortify_run.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="31" column="69" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="69" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#16649#17541#0" />
               </folding>
             </state>
           </provider>
@@ -50,8 +41,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="424">
-                <caret line="190" column="16" selection-start-line="190" selection-start-column="16" selection-end-line="190" selection-end-column="16" />
+              <first_editor relative-caret-position="216">
+                <caret line="246" column="16" selection-start-line="246" selection-start-column="16" selection-end-line="246" selection-end-column="16" />
               </first_editor>
               <second_editor />
             </state>
@@ -59,39 +50,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/banruo/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="34" column="21" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4521">
-              <caret line="137" column="19" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/aduit/url.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/banruo/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3102">
+            <state relative-caret-position="194">
               <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
               <folding>
                 <element signature="e#307#316#0" expanded="true" />
@@ -103,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/banruo/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2442">
-              <caret line="74" column="10" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="10" />
+            <state relative-caret-position="165">
+              <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -112,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/config_json.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2673">
-              <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+            <state relative-caret-position="590">
+              <caret line="67" column="18" selection-start-line="67" selection-end-line="67" selection-end-column="18" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
@@ -136,18 +97,14 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>chan</find>
-      <find>filter(</find>
       <find>title</find>
       <find>proj_del</find>
       <find>scan</find>
       <find>delAll</find>
       <find>disp</find>
-      <find>product</find>
       <find>send_chandao</find>
       <find>project</find>
       <find>filter_vul</find>
-      <find>chandao</find>
       <find>sreach</find>
       <find>dis</find>
       <find>restart</find>
@@ -166,6 +123,10 @@
       <find>fa</find>
       <find>git</find>
       <find>report_xml</find>
+      <find>chandao</find>
+      <find>gitaddress</find>
+      <find>product</find>
+      <find>active</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -220,10 +181,10 @@
         <option value="$PROJECT_DIR$/templates/aduit/settings.html" />
         <option value="$PROJECT_DIR$/templates/aduit/overview.html" />
         <option value="$PROJECT_DIR$/venv1/Lib/site-packages/mitmproxy/tools/web/templates/index.html" />
-        <option value="$PROJECT_DIR$/aduit/views.py" />
         <option value="$PROJECT_DIR$/lib/config_json.py" />
-        <option value="$PROJECT_DIR$/banruo/config.json" />
         <option value="$PROJECT_DIR$/aduit/fortify_run.py" />
+        <option value="$PROJECT_DIR$/banruo/config.json" />
+        <option value="$PROJECT_DIR$/aduit/views.py" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -242,7 +203,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,6 +219,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -334,24 +295,25 @@
       <workItem from="1575282070937" duration="15713000" />
       <workItem from="1575303029961" duration="1075000" />
       <workItem from="1575337065991" duration="331000" />
-      <workItem from="1575337721468" duration="781000" />
+      <workItem from="1575337721468" duration="5106000" />
+      <workItem from="1575346297849" duration="6220000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19926000" />
+    <option name="totallyTimeSpent" value="30471000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17426273" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.17426273" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="manage.py@banruo" order="0" weight="0.32822084" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32924336" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.3186969" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.5708215" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -369,19 +331,19 @@
       <window_info anchor="right" id="SciView" order="4" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.16873315" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.17426273" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="manage.py@banruo" order="0" weight="0.32822084" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32924336" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.3186969" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.5708215" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5018868" side_tool="true" weight="0.44759208" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="9" sideWeight="0.49811321" visible="true" weight="0.5042493" />
+      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49811321" weight="0.5042493" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32924336" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" />
@@ -568,20 +530,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aduit/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9900">
-          <caret line="300" column="17" selection-start-line="300" selection-start-column="17" selection-end-line="300" selection-end-column="17" />
-          <folding>
-            <element signature="e#16#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/banruo/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="21" />
+        <state relative-caret-position="858">
+          <caret line="26" column="14" selection-start-line="26" selection-end-line="26" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -594,7 +546,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/aduit/url.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
+        <state relative-caret-position="429">
           <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -604,7 +556,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/banruo/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3102">
+        <state relative-caret-position="194">
           <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
           <folding>
             <element signature="e#307#316#0" expanded="true" />
@@ -612,29 +564,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/banruo/config.json">
+    <entry file="file://$PROJECT_DIR$/aduit/fortify_run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2442">
-          <caret line="74" column="10" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="10" />
+        <state relative-caret-position="1382">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/config_json.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2673">
-          <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+        <state relative-caret-position="590">
+          <caret line="67" column="18" selection-start-line="67" selection-end-line="67" selection-end-column="18" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aduit/fortify_run.py">
+    <entry file="file://$PROJECT_DIR$/banruo/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="31" column="69" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="69" />
+        <state relative-caret-position="165">
+          <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aduit/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="488" column="53" selection-start-line="488" selection-start-column="53" selection-end-line="488" selection-end-column="53" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#16649#17541#0" />
           </folding>
         </state>
       </provider>
@@ -642,8 +605,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="424">
-            <caret line="190" column="16" selection-start-line="190" selection-start-column="16" selection-end-line="190" selection-end-column="16" />
+          <first_editor relative-caret-position="216">
+            <caret line="246" column="16" selection-start-line="246" selection-start-column="16" selection-end-line="246" selection-end-column="16" />
           </first_editor>
           <second_editor />
         </state>

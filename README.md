@@ -102,9 +102,9 @@ config.json
       "GIT_USERNAME": "admin@example.com",
       "GIT_PASSWORD": "abc123456",
       "GIT_API_CHOICE": 1,
-      "GIT_ADDRESS": [],
+      "GIT_ADDRESS": "http://test.com/api.json",
       "GIT_PARM": "giturl"
-    },
+    }
     "CHANDAO": {
       "OPENEDBY": 1,
       "PRODUCT_ID": 1,
@@ -141,8 +141,9 @@ config.json
 3. filter_title：过滤高危的漏洞，比如sql注入，xss
 - gitlab配置
 1. git_api_choice：有两种选择，1，本地文件，里面都写了要扫描的github地址（推荐）; 2,接口模式，请求网站获取扫描地址。
-2. git_address：网址列表
-3. GIT_PARM：模式2，json参数,例如{"giturl":[1,2,3,4]}
+2. git_address：项目地址列表
+3. GIT_ADDRESS:模式2，接口地址
+4. GIT_PARM：模式2，json参数,例如{"giturl":[1,2,3,4]}
 - 禅道配置
 1. OPENEDBY：创建人ID
 2. PRODUCT_ID：项目的ID
@@ -153,12 +154,11 @@ config.json
 下载gitlab
 ```
 docker run -d -p 4443:443 -p 8080:80 -p 2222:22  --name gitlab  --restart always  -v /srv/gitlab/config:/etc/gitlab   -v /srv/gitlab/logs:/var/log/gitlab      -v /srv/gitlab/data:/var/opt/gitlab  gitlab/gitlab-ce:latest
-
 ```
 下载禅道系统
 
 ```
-docker run --name zentao -d  --restart always   -v /srv/zentao/zbox:/opt/zbox  -p 8088:80  haha123/zentao
+docker run -it -p 8888:80 zhuang1125/zendao:11.6.4
 ```
 
 下载svn
@@ -186,6 +186,7 @@ docker run --name svn -d --restart always  -v /srv/SVNRepository:/var/opt/svn  -
 这里面有个风险等级过滤和漏洞标题过滤
 ![](readmepic/6.jpg)
 **下面还有一个已知的问题，就是fortify构建之后，生成的报告目录有问题**
+
 有兴趣的人可以试试，用bwapp，https://github.com/raesene/bWAPP
 它的源码不在第一层目录下，而是在app目录下，这样会导致最后生成的源码的位置是/opt/data/fortify/bWAPP/test.php,而不是/opt/data/fortify/bWAPP/app/test.php。为什么不解决？因为报告是fortify生成的，假如有两个同名的文件，你怎么知道它是那个目录的？不过最后那边也有路径，所以也无关紧要的
 一般情况下，不会出现这种情况的。
@@ -193,7 +194,73 @@ docker run --name svn -d --restart always  -v /srv/SVNRepository:/var/opt/svn  -
 ![](readmepic/8.jpg)
 ![](readmepic/9.jpg)
 
+**运行gitlab系统**
+进去之后初始化密码，用户是root。
+创建一个项目dvwa，往里面导入源码
+![](readmepic/10.jpg)
+**使用本地文件扫描**
+```angular2
+[root@1c4e68368d53 banruo]# touch /opt/git-list
+[root@1c4e68368d53 banruo]# vim /opt/git-list
+[root@1c4e68368d53 banruo]# cat /opt/git-list 
+http://192.168.17.131:8080/root/dvwa.git
+```
+配置文件
+```angular2
+"GITLAB": {
+      "GIT_PATH": "/opt/git-list",
+      "GIT_USERNAME": "root",
+      "GIT_PASSWORD": "aA123456",
+      "GIT_API_CHOICE": 1,
+      "GIT_ADDRESS": "http://test.com/api.json",
+      "GIT_PARM": "giturl"
+    }
+```
 
+**接口模式扫描**
+配置文件
+```angular2
+"GITLAB": {
+      "GIT_PATH": "/opt/git-list",
+      "GIT_USERNAME": "root",
+      "GIT_PASSWORD": "aA123456",
+      "GIT_API_CHOICE": 2,
+      "GIT_ADDRESS": "http://test.com/api.json",
+      "GIT_PARM": "giturl"
+    }
+```
+api.json
+```angular2
+{"giturl":["http://github.com/dvwa.git"]}
+```
+
+**运行禅道系统**
+```angular2
+https://LOCALHOST_IP:8088    default user/passwd: admin/123456
+```
+进入到禅道系统之后，新建一个产品叫安全审计，在项目添加对应的git的项目，添加负责人，可以用一个excel表导入数据库
+![](readmepic/11.jpg)
+数据库的配置
+![](readmepic/12.jpg)
+![](readmepic/13.jpg)
+将漏洞发送到禅道上面，有个隐藏漏洞功能，就是将漏洞不发送到禅道上面。这里面有个问题，需要在禅道上面有这个项目，比如dvwa这样。
+![](readmepic/14.jpg)
+
+配置文件
+```angular2
+"CHANDAO": {
+      "OPENEDBY": 1,
+      "PRODUCT_ID": 1,
+      "CHAODAO_MYSQL_HOST": "192.168.17.131",
+      "CHAODAO_MYSQL_USER": "root",
+      "CHAODAO_MYSQL_PASSWORD": "123456",
+      "CHAODAO_MYSQL_DATABASE": "zendao",
+      "CHAODAO_MYSQL_PORT": 3306,
+      "EMAIL_RECEIVERS": [
+        "xxx@163.com"
+      ]
+    }
+```
 
 ## 功能模块
 - 代码审计系统
