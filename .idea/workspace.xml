@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8072d1bc-55b1-42be-8ec2-860d2d6ba1ba" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/aduit/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banruo/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/banruo/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/config_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config_json.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/email.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/send_msg.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/send_msg.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,8 +50,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="363">
-                <caret line="262" column="6" selection-start-line="262" selection-start-column="6" selection-end-line="262" selection-end-column="6" />
+              <first_editor relative-caret-position="348">
+                <caret line="321" column="10" selection-start-line="321" selection-start-column="10" selection-end-line="321" selection-end-column="10" />
               </first_editor>
               <second_editor />
             </state>
@@ -79,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/banruo/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="70" column="54" lean-forward="true" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="54" />
+            <state relative-caret-position="594">
+              <caret line="45" column="6" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="45" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -311,24 +305,24 @@
       <workItem from="1575303029961" duration="1075000" />
       <workItem from="1575337065991" duration="331000" />
       <workItem from="1575337721468" duration="5106000" />
-      <workItem from="1575346297849" duration="8448000" />
+      <workItem from="1575346297849" duration="11533000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32699000" />
+    <option name="totallyTimeSpent" value="35784000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17426273" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17426273" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="manage.py@banruo" order="0" weight="0.32822084" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.5708215" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.2719547" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -350,7 +344,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/pentest/display_filter_data.html" />
     <entry file="file://$PROJECT_DIR$/templates/pentest/display_proxy_data.html" />
     <entry file="file://$PROJECT_DIR$/templates/pentest/injection.html" />
     <entry file="file://$PROJECT_DIR$/templates/foot_js.html" />
@@ -606,16 +599,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/banruo/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="70" column="54" lean-forward="true" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="54" />
+        <state relative-caret-position="594">
+          <caret line="45" column="6" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="45" selection-end-column="6" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readmepic/17.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="363">
-            <caret line="262" column="6" selection-start-line="262" selection-start-column="6" selection-end-line="262" selection-end-column="6" />
+          <first_editor relative-caret-position="348">
+            <caret line="321" column="10" selection-start-line="321" selection-start-column="10" selection-end-line="321" selection-end-column="10" />
           </first_editor>
           <second_editor />
         </state>

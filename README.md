@@ -1,6 +1,10 @@
 # 般若安全中心
 
 **般若的正确读音是bore，项目名就不改啊**
+## 文章
+
+https://www.freebuf.com/sectool/176414.html
+
 ## 安装教程
 **该系统环境是python3.6运行的，3.7会显示错误。**
 
@@ -198,7 +202,9 @@ docker run --name svn -d --restart always  -v /srv/SVNRepository:/var/opt/svn  -
 进去之后初始化密码，用户是root。
 创建一个项目dvwa，往里面导入源码
 ![](readmepic/10.jpg)
+
 **使用本地文件扫描**
+
 ```angular2
 [root@1c4e68368d53 banruo]# touch /opt/git-list
 [root@1c4e68368d53 banruo]# vim /opt/git-list
@@ -218,6 +224,7 @@ http://192.168.17.131:8080/root/dvwa.git
 ```
 
 **接口模式扫描**
+
 配置文件
 ```angular2
 "GITLAB": {
@@ -235,21 +242,30 @@ api.json
 ```
 
 **运行禅道系统**
+
 ```angular2
 https://LOCALHOST_IP:8088    default user/passwd: admin/123456
 ```
 进入到禅道系统之后，新建一个产品叫安全审计，在项目添加对应的git的项目，添加负责人，可以用一个excel表导入数据库
+
 ![](readmepic/11.jpg)
+
 数据库的配置
+
 ![](readmepic/12.jpg)
 ![](readmepic/13.jpg)
+
 将漏洞发送到禅道上面，有个隐藏漏洞功能，就是将漏洞不发送到禅道上面。这里面有个问题，需要在禅道上面有这个项目，比如dvwa这样。
+
 ![](readmepic/14.jpg)
 ![](readmepic/15.jpg)
+
 邮件发送功能可以设置定时计划进行发送，提醒开发继续修复漏洞。
+
 ![](readmepic/16.jpg)
 
 配置文件
+
 ```
 
 "CHANDAO": {
@@ -266,6 +282,38 @@ https://LOCALHOST_IP:8088    default user/passwd: admin/123456
       ]
     }
 ```
+
+### 渗透测试系统
+①代理抓包
+基于mitmproxy==2.0.2，无法用更高级，因为它变成了插件模式。
+配置文件,这样的配置，我将监听0.0.0.0：9999,使用的模式是正常的代理模式，还有几种模式跟渗透无关，就没不用了。
+
+```
+"PROXY": {
+      "PROXY_LISTEN_HOST": "0.0.0.0",
+      "PROXY_LISTEN_PORT": 9999,
+      "PROXY_LISTEN_MODE": "regular",
+      "EXCLUDE_STATIC_FILE": [
+        ".js",
+        ".txt",
+        ".mp3",
+        ".css",
+        ".jpg",
+        ".png",
+        ".gif",
+        ".woff",
+        ".ico",
+        ".pdf",
+        ".mp4"
+      ]
+    },
+
+```
+
+进去之后，在代理栏点击开始监听按钮
+![](readmepic/17.jpg)
+
+
 
 ## 功能模块
 - 代码审计系统
