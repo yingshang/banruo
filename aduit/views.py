@@ -460,8 +460,8 @@ def send_chandao(request):
                 </span><span style="color:#E53333;">漏洞修复方式：</span></b><p><br></p><p>
                 <pre>%s</pre></p><p><br></p>
                 ''' % (i.md5, i.Abstract, i.FileName, i.FilePath, i.LineStart, i.describe, i.Recommendation)
-                conn = pymysql.connect(host=CHAODAO_MYSQL_HOST, user=CHAODAO_MYSQL_USER, passwd=CHAODAO_MYSQL_PASSWORD, db=CHAODAO_MYSQL_DATABASE,
-                                       port=int(CHAODAO_MYSQL_PORT), charset="utf8")
+                conn = pymysql.connect(host=CHANDAO_MYSQL_HOST, user=CHANDAO_MYSQL_USER, passwd=CHANDAO_MYSQL_PASSWORD, db=CHANDAO_MYSQL_DATABASE,
+                                       port=int(CHANDAO_MYSQL_PORT), charset="utf8")
                 cursor = conn.cursor()
                 sql = "SELECT * from zt_user where realname = '%s'" % header
                 cursor.execute(sql)

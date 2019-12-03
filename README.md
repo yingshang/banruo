@@ -245,9 +245,13 @@ https://LOCALHOST_IP:8088    default user/passwd: admin/123456
 ![](readmepic/13.jpg)
 将漏洞发送到禅道上面，有个隐藏漏洞功能，就是将漏洞不发送到禅道上面。这里面有个问题，需要在禅道上面有这个项目，比如dvwa这样。
 ![](readmepic/14.jpg)
+![](readmepic/15.jpg)
+邮件发送功能可以设置定时计划进行发送，提醒开发继续修复漏洞。
+![](readmepic/16.jpg)
 
 配置文件
-```angular2
+```
+
 "CHANDAO": {
       "OPENEDBY": 1,
       "PRODUCT_ID": 1,
@@ -256,6 +260,7 @@ https://LOCALHOST_IP:8088    default user/passwd: admin/123456
       "CHAODAO_MYSQL_PASSWORD": "123456",
       "CHAODAO_MYSQL_DATABASE": "zendao",
       "CHAODAO_MYSQL_PORT": 3306,
+      "CHANDAO_ADDRESS": "http://192.168.17.131:8888",
       "EMAIL_RECEIVERS": [
         "xxx@163.com"
       ]

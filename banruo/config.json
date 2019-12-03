@@ -63,18 +63,19 @@
     "CHANDAO": {
       "OPENEDBY": 1,
       "PRODUCT_ID": 1,
-      "CHAODAO_MYSQL_HOST": "192.168.17.131",
-      "CHAODAO_MYSQL_USER": "root",
-      "CHAODAO_MYSQL_PASSWORD": "123456",
-      "CHAODAO_MYSQL_DATABASE": "zentao",
-      "CHAODAO_MYSQL_PORT": 3306,
+      "CHANDAO_MYSQL_HOST": "192.168.17.131",
+      "CHANDAO_MYSQL_USER": "root",
+      "CHANDAO_MYSQL_PASSWORD": "123456",
+      "CHANDAO_MYSQL_DATABASE": "zentao",
+      "CHANDAO_MYSQL_PORT": 3306,
+      "CHANDAO_ADDRESS": "http://192.168.17.131:8888",
       "EMAIL_RECEIVERS": [
-        "xxx@163.com"
+        "@163.com"
       ]
     },
     "EMAIL": {
       "MAIL_HOST": "smtp.163.com",
-      "MAIL_USER": "w@163.com",
+      "MAIL_USER": "@163.com",
       "MAIL_PASSWORD": ""
     }
   }
