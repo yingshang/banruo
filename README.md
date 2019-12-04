@@ -5,6 +5,8 @@
 
 https://www.freebuf.com/sectool/176414.html
 
+https://www.freebuf.com/column/221910.html
+
 ## 安装教程
 **该系统环境是python3.6运行的，3.7会显示错误。**
 
@@ -348,6 +350,9 @@ https://LOCALHOST_IP:8088    default user/passwd: admin/123456
 ![](readmepic/25.jpg)
 ![](readmepic/26.jpg)
 
+等到SQLMAP跑完之后，刷新页面就可以看到结果
+
+![](readmepic/27.jpg)
 
 ## 功能模块
 - 代码审计系统

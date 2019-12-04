@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8072d1bc-55b1-42be-8ec2-860d2d6ba1ba" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banruo/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/banruo/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pentest/injection.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/injection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/url.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pentest/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/pentest/passive_sqli.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pentest/passive_sqli.html" afterDir="false" />
     </list>
@@ -42,8 +40,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="425">
-                <caret line="349" lean-forward="true" selection-start-line="349" selection-end-line="349" />
+              <first_editor relative-caret-position="227">
+                <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
               </first_editor>
               <second_editor />
             </state>
@@ -53,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/pentest/passive_sqli.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
+            <state relative-caret-position="307">
+              <caret line="168" column="46" selection-start-line="168" selection-start-column="46" selection-end-line="168" selection-end-column="46" />
               <folding>
                 <element signature="e#6506#6952#0#HTML" />
               </folding>
@@ -74,8 +72,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pentest/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="280" column="24" selection-start-line="280" selection-start-column="4" selection-end-line="280" selection-end-column="24" />
+            <state relative-caret-position="427">
+              <caret line="285" column="10" selection-start-line="285" selection-start-column="10" selection-end-line="285" selection-end-column="10" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -87,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/pentest/url.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
-              <caret line="18" column="86" selection-start-line="18" selection-start-column="86" selection-end-line="18" selection-end-column="86" />
+              <caret line="18" column="86" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -95,8 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pentest/injection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-980">
-              <caret line="171" column="8" selection-start-line="171" selection-start-column="8" selection-end-line="171" selection-end-column="8" />
+            <state relative-caret-position="427">
+              <caret line="236" lean-forward="true" selection-start-line="201" selection-end-line="236" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -235,11 +233,11 @@
         <option value="$PROJECT_DIR$/lib/config_json.py" />
         <option value="$PROJECT_DIR$/lib/send_msg.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/banruo/config.json" />
+        <option value="$PROJECT_DIR$/pentest/url.py" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/pentest/injection.py" />
         <option value="$PROJECT_DIR$/pentest/views.py" />
-        <option value="$PROJECT_DIR$/pentest/url.py" />
         <option value="$PROJECT_DIR$/templates/pentest/passive_sqli.html" />
       </list>
     </option>
@@ -351,12 +349,12 @@
       <workItem from="1575303029961" duration="1075000" />
       <workItem from="1575337065991" duration="331000" />
       <workItem from="1575337721468" duration="5106000" />
-      <workItem from="1575346297849" duration="21403000" />
+      <workItem from="1575346297849" duration="23550000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45654000" />
+    <option name="totallyTimeSpent" value="47801000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -653,21 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="425">
-            <caret line="349" lean-forward="true" selection-start-line="349" selection-end-line="349" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="17" selection-start-line="1" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/banruo/config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -682,10 +665,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="227">
+            <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="17" selection-start-line="1" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pentest/injection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-980">
-          <caret line="171" column="8" selection-start-line="171" selection-start-column="8" selection-end-line="171" selection-end-column="8" />
+        <state relative-caret-position="427">
+          <caret line="236" lean-forward="true" selection-start-line="201" selection-end-line="236" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -694,8 +692,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pentest/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="280" column="24" selection-start-line="280" selection-start-column="4" selection-end-line="280" selection-end-column="24" />
+        <state relative-caret-position="427">
+          <caret line="285" column="10" selection-start-line="285" selection-start-column="10" selection-end-line="285" selection-end-column="10" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
@@ -705,14 +703,14 @@
     <entry file="file://$PROJECT_DIR$/pentest/url.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
-          <caret line="18" column="86" selection-start-line="18" selection-start-column="86" selection-end-line="18" selection-end-column="86" />
+          <caret line="18" column="86" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="86" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/pentest/passive_sqli.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
+        <state relative-caret-position="307">
+          <caret line="168" column="46" selection-start-line="168" selection-start-column="46" selection-end-line="168" selection-end-column="46" />
           <folding>
             <element signature="e#6506#6952#0#HTML" />
           </folding>
