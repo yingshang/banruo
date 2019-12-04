@@ -32,7 +32,7 @@ RUN chmod 777 -R /opt/fortify_linux/ && ln -s /opt/fortify_linux/bin/sourceanaly
 #sqlmap
 RUN mkdir /opt/taskid
 RUN cd /opt && git clone https://github.com/sqlmapproject/sqlmap
-RUN ln -s /opt/sqlmap/sqlmapapi.py /usr/bin/sqlmapapi
+RUN ln -s /opt/sqlmap/sqlmapapi.py /usr/bin/sqlmapapi &&  ln -s /opt/sqlmap/sqlmap.py /usr/bin/sqlmap
 
 
 #config.json
@@ -342,6 +342,12 @@ https://LOCALHOST_IP:8088    default user/passwd: admin/123456
 
 注入可以对过滤之后的数据包全部注入测试，也可以只跑没有测试的数据包，还可以选择域名进行测试注入
 ![](readmepic/24.jpg)
+
+
+查看实时日志，如果运行的时候，查看完整的日志是无法查看的
+![](readmepic/25.jpg)
+![](readmepic/26.jpg)
+
 
 ## 功能模块
 - 代码审计系统
