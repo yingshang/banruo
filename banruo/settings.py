@@ -13,8 +13,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 
 
-from lib.config_json import *
-
+from lib.config_json import MYSQL_DATABASE,MYSQL_HOST,MYSQL_PORT,MYSQL_PASSWORD,MYSQL_USER
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

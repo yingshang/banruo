@@ -22,12 +22,13 @@ def save_config(**kwargs):
 
 def load_config(parm):
     builder = ConfigBuilder()
+    global  config_parm
     config = builder.parse_config(CONFIG_PATH)
     for i in config.keys():
         if parm == i.split('.')[-1]:
-            record = config.get(i)
+            config_parm = config.get(i)
             break
-    return record
+    return config_parm
 
 
 #MYSQL
