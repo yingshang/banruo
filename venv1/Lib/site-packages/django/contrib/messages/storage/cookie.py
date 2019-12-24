@@ -86,6 +86,7 @@ class CookieStorage(BaseStorage):
                 domain=settings.SESSION_COOKIE_DOMAIN,
                 secure=settings.SESSION_COOKIE_SECURE or None,
                 httponly=settings.SESSION_COOKIE_HTTPONLY or None,
+                samesite=settings.SESSION_COOKIE_SAMESITE,
             )
         else:
             response.delete_cookie(self.cookie_name, domain=settings.SESSION_COOKIE_DOMAIN)
@@ -157,7 +158,7 @@ class CookieStorage(BaseStorage):
                     # If we get here (and the JSON decode works), everything is
                     # good. In any other case, drop back and return None.
                     return json.loads(value, cls=MessageDecoder)
-                except ValueError:
+                except json.JSONDecodeError:
                     pass
         # Mark the data as used (so it gets removed) since something was wrong
         # with the data.

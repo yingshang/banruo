@@ -1,6 +1,5 @@
 import copy
 import inspect
-import warnings
 from bisect import bisect
 from collections import OrderedDict, defaultdict
 
@@ -13,7 +12,6 @@ from django.db.models.fields import AutoField
 from django.db.models.fields.proxy import OrderWrt
 from django.db.models.query_utils import PathInfo
 from django.utils.datastructures import ImmutableList, OrderedSet
-from django.utils.deprecation import RemovedInDjango21Warning
 from django.utils.functional import cached_property
 from django.utils.text import camel_case_to_spaces, format_lazy
 from django.utils.translation import override
@@ -94,7 +92,7 @@ class Options:
         self.unique_together = []
         self.index_together = []
         self.select_on_save = False
-        self.default_permissions = ('add', 'change', 'delete')
+        self.default_permissions = ('add', 'change', 'delete', 'view')
         self.permissions = []
         self.object_name = None
         self.app_label = app_label
@@ -755,10 +753,9 @@ class Options:
 
         # We must keep track of which models we have already seen. Otherwise we
         # could include the same field multiple times from different models.
-        topmost_call = False
-        if seen_models is None:
+        topmost_call = seen_models is None
+        if topmost_call:
             seen_models = set()
-            topmost_call = True
         seen_models.add(self.model)
 
         # Creates a cache key composed of all arguments
@@ -787,9 +784,8 @@ class Options:
                 for obj in parent._meta._get_fields(
                         forward=forward, reverse=reverse, include_parents=include_parents,
                         include_hidden=include_hidden, seen_models=seen_models):
-                    if getattr(obj, 'parent_link', False) and obj.model != self.concrete_model:
-                        continue
-                    fields.append(obj)
+                    if not getattr(obj, 'parent_link', False) or obj.model == self.concrete_model:
+                        fields.append(obj)
         if reverse and not self.proxy:
             # Tree is computed once and cached until the app cache is expired.
             # It is composed of a list of fields pointing to the current model
@@ -819,19 +815,6 @@ class Options:
         # Store result into cache for later access
         self._get_fields_cache[cache_key] = fields
         return fields
-
-    @property
-    def has_auto_field(self):
-        warnings.warn(
-            'Model._meta.has_auto_field is deprecated in favor of checking if '
-            'Model._meta.auto_field is not None.',
-            RemovedInDjango21Warning, stacklevel=2
-        )
-        return self.auto_field is not None
-
-    @has_auto_field.setter
-    def has_auto_field(self, value):
-        pass
 
     @cached_property
     def _property_names(self):

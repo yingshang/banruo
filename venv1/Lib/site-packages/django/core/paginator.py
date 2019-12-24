@@ -1,4 +1,4 @@
-import collections
+import collections.abc
 import warnings
 from math import ceil
 
@@ -35,6 +35,8 @@ class Paginator:
     def validate_number(self, number):
         """Validate the given 1-based page number."""
         try:
+            if isinstance(number, float) and not number.is_integer():
+                raise ValueError
             number = int(number)
         except (TypeError, ValueError):
             raise PageNotAnInteger(_('That page number is not an integer'))
@@ -95,7 +97,7 @@ class Paginator:
         if self.count == 0 and not self.allow_empty_first_page:
             return 0
         hits = max(1, self.count - self.orphans)
-        return int(ceil(hits / float(self.per_page)))
+        return ceil(hits / self.per_page)
 
     @property
     def page_range(self):
@@ -127,7 +129,7 @@ class Paginator:
 QuerySetPaginator = Paginator   # For backwards-compatibility.
 
 
-class Page(collections.Sequence):
+class Page(collections.abc.Sequence):
 
     def __init__(self, object_list, number, paginator):
         self.object_list = object_list

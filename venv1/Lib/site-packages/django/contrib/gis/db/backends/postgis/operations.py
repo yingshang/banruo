@@ -13,7 +13,7 @@ from django.contrib.gis.measure import Distance
 from django.core.exceptions import ImproperlyConfigured
 from django.db.backends.postgresql.operations import DatabaseOperations
 from django.db.models import Func, Value
-from django.db.utils import ProgrammingError
+from django.db.utils import NotSupportedError, ProgrammingError
 from django.utils.functional import cached_property
 from django.utils.version import get_version_tuple
 
@@ -31,7 +31,7 @@ class PostGISOperator(SpatialOperator):
         # geography type.
         self.geography = geography
         # Only a subset of the operators and functions are available for the
-        # raster type. Lookups that don't suport raster will be converted to
+        # raster type. Lookups that don't support raster will be converted to
         # polygons. If the raster argument is set to BILATERAL, then the
         # operator cannot handle mixed geom-raster lookups.
         self.raster = raster
@@ -158,6 +158,8 @@ class PostGISOperations(BaseSpatialOperations, DatabaseOperations):
                 'LengthSpheroid': 'ST_length_spheroid',
                 'MemSize': 'ST_mem_size',
             })
+        if self.spatial_version < (2, 4, 0):
+            function_names['ForcePolygonCW'] = 'ST_ForceRHR'
         return function_names
 
     @cached_property
@@ -231,7 +233,7 @@ class PostGISOperations(BaseSpatialOperations, DatabaseOperations):
             geom_type = f.geom_type
         if f.geography:
             if f.srid != 4326:
-                raise NotImplementedError('PostGIS only supports geography columns with an SRID of 4326.')
+                raise NotSupportedError('PostGIS only supports geography columns with an SRID of 4326.')
 
             return 'geography(%s,%d)' % (geom_type, f.srid)
         else:

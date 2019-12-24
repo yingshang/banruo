@@ -4,7 +4,9 @@ from itertools import takewhile
 
 from django.apps import apps
 from django.conf import settings
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import (
+    BaseCommand, CommandError, no_translations,
+)
 from django.db import DEFAULT_DB_ALIAS, connections, router
 from django.db.migrations import Migration
 from django.db.migrations.autodetector import MigrationAutodetector
@@ -51,6 +53,7 @@ class Command(BaseCommand):
             help='Exit with a non-zero status if model changes are missing migrations.',
         )
 
+    @no_translations
     def handle(self, *app_labels, **options):
         self.verbosity = options['verbosity']
         self.interactive = options['interactive']
@@ -70,7 +73,15 @@ class Command(BaseCommand):
                 bad_app_labels.add(app_label)
         if bad_app_labels:
             for app_label in bad_app_labels:
-                self.stderr.write("App '%s' could not be found. Is it in INSTALLED_APPS?" % app_label)
+                if '.' in app_label:
+                    self.stderr.write(
+                        "'%s' is not a valid app label. Did you mean '%s'?" % (
+                            app_label,
+                            app_label.split('.')[-1],
+                        )
+                    )
+                else:
+                    self.stderr.write("App '%s' could not be found. Is it in INSTALLED_APPS?" % app_label)
             sys.exit(2)
 
         # Load the current graph state. Pass in None for the connection so
@@ -162,10 +173,11 @@ class Command(BaseCommand):
         if not changes:
             # No changes? Tell them.
             if self.verbosity >= 1:
-                if len(app_labels) == 1:
-                    self.stdout.write("No changes detected in app '%s'" % app_labels.pop())
-                elif len(app_labels) > 1:
-                    self.stdout.write("No changes detected in apps '%s'" % ("', '".join(app_labels)))
+                if app_labels:
+                    if len(app_labels) == 1:
+                        self.stdout.write("No changes detected in app '%s'" % app_labels.pop())
+                    else:
+                        self.stdout.write("No changes detected in apps '%s'" % ("', '".join(app_labels)))
                 else:
                     self.stdout.write("No changes detected")
         else:
@@ -275,7 +287,7 @@ class Command(BaseCommand):
                     biggest_number = max(x for x in numbers if x is not None)
                 except ValueError:
                     biggest_number = 1
-                subclass = type("Migration", (Migration, ), {
+                subclass = type("Migration", (Migration,), {
                     "dependencies": [(app_label, migration.name) for migration in merge_migrations],
                 })
                 migration_name = "%04i_%s" % (

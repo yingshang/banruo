@@ -72,11 +72,11 @@ class GenericForeignKey(FieldCacheMixin):
         return '%s.%s.%s' % (app, model._meta.object_name, self.name)
 
     def check(self, **kwargs):
-        errors = []
-        errors.extend(self._check_field_name())
-        errors.extend(self._check_object_id_field())
-        errors.extend(self._check_content_type_field())
-        return errors
+        return [
+            *self._check_field_name(),
+            *self._check_object_id_field(),
+            *self._check_content_type_field(),
+        ]
 
     def _check_field_name(self):
         if self.name.endswith("_"):
@@ -228,17 +228,12 @@ class GenericForeignKey(FieldCacheMixin):
 
         rel_obj = self.get_cached_value(instance, default=None)
         if rel_obj is not None:
-            if ct_id != self.get_content_type(obj=rel_obj, using=instance._state.db).id:
-                rel_obj = None
+            ct_match = ct_id == self.get_content_type(obj=rel_obj, using=instance._state.db).id
+            pk_match = rel_obj._meta.pk.to_python(pk_val) == rel_obj.pk
+            if ct_match and pk_match:
+                return rel_obj
             else:
-                pk = rel_obj._meta.pk
-                # If the primary key is a remote field, use the referenced
-                # field's to_python().
-                pk_to_python = pk.target_field.to_python if pk.remote_field else pk.to_python
-                if pk_to_python(pk_val) != rel_obj._get_pk_val():
-                    rel_obj = None
-                else:
-                    return rel_obj
+                rel_obj = None
         if ct_id is not None:
             ct = self.get_content_type(id=ct_id, using=instance._state.db)
             try:
@@ -288,6 +283,8 @@ class GenericRelation(ForeignObject):
 
     rel_class = GenericRel
 
+    mti_inherited = False
+
     def __init__(self, to, object_id_field='object_id', content_type_field='content_type',
                  for_concrete_model=True, related_query_name=None, limit_choices_to=None, **kwargs):
         kwargs['rel'] = self.rel_class(
@@ -313,9 +310,10 @@ class GenericRelation(ForeignObject):
         self.for_concrete_model = for_concrete_model
 
     def check(self, **kwargs):
-        errors = super().check(**kwargs)
-        errors.extend(self._check_generic_foreign_key_existence())
-        return errors
+        return [
+            *super().check(**kwargs),
+            *self._check_generic_foreign_key_existence(),
+        ]
 
     def _is_matching_generic_foreign_key(self, field):
         """
@@ -431,6 +429,12 @@ class GenericRelation(ForeignObject):
         kwargs['private_only'] = True
         super().contribute_to_class(cls, name, **kwargs)
         self.model = cls
+        # Disable the reverse relation for fields inherited by subclasses of a
+        # model in multi-table inheritance. The reverse relation points to the
+        # field of the base model.
+        if self.mti_inherited:
+            self.remote_field.related_name = '+'
+            self.remote_field.related_query_name = None
         setattr(cls, self.name, ReverseGenericManyToOneDescriptor(self.remote_field))
 
         # Add get_RELATED_order() and set_RELATED_order() to the model this

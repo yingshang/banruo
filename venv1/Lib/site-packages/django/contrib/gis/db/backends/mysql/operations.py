@@ -15,16 +15,9 @@ class MySQLOperations(BaseSpatialOperations, DatabaseOperations):
 
     mysql = True
     name = 'mysql'
+    geom_func_prefix = 'ST_'
 
     Adapter = WKTAdapter
-
-    @cached_property
-    def geom_func_prefix(self):
-        return '' if self.is_mysql_5_5 else 'ST_'
-
-    @cached_property
-    def is_mysql_5_5(self):
-        return self.connection.mysql_version < (5, 6, 1)
 
     @cached_property
     def is_mysql_5_6(self):
@@ -56,10 +49,6 @@ class MySQLOperations(BaseSpatialOperations, DatabaseOperations):
             'within': SpatialOperator(func='MBRWithin'),
         }
 
-    @cached_property
-    def function_names(self):
-        return {'Length': 'GLength'} if self.is_mysql_5_5 else {}
-
     disallowed_aggregates = (
         aggregates.Collect, aggregates.Extent, aggregates.Extent3D,
         aggregates.MakeLine, aggregates.Union,
@@ -68,15 +57,13 @@ class MySQLOperations(BaseSpatialOperations, DatabaseOperations):
     @cached_property
     def unsupported_functions(self):
         unsupported = {
-            'AsGML', 'AsKML', 'AsSVG', 'Azimuth', 'BoundingCircle', 'ForceRHR',
-            'LineLocatePoint', 'MakeValid', 'MemSize', 'Perimeter',
-            'PointOnSurface', 'Reverse', 'Scale', 'SnapToGrid', 'Transform',
-            'Translate',
+            'AsGML', 'AsKML', 'AsSVG', 'Azimuth', 'BoundingCircle',
+            'ForcePolygonCW', 'ForceRHR', 'LineLocatePoint', 'MakeValid',
+            'MemSize', 'Perimeter', 'PointOnSurface', 'Reverse', 'Scale',
+            'SnapToGrid', 'Transform', 'Translate',
         }
         if self.connection.mysql_version < (5, 7, 5):
             unsupported.update({'AsGeoJSON', 'GeoHash', 'IsValid'})
-        if self.is_mysql_5_5:
-            unsupported.update({'Difference', 'Distance', 'Intersection', 'SymDifference', 'Union'})
         return unsupported
 
     def geo_db_type(self, f):

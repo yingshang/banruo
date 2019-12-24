@@ -7,7 +7,6 @@ from django.core.exceptions import ImproperlyConfigured
 from django.db import NotSupportedError, transaction
 from django.db.backends import utils
 from django.utils import timezone
-from django.utils.dateparse import parse_duration
 from django.utils.encoding import force_text
 
 
@@ -45,6 +44,9 @@ class BaseDatabaseOperations:
     UNBOUNDED_PRECEDING = 'UNBOUNDED ' + PRECEDING
     UNBOUNDED_FOLLOWING = 'UNBOUNDED ' + FOLLOWING
     CURRENT_ROW = 'CURRENT ROW'
+
+    # Prefix for EXPLAIN queries, or None EXPLAIN isn't supported.
+    explain_prefix = None
 
     def __init__(self, connection):
         self.connection = connection
@@ -104,13 +106,16 @@ class BaseDatabaseOperations:
         truncates the given date field field_name to a date object with only
         the given specificity.
         """
-        raise NotImplementedError('subclasses of BaseDatabaseOperations may require a datetrunc_sql() method')
+        raise NotImplementedError('subclasses of BaseDatabaseOperations may require a date_trunc_sql() method.')
 
     def datetime_cast_date_sql(self, field_name, tzname):
         """
         Return the SQL to cast a datetime value to date value.
         """
-        raise NotImplementedError('subclasses of BaseDatabaseOperations may require a datetime_cast_date() method')
+        raise NotImplementedError(
+            'subclasses of BaseDatabaseOperations may require a '
+            'datetime_cast_date_sql() method.'
+        )
 
     def datetime_cast_time_sql(self, field_name, tzname):
         """
@@ -156,16 +161,16 @@ class BaseDatabaseOperations:
         """
         return ''
 
-    def distinct_sql(self, fields):
+    def distinct_sql(self, fields, params):
         """
         Return an SQL DISTINCT clause which removes duplicate rows from the
         result set. If any fields are given, only check the given fields for
         duplicates.
         """
         if fields:
-            raise NotImplementedError('DISTINCT ON fields is not supported by this database backend')
+            raise NotSupportedError('DISTINCT ON fields is not supported by this database backend')
         else:
-            return 'DISTINCT'
+            return ['DISTINCT'], []
 
     def fetch_returned_insert_id(self, cursor):
         """
@@ -199,6 +204,22 @@ class BaseDatabaseOperations:
             ' OF %s' % ', '.join(of) if of else '',
             ' NOWAIT' if nowait else '',
             ' SKIP LOCKED' if skip_locked else '',
+        )
+
+    def _get_limit_offset_params(self, low_mark, high_mark):
+        offset = low_mark or 0
+        if high_mark is not None:
+            return (high_mark - offset), offset
+        elif offset:
+            return self.connection.ops.no_limit_value(), offset
+        return None, offset
+
+    def limit_offset_sql(self, low_mark, high_mark):
+        """Return LIMIT/OFFSET SQL clause."""
+        limit, offset = self._get_limit_offset_params(low_mark, high_mark)
+        return '%s%s' % (
+            (' LIMIT %d' % limit) if limit else '',
+            (' OFFSET %d' % offset) if offset else '',
         )
 
     def last_executed_query(self, cursor, sql, params):
@@ -281,7 +302,7 @@ class BaseDatabaseOperations:
             import sqlparse
         except ImportError:
             raise ImproperlyConfigured(
-                "sqlparse is required if you don't split your SQL "
+                "The sqlparse package is required if you don't split your SQL "
                 "statements manually."
             )
         else:
@@ -549,9 +570,7 @@ class BaseDatabaseOperations:
 
     def convert_durationfield_value(self, value, expression, connection):
         if value is not None:
-            value = str(decimal.Decimal(value) / decimal.Decimal(1000000))
-            value = parse_duration(value)
-        return value
+            return datetime.timedelta(0, 0, value)
 
     def check_expression_support(self, expression):
         """
@@ -560,7 +579,7 @@ class BaseDatabaseOperations:
         This is used on specific backends to rule out known expressions
         that have problematic or nonexistent implementations. If the
         expression has a known problem, the backend should raise
-        NotImplementedError.
+        NotSupportedError.
         """
         pass
 
@@ -604,7 +623,7 @@ class BaseDatabaseOperations:
             lhs_sql, lhs_params = lhs
             rhs_sql, rhs_params = rhs
             return "(%s - %s)" % (lhs_sql, rhs_sql), lhs_params + rhs_params
-        raise NotImplementedError("This backend does not support %s subtraction." % internal_type)
+        raise NotSupportedError("This backend does not support %s subtraction." % internal_type)
 
     def window_frame_start(self, start):
         if isinstance(start, int):
@@ -636,3 +655,18 @@ class BaseDatabaseOperations:
 
     def window_frame_range_start_end(self, start=None, end=None):
         return self.window_frame_rows_start_end(start, end)
+
+    def explain_query_prefix(self, format=None, **options):
+        if not self.connection.features.supports_explaining_query_execution:
+            raise NotSupportedError('This backend does not support explaining query execution.')
+        if format:
+            supported_formats = self.connection.features.supported_explain_formats
+            normalized_format = format.upper()
+            if normalized_format not in supported_formats:
+                msg = '%s is not a recognized format.' % normalized_format
+                if supported_formats:
+                    msg += ' Allowed formats: %s' % ', '.join(sorted(supported_formats))
+                raise ValueError(msg)
+        if options:
+            raise ValueError('Unknown options: %s' % ', '.join(sorted(options.keys())))
+        return self.explain_prefix

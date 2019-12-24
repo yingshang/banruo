@@ -1,6 +1,5 @@
 """
 SQL functions reference lists:
-https://web.archive.org/web/20130407175746/https://www.gaia-gis.it/gaia-sins/spatialite-sql-4.0.0.html
 https://www.gaia-gis.it/gaia-sins/spatialite-sql-4.2.1.html
 """
 from django.contrib.gis.db.backends.base.operations import (
@@ -68,6 +67,7 @@ class SpatiaLiteOperations(BaseSpatialOperations, DatabaseOperations):
         return 'CAST (AsEWKB(%s) AS BLOB)' if self.spatial_version >= (4, 3, 0) else 'AsText(%s)'
 
     function_names = {
+        'ForcePolygonCW': 'ST_ForceLHR',
         'Length': 'ST_Length',
         'LineLocatePoint': 'ST_Line_Locate_Point',
         'NumPoints': 'ST_NPoints',
@@ -96,8 +96,8 @@ class SpatiaLiteOperations(BaseSpatialOperations, DatabaseOperations):
                     self.connection.settings_dict['NAME'],
                 )
             ) from exc
-        if version < (4, 0, 0):
-            raise ImproperlyConfigured('GeoDjango only supports SpatiaLite versions 4.0.0 and above.')
+        if version < (4, 1, 0):
+            raise ImproperlyConfigured('GeoDjango only supports SpatiaLite versions 4.1.0 and above.')
         return version
 
     def convert_extent(self, box):

@@ -3,10 +3,8 @@
 import pickle
 import re
 import time
-import warnings
 
 from django.core.cache.backends.base import DEFAULT_TIMEOUT, BaseCache
-from django.utils.deprecation import RemovedInDjango21Warning
 from django.utils.functional import cached_property
 
 
@@ -164,6 +162,10 @@ class MemcachedCache(BaseMemcachedCache):
             self._client = self._lib.Client(self._servers, **client_kwargs)
         return self._client
 
+    def touch(self, key, timeout=DEFAULT_TIMEOUT, version=None):
+        key = self.make_key(key, version=version)
+        return self._cache.touch(key, self.get_backend_timeout(timeout)) != 0
+
 
 class PyLibMCCache(BaseMemcachedCache):
     "An implementation of a cache binding using pylibmc"
@@ -171,28 +173,15 @@ class PyLibMCCache(BaseMemcachedCache):
         import pylibmc
         super().__init__(server, params, library=pylibmc, value_not_found_exception=pylibmc.NotFound)
 
-        # The contents of `OPTIONS` was formerly only used to set the behaviors
-        # attribute, but is now passed directly to the Client constructor. As such,
-        # any options that don't match a valid keyword argument are removed and set
-        # under the `behaviors` key instead, to maintain backwards compatibility.
-        legacy_behaviors = {}
-        for option in list(self._options):
-            if option not in ('behaviors', 'binary', 'username', 'password'):
-                warnings.warn(
-                    "Specifying pylibmc cache behaviors as a top-level property "
-                    "within `OPTIONS` is deprecated. Move `%s` into a dict named "
-                    "`behaviors` inside `OPTIONS` instead." % option,
-                    RemovedInDjango21Warning,
-                    stacklevel=2,
-                )
-                legacy_behaviors[option] = self._options.pop(option)
-
-        if legacy_behaviors:
-            self._options.setdefault('behaviors', {}).update(legacy_behaviors)
-
     @cached_property
     def _cache(self):
         return self._lib.Client(self._servers, **self._options)
+
+    def touch(self, key, timeout=DEFAULT_TIMEOUT, version=None):
+        key = self.make_key(key, version=version)
+        if timeout == 0:
+            return self._cache.delete(key)
+        return self._cache.touch(key, self.get_backend_timeout(timeout))
 
     def close(self, **kwargs):
         # libmemcached manages its own connections. Don't call disconnect_all()

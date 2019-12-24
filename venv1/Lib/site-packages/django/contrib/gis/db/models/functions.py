@@ -1,3 +1,4 @@
+import warnings
 from decimal import Decimal
 
 from django.contrib.gis.db.models.fields import BaseSpatialField, GeometryField
@@ -9,6 +10,8 @@ from django.db.models import (
 )
 from django.db.models.expressions import Func, Value
 from django.db.models.functions import Cast
+from django.db.utils import NotSupportedError
+from django.utils.deprecation import RemovedInDjango30Warning
 from django.utils.functional import cached_property
 
 NUMERIC_TYPES = (int, float, Decimal)
@@ -123,7 +126,7 @@ class Area(OracleToleranceMixin, GeoFunc):
 
     def as_sql(self, compiler, connection, **extra_context):
         if not connection.features.supports_area_geodetic and self.geo_field.geodetic(connection):
-            raise NotImplementedError('Area on geodetic coordinate systems not supported.')
+            raise NotSupportedError('Area on geodetic coordinate systems not supported.')
         return super().as_sql(compiler, connection, **extra_context)
 
     def as_sqlite(self, compiler, connection, **extra_context):
@@ -273,8 +276,19 @@ class Envelope(GeomOutputGeoFunc):
     arity = 1
 
 
+class ForcePolygonCW(GeomOutputGeoFunc):
+    arity = 1
+
+
 class ForceRHR(GeomOutputGeoFunc):
     arity = 1
+
+    def __init__(self, *args, **kwargs):
+        warnings.warn(
+            'ForceRHR is deprecated in favor of ForcePolygonCW.',
+            RemovedInDjango30Warning, stacklevel=2,
+        )
+        super().__init__(*args, **kwargs)
 
 
 class GeoHash(GeoFunc):
@@ -316,7 +330,7 @@ class Length(DistanceResultMixin, OracleToleranceMixin, GeoFunc):
 
     def as_sql(self, compiler, connection, **extra_context):
         if self.geo_field.geodetic(connection) and not connection.features.supports_length_geodetic:
-            raise NotImplementedError("This backend doesn't support Length on geodetic fields")
+            raise NotSupportedError("This backend doesn't support Length on geodetic fields")
         return super().as_sql(compiler, connection, **extra_context)
 
     def as_postgresql(self, compiler, connection):
@@ -372,7 +386,7 @@ class Perimeter(DistanceResultMixin, OracleToleranceMixin, GeoFunc):
     def as_postgresql(self, compiler, connection):
         function = None
         if self.geo_field.geodetic(connection) and not self.source_is_geography():
-            raise NotImplementedError("ST_Perimeter cannot use a non-projected non-geography field.")
+            raise NotSupportedError("ST_Perimeter cannot use a non-projected non-geography field.")
         dim = min(f.dim for f in self.get_source_fields())
         if dim > 2:
             function = connection.ops.perimeter3d
@@ -380,7 +394,7 @@ class Perimeter(DistanceResultMixin, OracleToleranceMixin, GeoFunc):
 
     def as_sqlite(self, compiler, connection):
         if self.geo_field.geodetic(connection):
-            raise NotImplementedError("Perimeter cannot use a non-projected field.")
+            raise NotSupportedError("Perimeter cannot use a non-projected field.")
         return super().as_sql(compiler, connection)
 
 
@@ -414,12 +428,10 @@ class SnapToGrid(SQLiteDecimalToFloatMixin, GeomOutputGeoFunc):
             )
         elif nargs == 4:
             # Reverse origin and size param ordering
-            expressions.extend(
-                [self._handle_param(arg, '', NUMERIC_TYPES) for arg in args[2:]]
-            )
-            expressions.extend(
-                [self._handle_param(arg, '', NUMERIC_TYPES) for arg in args[0:2]]
-            )
+            expressions += [
+                *(self._handle_param(arg, '', NUMERIC_TYPES) for arg in args[2:]),
+                *(self._handle_param(arg, '', NUMERIC_TYPES) for arg in args[0:2]),
+            ]
         else:
             raise ValueError('Must provide 1, 2, or 4 arguments to `SnapToGrid`.')
         super().__init__(*expressions, **extra)
