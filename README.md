@@ -8,8 +8,8 @@ https://www.freebuf.com/sectool/176414.html
 https://www.freebuf.com/column/221910.html
 
 ## 安装教程
-**该系统环境是python3.6运行的，3.7会显示错误。**
-** 说一下注意事项，我这个dockerfile里面没有安装mysql，因为centos7的一些问题，mysql我是设置了外连，也就是你只需要在config.json设置MySQL的主机，账号，密码就可以直接使用 **
+**该系统环境是python3.6运行的，3.7会显示错误。说一下注意事项，我这个dockerfile里面没有安装mysql，因为centos7的一些问题，mysql我是设置了外连，也就是你只需要在config.json设置MySQL的主机，账号，密码就可以直接使用**
+
 具体安装过程就不一一说明，下面直接dockerfile,假如没有fortify，只是用里面渗透测试系统，可以直接注释掉那段fortify的配置。在banruo目录下有一个config.json文件，里面有所有的配置，在生成docker的时候，把config.json复制出来，修改里面的内容。
 ```
 #dockerfile
