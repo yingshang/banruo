@@ -24,5 +24,7 @@ RUN ln -s /opt/sqlmap/sqlmapapi.py /usr/bin/sqlmapapi &&  ln -s /opt/sqlmap/sqlm
 #config.json
 COPY config.json /opt/banruo/banruo/
 
-#ENTRYPOINT redis-server & && cd /opt/ && python3 manage.py celery -A banruo worker  -l info --beat & && python3 manage.py runserver 0.0.0.0:8000
+COPY run.sh /opt/run.sh
+RUN chmod +x /opt/run.sh
 
+ENTRYPOINT /opt/run.sh

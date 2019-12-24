@@ -45,12 +45,22 @@ RUN ln -s /opt/sqlmap/sqlmapapi.py /usr/bin/sqlmapapi &&  ln -s /opt/sqlmap/sqlm
 #config.json
 COPY config.json /opt/banruo/banruo/
 
-ENTRYPOINT redis-server & && cd /opt/ && python3 manage.py celery -A banruo worker  -l info --beat & && python3 manage.py runserver 0.0.0.0:8000
+#ENTRYPOINT redis-server & && cd /opt/ && python3 manage.py celery -A banruo worker  -l info --beat & && python3 manage.py runserver 0.0.0.0:8000
 
+
+```
+需要添加run.sh运行脚本
+```
+#run.sh
+redis-server & 
+cd /opt/banruo && python3 manage.py celery -A banruo worker  -l info --beat & 
+cd /opt/banruo/ &&  python3 manage.py runserver 0.0.0.0:8000
 
 
 
 ```
+
+
 config.json
 
 ```
