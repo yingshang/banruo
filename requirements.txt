@@ -1,4 +1,4 @@
-mitmproxy==2.0.2
+mitmproxy==4.0.4
 django==2.1.15
 redis==2.10.6
 pymysql==0.9.3
