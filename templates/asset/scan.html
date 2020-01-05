@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>端口情况</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="stylesheet" href={% static "css/font.css" %}>
+    <link rel="stylesheet" href={% static "css/xadmin.css" %}>
+    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+    <script type="text/javascript" src={% static "lib/layui/layui.js" %} charset="utf-8"></script>
+    <script type="text/javascript" src={% static "js/xadmin.js" %}></script>
+
+
+
+</head>
+
+<body class="layui-anim layui-anim-up">
+<div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="/">首页</a>
+        <a href="#">资产管理</a>
+          <a href="#">扫描</a>
+      </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"
+       href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+</div>
+<div class="x-body">
+    <div class="layui-row">
+        <div class="layui-col-xs6">
+            <form class="layui-form" method="post" action="">
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">输入资产IP</label>
+                    <div class="layui-input-block">
+                        <textarea name="ips" class="layui-textarea" >{{ results }}</textarea>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block" style="text-align:center">
+                        <button type="submit" class="layui-btn layui-btn-radius layui-btn-normal" lay-submit="" lay-filter="submit">保存</button>
+                        <button type="submit" class="layui-btn layui-btn-radius layui-btn-normal" lay-submit="" lay-filter="scan">扫描</button>
+                        <button type="submit" class="layui-btn layui-btn-radius layui-btn-normal" lay-submit="" lay-filter="distscan">分布式扫描</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<script>
+    layui.use(['form'], function() {
+        var form = layui.form
+            , layer = layui.layer;
+
+
+        //监听保存
+        form.on('submit(submit)', function (data) {
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'asset_scan' %}",
+                async: true,
+                data: {
+                    ips: data.field.ips
+
+                },
+                success: function (text) {
+                    if (text.code == 1) {
+                        layer.msg('提交成功', {
+                            time: 2000,
+                            end: function () {
+                                location.href = ""
+                            }
+                        })
+                    }
+                }
+            });
+            return false;
+        });
+
+
+
+
+        form.on('submit(scan)', function (data) {
+            $.ajax({
+                type: 'GET',
+                url: "{% url 'asset_scan_api' %}",
+                async: true,
+                success: function (text) {
+                    if (text.code == 1) {
+                        layer.msg(text.msg, {
+                            time: 2000,
+                            end: function () {
+                                location.href = ""
+                            }
+                        })
+                    }
+                    else if(text.code==0){
+                        layer.alert(text.msg, {
+                            time: 3000,
+                            end: function () {
+                                location.href = ""
+                            }
+                        })
+
+
+                    }
+                }
+            });
+            return false;
+        });
+
+    });
+</script>
+
+
+</body>
+</html>
+
+

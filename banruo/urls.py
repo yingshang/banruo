@@ -22,6 +22,7 @@ urlpatterns = [
     path('',base),
     path('aduit/',include('aduit.url')),
     path('pentest/',include('pentest.url')),
+    path('asset/',include('asset.url')),
     path('overview/',overview,name="overview"),
 
 

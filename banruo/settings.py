@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'aduit.apps.AduitConfig',
     'pentest.apps.PentestConfig',
+    'asset.apps.AssetConfig',
     'djcelery',
 
 ]

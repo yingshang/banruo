@@ -8,3 +8,5 @@ python_json_config==1.2.1
 anyjson==0.3.3
 celery-with-redis
 psutil
+IPy
+python-nmap

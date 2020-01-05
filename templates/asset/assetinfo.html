@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>端口情况</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="stylesheet" href={% static "css/font.css" %}>
+    <link rel="stylesheet" href={% static "css/xadmin.css" %}>
+    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+    <script type="text/javascript" src={% static "lib/layui/layui.js" %} charset="utf-8"></script>
+    <script type="text/javascript" src={% static "js/xadmin.js" %}></script>
+
+ 
+
+</head>
+
+<body class="layui-anim layui-anim-up">
+<div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="/">首页</a>
+        <a href="#">资产管理</a>
+          <a href="#">资产情况</a>
+      </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"
+       href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+</div>
+<div class="x-body">
+<div class="demoTable">
+  IP搜索：
+  <div class="layui-inline">
+    <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+  </div>
+  <button class="layui-btn" data-type="reload">搜索</button>
+</div>
+
+
+    <table class="layui-hide" id="info" lay-filter="info"></table>
+
+
+
+</div>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="check_nlog">查看端口开放情况</a>
+</script>
+
+
+    <script type="text/javascript" src={% static "lib/layui/layui.js" %} charset="utf-8"></script>
+
+
+
+<script>
+    layui.use('table', function () {
+        var table = layui.table
+            , form = layui.form;
+
+        table.render({
+            elem: '#info'
+            , url: '{% url "asset_info_api" %}'
+            , cols: [[
+                 {field: 'ip', title: 'IP地址', width: 170, fixed: 'left',sort: true, templet: function(d){return '<a href="{% url 'ip_info' %}?ip='+d.ip+'" class="layui-table-link">'+ d.ip +'</a>'}}
+                , {field: 'opennum', title: '端口开放数目'}
+                , {field: 'vulnum', title: '漏洞数目'}
+
+
+            ]]
+            , page: true
+        });
+
+
+        //监听行工具事件
+        table.on('tool(info)', function (obj) {
+
+            var taskid = obj.data.taskid;
+
+
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
+
+
