@@ -1,7 +1,7 @@
 {
   "setting": {
     "MYSQL": {
-      "MYSQL_HOST": "127.0.0.1",
+      "MYSQL_HOST": "192.168.2.128",
       "MYSQL_PORT": "3306",
       "MYSQL_DATABASE": "banruo",
       "MYSQL_USER": "root",

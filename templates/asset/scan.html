@@ -51,8 +51,19 @@
                 </div>
             </form>
         </div>
+        <div class="layui-col-xs6">
+
+                    <div class="layui-card-body">
+                        资产IP扫描的规则：</br>
+                        10.10.10.0/24</br>
+                        10.10.10.100-10.10.10.200
+        </div>
+
+        </div>
     </div>
 
+
+    
 
 </div>
 
@@ -83,6 +94,12 @@
                             }
                         })
                     }
+                    else if(text.code==0){
+                        layer.alert(text.msg)
+
+
+                    }
+
                 }
             });
             return false;

@@ -44,10 +44,10 @@ def ip_info_api(request):
     ip = request.GET.get("ip")
     id = scanIP.objects.get(ip=ip)
     data = []
-    rs = scan_ip_info.objects.filter(ipfor_id=id).values("port","name","product","cpe")
+    rs = scan_ip_info.objects.filter(ipfor_id=id).values("port","name","product","cpe","state")
     for r in rs:
         data.append(r)
-    print(data)
+
     count = scan_ip_info.objects.filter(ipfor_id=id).count()
 
     return JsonResponse({"code": 0, "msg": "", "count": count, "data": data}, safe=False)
@@ -61,7 +61,11 @@ def asset_scan(request):
         #分割扫描列表
         for ip in ips.split('\n'):
             if len(ip)>0:
-                scanlist.objects.create(ips=ip)
+                if parse_ip(ip) ==True:
+
+                    scanlist.objects.create(ips=ip)
+                else:
+                    return JsonResponse({'code':0,'msg':'提交的IP错误，请重新输入！！！'})
         return JsonResponse({'code':1,'msg':'提交成功'})
     rs = scanlist.objects.all()
     results = ""
@@ -76,5 +80,6 @@ def asset_scan_api(request):
     else:
         rs = scanlist.objects.all()
         for r in rs:
-            masscan_scan(r.ip)
+            masscan_scan.delay(r.ips)
         return JsonResponse({'code':1,'msg':'扫描现在开始！！请稍等'})
+

@@ -9,7 +9,9 @@ https://www.freebuf.com/column/221910.html
 
 ## 安装教程
 **该系统环境是python3.6运行的，3.7会显示错误。说一下注意事项，我这个dockerfile里面没有安装mysql，因为centos7的一些问题，mysql我是设置了外连，也就是你只需要在config.json设置MySQL的主机，账号，密码就可以直接使用**
-我还录制了安装运行视频，run.mkv那里
+
+演示视频：https://www.bilibili.com/video/av82354379
+
 ```
 安装步骤
 第一步，你需要将fortify的linux版本复制到和dockerfile同一个目录下(如果想要改名字改路径的，可以到config.json改)

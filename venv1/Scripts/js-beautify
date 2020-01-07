@@ -1,7 +1,0 @@
-#!D:\banruo\venv1\Scripts\python.exe
-#
-# Stub script to run jsbeautifier
-#
-import sys
-from jsbeautifier import main
-sys.exit(main())

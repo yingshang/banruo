@@ -10,3 +10,4 @@ celery-with-redis
 psutil
 IPy
 python-nmap
+python-masscan

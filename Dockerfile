@@ -6,6 +6,10 @@ RUN yum update -y
 RUN yum install epel-release -y
 RUN yum install -y  git wget python36 gcc python36-libs python36-tools python36-devel   zlib-devel rpm-build openssl-devel python redis
 
+
+#config.json
+COPY config.json /opt/banruo/banruo/
+
 #django
 RUN cd /opt && git clone https://github.com/yingshang/banruo.git
 RUN cd /opt/banruo && pip3 install -r requirements.txt
@@ -21,8 +25,7 @@ RUN cd /opt && git clone https://github.com/sqlmapproject/sqlmap
 RUN ln -s /opt/sqlmap/sqlmapapi.py /usr/bin/sqlmapapi &&  ln -s /opt/sqlmap/sqlmap.py /usr/bin/sqlmap
 
 
-#config.json
-COPY config.json /opt/banruo/banruo/
+
 
 COPY run.sh /opt/run.sh
 RUN chmod +x /opt/run.sh
