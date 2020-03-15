@@ -11,3 +11,4 @@ psutil
 IPy
 python-nmap
 python-masscan
+python-libnmap

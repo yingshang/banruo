@@ -8,6 +8,8 @@ urlpatterns = [
     path('ip_info_api', ip_info_api, name='ip_info_api'),
     path('asset_scan', asset_scan, name='asset_scan'),
     path('asset_scan_api', asset_scan_api, name='asset_scan_api'),
+    path('get_scan_task', get_scan_task, name='get_scan_task'),
+    path('check_nmap', check_nmap, name='check_nmap'),
 
 
 

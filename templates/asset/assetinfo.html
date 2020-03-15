@@ -46,10 +46,6 @@
 
 </div>
 
-<script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="check_nlog">查看端口开放情况</a>
-</script>
-
 
     <script type="text/javascript" src={% static "lib/layui/layui.js" %} charset="utf-8"></script>
 
@@ -73,14 +69,6 @@
             , page: true
         });
 
-
-        //监听行工具事件
-        table.on('tool(info)', function (obj) {
-
-            var taskid = obj.data.taskid;
-
-
-        });
     });
 </script>
 

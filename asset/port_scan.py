@@ -8,7 +8,7 @@ import masscan
 from celery.decorators import task
 from IPy import IP
 import re
-from django.utils import timezone
+import datetime
 import random
 import string
 import time
@@ -16,8 +16,9 @@ import time
 
 @task
 def nmap_scan(ip,ports,taskid):
-    nmapscan.objects.create(ip=ip,task_id=taskid)
-    result = nmapscan.objects.get(task_id=taskid)
+    scanIP.objects.get_or_create(ip=ip,task_id=taskid,scantime=datetime.datetime.now())
+    scan_ip_info.objects.filter(ipfor_id=scanIP.objects.get(ip=ip).id).delete()
+    result = scanIP.objects.get(ip=ip)
     nmap_proc = NmapProcess(targets=ip, options='-sV -p  '+ports)
     nmap_proc.run_background()
 
@@ -25,14 +26,18 @@ def nmap_scan(ip,ports,taskid):
         result.rate = str(nmap_proc.progress)
         result.save()
         time.sleep(2)  # 两秒更新一次百分比
-    result.endtime = timezone.now()
+    result.rate = str(nmap_proc.progress)
+    result.endtime = datetime.datetime.now()
     result.save()
-
     nm = nmap.PortScanner()
+    nmrs = nm.analyse_nmap_xml_scan(nmap_proc.stdout)
+    for port,v in nmrs['scan'][ip]['tcp'].items():
+        scan_ip_info.objects.get_or_create(port=port,name=v['name'],state=v['state'],product=v['product']+'  '+v['version'],cpe=v['cpe'],ipfor_id=scanIP.objects.get(ip=ip).id)
 
-    print(nm.analyse_nmap_xml_scan(nmap_proc.stdout))
 
-    # nm = nmap.PortScanner()
+
+
+# nm = nmap.PortScanner()
     # nm.scan(hosts=ip, ports=ports,arguments='-sV')
     # scanIP.objects.get_or_create(ip=ip)
     # scan_ip_info.objects.filter(ipfor_id=scanIP.objects.get(ip=ip).id).delete()
@@ -42,11 +47,13 @@ def nmap_scan(ip,ports,taskid):
 
 
 
+
+
 @task
 def masscan_scan(ip):
     mas = masscan.PortScanner()
     name = ''.join(random.sample(string.ascii_letters + string.digits, 16))
-    scantask.objects.create(name=name,ip = ip,status='扫描中')
+    scantask.objects.create(name=name,ip = ip,masscan_status='扫描中',scantime=datetime.datetime.now())
     result = scantask.objects.get(name=name)
     try:
         mas.scan(ip, ports='1-65535', arguments='--max-rate 100000')
@@ -57,11 +64,12 @@ def masscan_scan(ip):
 
             nmap_scan.delay(ip,ports,result.id)
 
-        result.status = "完成扫描"
-        result.endtime = timezone.now()
+        result.masscan_status = "完成扫描"
+        result.endtime = datetime.datetime.now()
         result.save()
     except masscan.masscan.NetworkConnectionError:
-        result.status = "网络不可用"
+        result.masscan_status = "网络不可用"
+        result.endtime = datetime.datetime.now()
         result.save()
 
 #解析IP格式是否正确
@@ -90,9 +98,7 @@ def parse_ip(ips):
         else:
             return False
 
-#扫描任务/进度
-def scan_task():
-    pass
+
 
 
 

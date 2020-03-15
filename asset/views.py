@@ -3,6 +3,7 @@ from django.http import  JsonResponse
 from .models import *
 from .port_scan import *
 from django.views.decorators.csrf import csrf_exempt
+import time
 
 def overview(request):
 
@@ -71,6 +72,7 @@ def asset_scan(request):
     results = ""
     for i in rs:
         results = results + i.ips + '\n'
+
     return render(request,'asset/scan.html',locals())
 
 def asset_scan_api(request):
@@ -83,3 +85,41 @@ def asset_scan_api(request):
             masscan_scan.delay(r.ips)
         return JsonResponse({'code':1,'msg':'扫描现在开始！！请稍等'})
 
+def get_scan_task(request):
+    rs = scantask.objects.all()
+    count = scantask.objects.all().count()
+    data = []
+    if count > 0:
+        for i in rs.values('id',"name","ip","masscan_status","scantime","endtime"):
+            i['scantime'] = i['scantime'].strftime('%Y-%m-%d %H:%M:%S')
+            try:
+                i['endtime'] = i['endtime'].strftime('%Y-%m-%d %H:%M:%S')
+            except AttributeError:
+                pass
+
+
+            nmaprs = scanIP.objects.filter(task_id=i['id'])
+            nmapcount =  nmaprs.count()
+            #计算nmap的总体扫描进度
+            cs = 0
+            for nr in nmaprs:
+                cs = cs+float(nr.rate)
+            #nmap扫描进度
+            try:
+                ns = cs/nmapcount
+            except ZeroDivisionError:
+                ns = 0
+
+            i['ns'] = str(round(float(ns),2))+'%'
+            data.append(i)
+
+
+
+    return JsonResponse({"code": 0, "msg": "", "count": count, "data": data}, safe=False)
+
+
+def check_nmap(request):
+    id = request.GET.get("id")
+    rs = scanIP.objects.filter(task_id=id)
+
+    return render(request,'asset/nmap.html',locals())

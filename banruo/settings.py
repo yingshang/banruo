@@ -88,27 +88,27 @@ WSGI_APPLICATION = 'banruo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': MYSQL_DATABASE,
-        'HOST': MYSQL_HOST,
-        'PORT': MYSQL_PORT,
-        'USER': MYSQL_USER,
-        'PASSWORD': MYSQL_PASSWORD,
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        },
-        'use_unicode': True,
-    }
-}
-#
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': MYSQL_DATABASE,
+#         'HOST': MYSQL_HOST,
+#         'PORT': MYSQL_PORT,
+#         'USER': MYSQL_USER,
+#         'PASSWORD': MYSQL_PASSWORD,
+#         'OPTIONS': {
+#             'charset': 'utf8mb4',
+#         },
+#         'use_unicode': True,
 #     }
 # }
+#
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 # Password validation

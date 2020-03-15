@@ -30,6 +30,11 @@ def load_config(parm):
             break
     return config_parm
 
+#fortify
+fortify_path = load_config('fortify_path')
+report_path = load_config('report_path')
+filter_title = load_config('filter_title')
+
 
 #MYSQL
 MYSQL_HOST = load_config("MYSQL_HOST")

@@ -175,18 +175,18 @@ config.json
 ## 模拟测试
 下载gitlab
 ```
-docker run -d -p 4443:443 -p 8080:80 -p 2222:22  --name gitlab  --restart always  -v /srv/gitlab/config:/etc/gitlab   -v /srv/gitlab/logs:/var/log/gitlab      -v /srv/gitlab/data:/var/opt/gitlab  gitlab/gitlab-ce:latest
+docker run -d -p 4443:443 -p 8080:80 -p 2222:22   --restart always  -v /srv/gitlab/config:/etc/gitlab   -v /srv/gitlab/logs:/var/log/gitlab      -v /srv/gitlab/data:/var/opt/gitlab  -u root --privileged gitlab/gitlab-ce:latest
 ```
 下载禅道系统
 
 ```
-docker run -it -p 8888:80 zhuang1125/zendao:11.6.4
+docker run -it -p 8888:80  --restart always  -v /app/zentaopms:/app/zentaopms -v /app/zentao/mysql:/var/lib/mysql -u root --privileged  zhuang1125/zendao:11.6.4
 ```
 
 下载svn
 
 ```
-docker run --name svn -d --restart always  -v /srv/SVNRepository:/var/opt/svn  -p 3690:3690  garethflowers/svn-server
+docker run --name svn -d -u root --privileged  --restart always  -v /srv/SVNRepository:/var/opt/svn  -p 3690:3690  garethflowers/svn-server
 ```
 ### 仪表盘
 各种图表展示，待完善
