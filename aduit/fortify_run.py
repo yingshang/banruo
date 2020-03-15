@@ -104,7 +104,7 @@ def git_api():
 @task
 def push(gitaddress='', svnaddress='', name='', type=1, svnaccount='', svnpwd=''):
     token = ''.join(random.sample(string.ascii_letters + string.digits, 32))
-    if len(gitaddress) != 0:
+    if len(gitaddress) > 0:
         myfile = gitaddress.split('/')[-1].split('.')[0]
         proj_info.objects.create(name=myfile, git=gitaddress, token=token, type=type)
         try:
@@ -115,17 +115,21 @@ def push(gitaddress='', svnaddress='', name='', type=1, svnaccount='', svnpwd=''
                 subprocess.check_call('cd ' + fortify_path + myfile + ' && git pull', shell=True)
             except subprocess.CalledProcessError as err:
                 pass
-    elif len(name) != 0:
+    elif len(name) > 0:
         myfile = name
         proj_info.objects.create(name=name, token=token, type=type)
-    else:
-        myfile = name
-        proj_info.objects.create(name=name, token=token, type=type, svn=svnaddress)
-        if len(svnaccount) == 0 and len(svnpwd) == 0:
-            subprocess.check_call('svn checkout ' + svnaddress + ' --no-auth-cache ' + fortify_path + myfile,
-                                  shell=True)
-        else:
-            subprocess.check_call(
-                'svn checkout ' + svnaddress + ' --username ' + svnaccount + ' --password ' + svnpwd + ' --no-auth-cache ' + fortify_path + myfile,
-                shell=True)
+    elif len(svnaddress)>0:
+        myfile = svnaddress.split("/")[-1]
+
+        proj_info.objects.create(name=myfile, token=token, type=type, svn=svnaddress)
+        try:
+            if len(svnaccount) == 0 and len(svnpwd) == 0:
+                subprocess.check_call('svn checkout ' + svnaddress + ' --no-auth-cache ' + fortify_path + myfile,
+                                      shell=True)
+            else:
+                subprocess.check_call(
+                    'svn checkout ' + svnaddress + ' --username ' + svnaccount + ' --password ' + svnpwd + ' --no-auth-cache ' + fortify_path + myfile,
+                    shell=True)
+        except subprocess.CalledProcessError:
+            pass
     run(myfile, token)

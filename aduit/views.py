@@ -11,7 +11,7 @@ import calendar
 from django.db.models import Count
 from django.db.models import Q
 from .fortify_run import push, git_api
-from banruo.config import *
+
 from .info import information
 import hashlib
 import pymysql
@@ -318,7 +318,7 @@ def scan(request):
             svnaddress = request.POST.get("svn_address")
             svnaccount = request.POST.get("svn_username")
             svnpwd = request.POST.get("svn_password")
-            push.delay(svnaddrss=svnaddress, type=3, svnaccount=svnaccount, svnpwd=svnpwd)
+            push.delay(svnaddress=svnaddress, type=3, svnaccount=svnaccount, svnpwd=svnpwd)
             return JsonResponse({"status": 0, "msg": "开始扫描!!!"})
         elif (t == "4"):
             myFile = request.FILES.get("file", None)
@@ -340,10 +340,10 @@ def scan(request):
             return JsonResponse({"status": 0, "msg": "参数类型错误"})
 
     else:
-        address = git_api_adress
-        p = parm
-        choice = git_api_choice
-        filepath = git_filepath
+        address = GIT_ADDRESS
+        p = GIT_PARM
+        choice = GIT_API_CHOICE
+        filepath = GIT_PATH
         return render(request, "aduit/scan.html", locals())
 
 
@@ -481,13 +481,13 @@ def send_chandao(request):
                       "`keywords` = '',`case` = '0',`caseVersion` = '0',`result` = '0',`testtask` = '0',`openedBy` = % s,`openedDate` = % s," \
                       "`assignedDate` = % s;"
                 cursor.execute(sql, (
-                str(PRODUCT_ID), str(project_id), header, title, contend, openedBy, openedDate, assignedDate))
+                str(PRODUCT_ID), str(project_id), header, title, contend, OPENEDBY, openedDate, assignedDate))
                 bug_id = int(conn.insert_id())  # 最新插入行的主键ID
                 conn.commit()
                 # 关联bug表的更新
                 sql2 = "INSERT INTO `zt_action` SET `objectType` = 'security',`objectID` = %s,`actor` = %s,`action` = 'opened'," \
                        "`date` = '2019-12-03 20:21:36',`comment` = '',`extra` = '',`product` = ',1,',`project` = %s" % (
-                           bug_id, openedBy, project_id)
+                           bug_id, OPENEDBY, project_id)
                 cursor.execute(sql2)
                 conn.commit()
                 cursor.close()

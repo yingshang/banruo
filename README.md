@@ -186,7 +186,9 @@ docker run -it -p 8888:80  --restart always  -v /app/zentaopms:/app/zentaopms -v
 下载svn
 
 ```
-docker run --name svn -d -u root --privileged  --restart always  -v /srv/SVNRepository:/var/opt/svn  -p 3690:3690  garethflowers/svn-server
+docker run  -d -u root --privileged  --restart always  -v /srv/SVNRepository:/var/opt/svn  -p 3690:3690  garethflowers/svn-server
+docker exec -it my-svn-server svnadmin create new-repo
+
 ```
 ### 仪表盘
 各种图表展示，待完善
