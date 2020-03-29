@@ -5,9 +5,6 @@ from .port_scan import *
 from django.views.decorators.csrf import csrf_exempt
 import time
 
-def overview(request):
-
-    return 1
 
 def asset_info(request):
     return render(request,'asset/assetinfo.html',locals())

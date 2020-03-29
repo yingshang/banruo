@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>漏洞概括</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="stylesheet" href={% static "css/font.css" %}>
+    <link rel="stylesheet" href={% static "css/xadmin.css" %}>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src={% static "lib/layui/layui.js" %} charset="utf-8"></script>
+    <script type="text/javascript" src={% static "js/xadmin.js" %}></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="layui-anim layui-anim-up">
+
+<div class="x-body">
+    <div class="layui-row">
+        <form class="layui-form layui-col-md12 x-so">
+            <input class="layui-input" placeholder="{{ time1 |date:"Y-m-d" }}">
+            <input class="layui-input" placeholder="{{ time2 |date:"Y-m-d" }}">
+            <a type="button" href="{% url "index_overview" %}?t=week" class="layui-btn" id="week">周报</a>
+            <a type="button" href="{% url "index_overview" %}?t=month" class="layui-btn" id="month">月报</a>
+            <a type="button" href="{% url "index_overview" %}?t=year" class="layui-btn" id="week">年报</a>
+
+        </form>
+    </div>
+
+    <div class="layui-row">
+        <div class="layui-col-xs4">
+            <div id="Vulnerability_trend" style="height:400px;"></div>
+        </div>
+        <div class="layui-col-xs4">
+            <div id="Vulnerability_type" style="height:400px;"></div>
+        </div>
+
+        <div class="layui-col-xs4">
+            <div id="Vulnerability_trend" style="height:400px;"></div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="{% static "js/jquery.js" %}"></script>
+<script src={% static "js/echarts.min.js" %}></script>
+
+<script>
+    var date = []
+    var total = []
+    {% for i in dates %}
+        date.push("{{ i }}")
+    {% endfor %}
+    {% for j in totals %}
+        total.push({{ j }})
+    {% endfor %}
+    option = {
+        title: {
+            text: '漏洞趋势',
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['漏洞数目']
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        calculable: true,
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: false,
+                data: date
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            }
+        ],
+        series: [
+            {
+                name: '漏洞数目',
+                type: 'line',
+                data: total,
+
+            }
+        ]
+    };
+    var vul_distributing = echarts.init(document.getElementById('Vulnerability_trend'));
+    vul_distributing.setOption(option);
+
+</script>
+
+<script>
+    var vul_title = []
+    var vuls = []
+    {% for i in critical_title %}
+        vul_title.push("{{ i.title }}")
+        vuls.push({value: {{ i.title__count }}, name: '{{ i.title }}'});
+    {% endfor %}
+    option = {
+        title: {
+            text: '漏洞类型',
+            subtext: '只显示高危漏洞类型',
+            x: 'center'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            x: 'left',
+            data: vul_title
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},
+                magicType: {
+                    show: true,
+                    type: ['pie', 'funnel'],
+                    option: {
+                        funnel: {
+                            x: '25%',
+                            width: '50%',
+                            funnelAlign: 'left',
+                            max: 1548
+                        }
+                    }
+                },
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        calculable: true,
+        series: [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius: '55%',
+                center: ['50%', '60%'],
+                data: vuls
+            }
+        ]
+    };
+
+    var vul_distributing = echarts.init(document.getElementById('Vulnerability_type'));
+    vul_distributing.setOption(option);
+
+</script>
+</body>

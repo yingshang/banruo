@@ -1,0 +1,271 @@
+
+body {
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.login-box {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: relative;
+}
+
+.login-box canvas {
+    width: 100%;
+    height: auto /*榛樿鍏ㄥ睆鏄剧ず 鍙嚜宸辫缃珮搴�640px*/;
+    display: inline-block;
+    vertical-align: baseline
+    position: absolute;
+    z-index: -1;
+}
+
+.login-box .canvaszz { /*鐢ㄦ潵瑙ｅ喅瑙嗛鍙抽敭鑿滃崟锛岀敤浜庤棰戜笂闈㈢殑閬僵灞�*/
+    width: 100%;
+    background-image: url(../img/in_top_bj.png);
+    height: 800px;
+    position: absolute;
+    z-index: 10;
+    filter: alpha(opacity=40);
+    -moz-opacity: 0.4;
+    -khtml-opacity: 0.4;
+    opacity: 0.4;
+}
+
+.login_tit {
+    position: absolute;
+    top: -60px;
+    left: -5px;
+    width: 420px;
+    color: #fff;
+    text-align: center;
+
+}
+
+.tit-bg {
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 90px;
+    height: 1px;
+    background: url(../img/login-tit.png)
+}
+
+.tit-bg.left {
+    left: 0;
+    transform: rotate(180deg)
+}
+
+.tit-bg.right {
+    right: 0
+}
+
+.login_tit > div {
+    position: relative;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.login_tit > p {
+    font-size: 18px;
+    font-family: "arial";
+    margin: 10px 0;
+}
+
+.login-box .signup {
+    margin-top: 40px;
+    text-align: center
+}
+
+.login-box .signup a.gv {
+    text-decoration: none;
+    background: url(../img/nav_gv.png) repeat 0px 0px;
+    width: 130px;
+    height: 43px;
+    display: inline-block;
+    text-align: center; /*姘村钩灞呬腑*/
+    line-height: 43px; /*涓婁笅灞呬腑*/
+    cursor: pointer;
+    margin: 8px 20px 8px 20px;
+    font: 18px/43px 'microsoft yahei';
+    color: #066197;
+}
+
+.login-box .signup a.gv span {
+    display: none;
+
+}
+
+.login-box .signup a.gv:hover {
+    background: url(../img/nav_gv.png) repeat 0px -43px;
+    color: #1d7eb8;
+    -webkit-box-shadow: 0 0 6px #1d7eb8;
+    transition-duration: 0.5s;
+}
+
+.login-box .topcn {
+    width: 980px;
+    top: 200px;
+    left: 50%;
+    margin-left: -490px;
+    position: absolute;
+    z-index: 20;
+
+}
+
+/*登录界面*/
+.input-content {
+    position: absolute;
+    z-index: 9999;
+    padding: 30px;
+    width: 350px;
+    left: 50%;
+    margin-left: -205px;
+    top: 25%
+}
+
+.input-content .p {
+    margin: 10px 0;
+    height: 44px;
+    position: relative;
+}
+
+.input-content .p .login_txtbx {
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+    padding: 8px 9%;
+    width: 81%;
+    text-indent: 1em;
+    border: 1px solid #1d7eb8;
+    background: rgba(0, 0, 0, .1);
+    color: white;
+}
+
+.login_txtbx::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, .9);
+}
+
+.login_txtbx:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    　　color: rgba(255, 255, 255, .9);
+}
+
+.login_txtbx::-moz-placeholder {
+    Mozilla Firefox 19 + 　　color: rgba(255, 255, 255, .9);
+}
+
+.login_txtbx:-ms-input-placeholder { /* Internet Explorer 10+ */
+    　　color: rgba(255, 255, 255, .9);
+}
+
+.input-content .p .login_txtbx:focus, .input-content p .login_txtbx:hover {
+    -webkit-box-shadow: 0 0 6px #1d7eb8;
+    transition-duration: 0.5s;
+}
+
+.input-content .p.user_icon:before {
+    content: "u";
+}
+
+.input-content .p.pwd_icon:before {
+    content: "p";
+}
+
+.input-content .p.opwd_icon:before {
+    content: "o";
+}
+
+.input-content .p.npwd_icon:before {
+    content: "n";
+}
+
+.input-content .p.rpwd_icon:before {
+    content: "r";
+}
+
+.input-content .p.val_icon:before {
+    content: "n";
+}
+
+.input-content .p:before {
+    font-family: 'adminthemesregular';
+    position: absolute;
+    top: 0;
+    left: 14px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.input-content .p .checkcode {
+    float: left;
+    width: 205px;
+    height: 44px;
+    overflow: hidden;
+}
+
+.input-content .p .checkcode input {
+    float: left;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    border: 1px solid #1d7eb8;
+    padding: 3px;
+    color: white;
+    outline: none;
+    text-indent: 3.1em;
+}
+
+.input-content .p .checkcode canvas {
+    float: right;
+    width: 85px;
+    height: 38px;
+    padding: 3px;
+    z-index: 0;
+    background: rgba(28, 122, 178, .3);
+}
+
+.input-content .p .ver_btn {
+    color: #f4f4f4;
+    height: 42px;
+    line-height: 42px;
+    margin: 0;
+    z-index: 1;
+    position: relative;
+    float: right;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.passwordTit {
+    position: relative;
+    padding: 10px;
+    font-size: 12px;
+    color: #fff;
+    line-height: 18px;
+    margin-bottom: -20px;
+}
+
+.passwordTit .border {
+    position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #1d7eb8
+}
+
+.border.left {
+    left: 0;
+    top: 0;
+    border-right: none;
+    border-bottom: none
+}
+
+.border.right {
+    right: 0;
+    bottom: 0;
+    border-left: none;
+    border-top: none
+}
