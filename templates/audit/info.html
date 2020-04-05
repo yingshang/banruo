@@ -7,7 +7,8 @@
     <title>{{ proj.name }}项目</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
     <link rel="stylesheet" href={% static "css/font.css" %}>
     <link rel="stylesheet" href={% static "css/xadmin.css" %}>
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -18,8 +19,8 @@
     <link href="{% static "css/report.css" %}" rel="stylesheet">
     <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
     <!--[if lt IE 9]>
-      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 
@@ -28,10 +29,11 @@
       <span class="layui-breadcrumb">
         <a href="/">首页</a>
         <a href="#">代码审计</a>
-          <a href="{% url "aduit_display_project" %}">项目情况</a>
+          <a href="{% url "audit_display_project" %}">项目情况</a>
           <a href="#">{{ proj.name }}项目</a>
       </span>
-    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"
+       href="javascript:location.replace(location.href);" title="刷新">
         <i class="layui-icon" style="line-height:30px">ဂ</i></a>
 </div>
 
@@ -43,8 +45,8 @@
             </div>
             <hr>
             <ul class="nav nav-tabs">
-                <li class="active"><a data-id="inf" data-toggle="tab">Information</a></li>
-                <li><a data-id="vul" data-toggle="tab">Vulnerabilities</a></li>
+                <li class="active"><a data-id="inf" data-toggle="tab">信息展示</a></li>
+                <li><a data-id="vul" data-toggle="tab">漏洞情况</a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="inf">
@@ -73,7 +75,7 @@
                                     <tbody>
                                     <tr>
                                         <td>{{ proj.name }}</td>
-                                        <td>{{ proj.time | date:"Y-m-d H:i:s"  }}</td>
+                                        <td>{{ proj.time | date:"Y-m-d H:i:s" }}</td>
                                         <td>{{ proj.total }}</td>
                                         <td>{{ low_risk }}</td>
                                         <td>{{ Medium_risk }}</td>
@@ -91,7 +93,9 @@
                 <div class="tab-pane" id="vul">
                     <div class="row">
                         <div class="col-md-3 p0">
-                            <div id="panel-2" class="vl_panel"><strong>漏洞列表</strong><a title="漏洞过滤" class="cog-panel filter_setting"><img class="icon" src="{% static "icon/funnel.png" %}" alt="1"></a></div>
+                            <div id="panel-2" class="vl_panel"><strong>漏洞列表</strong><a title="漏洞过滤"
+                                                                                       class="cog-panel filter_setting"><img
+                                    class="icon" src="{% static "icon/funnel.png" %}" alt="1"></a></div>
                             <div class="filter">
 
                                 <div class="col-md-12" style="margin-top: 10px">
@@ -120,8 +124,8 @@
                             </ul>
                         </div>
                         <div class="col-md-9 p0 form_code">
-                            <textarea id="code"><?php // This is a demo code</textarea>
-                                <div class="cm-loading" style="display:none;"></div>
+                            <textarea id="code">请点击左边漏洞就可以显示结果</textarea>
+                            <div class="cm-loading" style="display:none;"></div>
                         </div>
                     </div>
                 </div>
@@ -142,10 +146,12 @@
                 漏洞等级: <span class="v-level"></span>
             </li>
 
-            漏洞描述: <pre class="v-describe"></pre>
+            漏洞描述:
+            <pre class="v-describe"></pre>
             </li>
             <li>
-                修复建议: <pre class="v-Recommendation"></pre>
+                修复建议:
+                <pre class="v-Recommendation"></pre>
             </li>
 
             <li>
@@ -233,13 +239,13 @@
                     type: 'pie',
                     selectedMode: 'single',
                     radius: [0, 70],
-                    itemStyle : {
-                        normal : {
-                            label : {
-                                position : 'inner'
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                position: 'inner'
                             },
-                            labelLine : {
-                                show : true
+                            labelLine: {
+                                show: true
                             }
                         }
                     },

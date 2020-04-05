@@ -15,7 +15,7 @@ class scantask(models.Model):
 #扫描IP地址
 class scanIP(models.Model):
     ip = models.CharField(max_length=100)
-    name = models.CharField(max_length=100,blank=True,null=True)
+    #name = models.CharField(max_length=100,blank=True,null=True)
     scantime = models.DateTimeField()  # 扫描时间
     rate = models.CharField(max_length=100,default='0.00') #扫描进度
     endtime = models.DateTimeField(null=True)#结束时间

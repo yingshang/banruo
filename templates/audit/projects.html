@@ -76,8 +76,8 @@
                 {% endif %}
 
                 <td class="td-manage">
-                    <input class="layui-btn layui-btn" value="查看详情" type="button" onclick='location.href=("{% url "aduit_project_info"  %}?t=inf&token={{ result.token }}&id={{ result.id }}")' />
-                    <button class="layui-btn layui-btn" onclick="aduit(this,{{ result.id }})">重新审计</button>
+                    <input class="layui-btn layui-btn" value="查看详情" type="button" onclick='location.href=("{% url "audit_project_info"  %}?t=inf&token={{ result.token }}&id={{ result.id }}")' />
+                    <button class="layui-btn layui-btn" onclick="audit(this,{{ result.id }})">重新审计</button>
                 </td>
             </tr>
         {% endfor %}
@@ -113,19 +113,19 @@
     function detail(obj,id,token) {
         $.ajax({
             type: 'GET',
-            url: '/aduit/info?t=inf&token='+token+'&id='+id,
+            url: '/audit/info?t=inf&token='+token+'&id='+id,
         });
 
     }
 
-    function aduit(obj,id) {
+    function audit(obj,id) {
         layer.confirm('是否要重新扫描审计？',function(index){
             //捉到所有被选中的，发异步进行删除
 
             $.ajax({
                 type: 'POST',
                 traditional:true,
-                url: "/aduit/api/restart",
+                url: "/audit/api/restart",
                 async: true,
                 data: {id:id},
 
@@ -153,7 +153,7 @@
             $.ajax({
                 type: 'POST',
                 traditional:true,
-                url: "/aduit/api/proj_del",
+                url: "/audit/api/proj_del",
                 async: true,
                 data: {"ids":ids},
 

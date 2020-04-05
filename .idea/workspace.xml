@@ -2,48 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8072d1bc-55b1-42be-8ec2-860d2d6ba1ba" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/audit/migrations/0002_auto_20200321_2302.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/audit/migrations/0003_auto_20200321_2311.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/audit/migrations/0004_auto_20200322_0028.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/audit/migrations/0005_auto_20200322_0046.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index/migrations/0002_auto_20200322_0028.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pentest/migrations/0003_auto_20200322_1730.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pentest/xss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/verificationNumbers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index/403.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/audit/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/audit/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/fortify_run.py" beforeDir="false" afterPath="$PROJECT_DIR$/audit/fortify_run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/info.py" beforeDir="false" afterPath="$PROJECT_DIR$/audit/info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/audit/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/audit/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/audit/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/audit/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/audit/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aduit/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/audit/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/asset/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banruo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/banruo/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banruo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/banruo/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/injection.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/injection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pentest/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pentest/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aduit/chandao.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/audit/chandao.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aduit/info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/audit/info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aduit/overview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/audit/overview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aduit/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/audit/projects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aduit/scan.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/audit/scan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aduit/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/audit/settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/overview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index/overview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/asset/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audit/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/audit/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/info.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/audit/info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/audit/info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/audit/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/audit/projects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/audit/scan.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/audit/scan.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +250,8 @@
       <workItem from="1584779068648" duration="936000" />
       <workItem from="1584801894267" duration="547000" />
       <workItem from="1584802597477" duration="21646000" />
-      <workItem from="1585489552440" duration="6428000" />
+      <workItem from="1585489552440" duration="17602000" />
+      <workItem from="1586090562399" duration="616000" />
     </task>
     <servers />
   </component>
@@ -313,10 +279,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="304" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584892745455" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1584778884674">
+    <state x="461" y="162" key="SettingsEditor" timestamp="1585999552276">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584778884674" />
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585999552276" />
     <state x="645" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1584778774553">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

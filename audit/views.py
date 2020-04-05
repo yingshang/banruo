@@ -203,7 +203,8 @@ def scan(request):
                 for chunk in myFile.chunks():
                     destination.write(chunk)
                 destination.close()
-                os.system("unzip -o  /data/fortify/" + myFile.name + "  -d  /data/fortify/" + name.split('.')[0])
+                #os.system("unzip -o  /data/fortify/" + myFile.name + "  -d  /data/fortify/" + name.split('.')[0])
+                os.system("unzip -o  /data/fortify/" + myFile.name + "  -d  /data/fortify/" )
                 push.delay(name=name.split('.')[0], type=4)
                 return JsonResponse({"status": 1, "msg": "上传成功!!!"})
 

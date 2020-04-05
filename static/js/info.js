@@ -59,7 +59,7 @@ $(function () {
 
             $.ajax({
                 type: 'POST',
-                url: 'api/detail',
+                url: 'api/vuldetail',
                 data: {id: getParameterByName('id'), vid: getParameterByName('vid')},
                 success: function (result) {
                     if (result.code === 1001) {
@@ -226,7 +226,7 @@ $(function () {
 
             $.ajax({
                 type: 'POST',
-                url: 'api/list',
+                url: 'api/vullist',
                 data: {id: getParameterByName('id')},
 
                 success: function (result) {
