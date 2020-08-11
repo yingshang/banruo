@@ -7,6 +7,12 @@ https://www.freebuf.com/sectool/176414.html
 
 https://www.freebuf.com/column/221910.html
 
+## fortify设置
+由于fortify模板一个漏洞类别默认输出漏洞数目为5，需要将其设置为无限输出。
+模板文件可在fortify目录下Core/config/reports找到
+修改DeveloperWorkbook.xml里面<title>Results Outline</title>编辑limit="5"为limit="-1"即可
+
+
 ## 安装教程
 **该系统环境是python3.6运行的，3.7会显示错误。说一下注意事项，我这个dockerfile里面没有安装mysql，因为centos7的一些问题，mysql我是设置了外连，也就是你只需要在config.json设置MySQL的主机，账号，密码就可以直接使用**
 
