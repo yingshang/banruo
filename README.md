@@ -42,8 +42,8 @@ RUN cd /opt/banruo && pip3 install -r requirements.txt
 RUN cd /opt/banruo && python3 manage.py makemigrations && python3 manage.py migrate
 
 #这个是fortify的运行程序
-RUN mkdir /data && mkdir /data/fortify && mkdir /data/fortify/report && chmod 777 /data -R
-RUN chmod 777 -R /opt/fortify_linux/ && ln -s /opt/fortify_linux/bin/sourceanalyzer /usr/local/bin/sourceanalyzer && ln -s /opt/fortify_linux/bin/ReportGenerator /usr/local/bin/ReportGenerator
+RUN mkdir /data && mkdir /data/fortify && mkdir /data/fortify/report && chmod +x /data -R
+RUN chmod +x -R /opt/fortify_linux/ && ln -s /opt/fortify_linux/bin/sourceanalyzer /usr/local/bin/sourceanalyzer && ln -s /opt/fortify_linux/bin/ReportGenerator /usr/local/bin/ReportGenerator
 
 #sqlmap
 RUN mkdir /opt/taskid
