@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'audit.apps.AduitConfig',
     'pentest.apps.PentestConfig',
     'index.apps.IndexConfig',
-    'asset.apps.AssetConfig',
+    #'asset.apps.AssetConfig',
     'djcelery',
 
 ]
