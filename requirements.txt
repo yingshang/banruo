@@ -1,4 +1,4 @@
-mitmproxy==2.0.2
+mitmproxy==5.1.1
 django==2.1.15
 redis==2.10.6
 pymysql==0.9.3
@@ -9,6 +9,10 @@ anyjson==0.3.3
 celery-with-redis
 psutil
 IPy
-python-nmap
 python-masscan
 python-libnmap
+django_crontab
+requests
+markdown
+jira
+pyecharts
