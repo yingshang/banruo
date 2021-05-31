@@ -1,5 +1,5 @@
 mitmproxy==5.1.1
-django==2.1.15
+django==2.2.20
 redis==2.10.6
 pymysql==0.9.3
 django-celery==3.2.2
