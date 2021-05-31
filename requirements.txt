@@ -9,8 +9,6 @@ anyjson==0.3.3
 celery-with-redis
 psutil
 IPy
-python-masscan
-python-libnmap
 django_crontab
 requests
 markdown
