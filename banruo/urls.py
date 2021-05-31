@@ -21,6 +21,6 @@ urlpatterns = [
     path('',include('index.url')),
     path('audit/', include('audit.url')),
     path('pentest/',include('pentest.url')),
-    path('asset/',include('asset.url')),
+    #path('asset/',include('asset.url')),
 ]
 
