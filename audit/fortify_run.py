@@ -36,7 +36,7 @@ def report_xml(filename, source_path, name, token):
             path = source_path + '/' + FilePath
 
             try:
-                f = open(path,"r")
+                f = open(path,"r",encoding='utf8')
                 full_code  = f.read()
                 f.close()
             except FileNotFoundError:
