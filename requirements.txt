@@ -3,7 +3,7 @@ django==2.1.15
 redis==2.10.6
 pymysql==0.9.3
 django-celery==3.2.2
-celery==3.1.26.post2
+celery==5.2.2
 python_json_config==1.2.1
 anyjson==0.3.3
 celery-with-redis
